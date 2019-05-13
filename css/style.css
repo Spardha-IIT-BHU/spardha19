@@ -12549,8 +12549,9 @@ textarea.form-control {
 }
 
 .ftco-counter .text span {
-  font-weight: 400;
-  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
 }
 
