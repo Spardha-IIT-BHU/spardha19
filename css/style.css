@@ -10889,21 +10889,21 @@ h5,
 }
 
 .owl-carousel.home-slider .slider-item .slider-text .subheading {
-  font-size: 18px;
+  font-size: 25px;
   color: #fff;
   text-transform: uppercase;
   font-weight: 500;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
 }
 
 .owl-carousel.home-slider .slider-item .slider-text h1 {
   text-transform: uppercase;
-  font-size: 80px;
+  font-size: 60px;
   color: #fff;
   line-height: 1.2;
   font-weight: normal;
   letter-spacing: 1px;
-  font-weight: 900;
+  font-weight: 700;
   font-style: italic;
 }
 
