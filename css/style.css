@@ -13302,10 +13302,11 @@ textarea.form-control {
 }
 
 #ftco-loader {
-  vertical-align: middle;
-  margin: auto;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  width: 96px;
+  height: 96px;
+  left: 50%;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
@@ -13322,8 +13323,9 @@ textarea.form-control {
 }
 
 #ftco-loader.fullscreen {
-  vertical-align: middle;
-  margin: auto;
+  padding: 0;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   -webkit-transform: none;
