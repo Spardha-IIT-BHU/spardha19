@@ -241,7 +241,6 @@ sup {
   text-align: center;
   line-height: 40px;
   letter-spacing: 1px;
-  font-size: 20px;
   color: #f0f0f0;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -261,8 +260,9 @@ sup {
 
 .corner-ribbon.bottom-left{
   top: auto;
-  bottom: 20px;
-  left: -60px;
+  bottom: 12px;
+  left: -68px;
+  font-size: 16px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   -webkit-animation: glowing1 1500ms infinite;
@@ -277,8 +277,9 @@ sup {
 
 .corner-ribbon.bottom-right{
   top: auto;
-  bottom: 20px;
-  right: -60px;
+  bottom: 12px;
+  right: -68px;
+  font-size: 16px;
   left: auto;
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -290,6 +291,65 @@ sup {
 
 .corner-ribbon.bottom-right:hover{
   color: black;
+}
+
+
+@media (min-width:580px) {
+  .corner-ribbon.bottom-left{
+      font-size: 17px;
+      bottom: 14px;
+    left: -66px;
+    }
+    .corner-ribbon.bottom-right{
+      font-size: 17px;
+      bottom: 14px;
+    right: -66px;
+    }
+    
+  }
+
+
+@media (min-width:770px) {
+  .corner-ribbon.bottom-left{
+      font-size: 18px;
+      bottom: 16px;
+    left: -64px;
+    }
+    .corner-ribbon.bottom-right{
+      font-size: 18px;
+      bottom: 16px;
+    right: -64px;
+    }
+    
+  }
+
+
+@media (min-width:995px) {
+  .corner-ribbon.bottom-left{
+      font-size: 19px;
+      bottom: 18px;
+    left: -62px;
+    }
+    .corner-ribbon.bottom-right{
+      font-size: 19px;
+      bottom: 18px;
+    right: -62px;
+    }
+    
+  }
+
+@media (min-width:1200px) {
+.corner-ribbon.bottom-left{
+    font-size: 20px;
+    bottom: 20px;
+  left: -60px;
+  }
+  .corner-ribbon.bottom-right{
+    font-size: 20px;
+    bottom: 20px;
+  right: -60px;
+  }
+  
 }
 
 
