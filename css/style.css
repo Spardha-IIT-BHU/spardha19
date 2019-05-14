@@ -177,18 +177,58 @@ sup {
   top: -.5em;
 }
 
-#eventsregister {
-  transform: rotate(90deg);
+.icon-bar {
   position: fixed;
-  top: 270px;
-  right: -58px;
-  display: block;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 10px;
-  background-color: #072c7a;
-  text-decoration: none;
+  left: calc(100% - 40px);
   z-index: 1;
+  top: 50%;
+  -webkit-transform: translateY(+50%);
+  -ms-transform: translateY(+50%);
+  transform: translateY(-50%);
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 10px;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 20px;
+}
+
+.icon-bar a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+
+.facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.instagram {
+  background: deeppink;
+  color: white;
+}
+
+.mapmarker {
+  background: green;
+  color: white;
+}
+
+.content {
+  margin-left: 75px;
+  font-size: 30px;
 }
 
 a {
