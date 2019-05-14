@@ -231,7 +231,7 @@ sup {
   font-size: 30px;
 }
 
-.corner-ribbon{
+.corner-ribbon {
   z-index: 1;
   width: 200px;
   background: #e43;
@@ -248,17 +248,17 @@ sup {
 
 /* Custom styles */
 
-.corner-ribbon.sticky{
+.corner-ribbon.sticky {
   position: fixed;
 }
 
-.corner-ribbon.shadow{
-  box-shadow: 0 0 3px rgba(0,0,0,.3);
+.corner-ribbon.shadow {
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
 }
 
 /* Different positions */
 
-.corner-ribbon.bottom-left{
+.corner-ribbon.bottom-left {
   top: auto;
   bottom: 8px;
   left: -72px;
@@ -271,11 +271,11 @@ sup {
   animation: glowing1 1500ms infinite;
 }
 
-.corner-ribbon.bottom-left:hover{
+.corner-ribbon.bottom-left:hover {
   color: black;
 }
 
-.corner-ribbon.bottom-right{
+.corner-ribbon.bottom-right {
   top: auto;
   bottom: 12px;
   right: -68px;
@@ -289,129 +289,251 @@ sup {
   animation: glowing2 1500ms infinite;
 }
 
-.corner-ribbon.bottom-right:hover{
+.corner-ribbon.bottom-right:hover {
   color: black;
 }
 
 
 @media (min-width:580px) {
-  .corner-ribbon.bottom-left{
-      font-size: 17px;
-      bottom: 10px;
+  .corner-ribbon.bottom-left {
+    font-size: 17px;
+    bottom: 10px;
     left: -70px;
-    }
-    .corner-ribbon.bottom-right{
-      font-size: 17px;
-      bottom: 14px;
-    right: -66px;
-    }
-    
   }
+
+  .corner-ribbon.bottom-right {
+    font-size: 17px;
+    bottom: 14px;
+    right: -66px;
+  }
+
+}
 
 
 @media (min-width:770px) {
-  .corner-ribbon.bottom-left{
-      font-size: 18px;
-      bottom: 12px;
+  .corner-ribbon.bottom-left {
+    font-size: 18px;
+    bottom: 12px;
     left: -68px;
-    }
-    .corner-ribbon.bottom-right{
-      font-size: 18px;
-      bottom: 16px;
-    right: -64px;
-    }
-    
   }
+
+  .corner-ribbon.bottom-right {
+    font-size: 18px;
+    bottom: 16px;
+    right: -64px;
+  }
+
+}
 
 
 @media (min-width:995px) {
-  .corner-ribbon.bottom-left{
-      font-size: 19px;
-      bottom: 14px;
+  .corner-ribbon.bottom-left {
+    font-size: 19px;
+    bottom: 14px;
     left: -66px;
-    }
-    .corner-ribbon.bottom-right{
-      font-size: 19px;
-      bottom: 18px;
-    right: -62px;
-    }
-    
   }
 
+  .corner-ribbon.bottom-right {
+    font-size: 19px;
+    bottom: 18px;
+    right: -62px;
+  }
+
+}
+
 @media (min-width:1200px) {
-.corner-ribbon.bottom-left{
+  .corner-ribbon.bottom-left {
     font-size: 20px;
     bottom: 16px;
-  left: -64px;
+    left: -64px;
   }
-  .corner-ribbon.bottom-right{
+
+  .corner-ribbon.bottom-right {
     font-size: 20px;
     bottom: 20px;
-  right: -60px;
+    right: -60px;
   }
-  
+
 }
 
 
 /* Colors */
 
-.corner-ribbon.white{background: #f0f0f0; color: #555;}
-.corner-ribbon.black{background: #333;}
-.corner-ribbon.grey{background: #999;}
-.corner-ribbon.blue{background: #39d;}
-.corner-ribbon.green{background: #2c7;}
-.corner-ribbon.turquoise{background: #1b9;}
-.corner-ribbon.purple{background: #95b;}
-.corner-ribbon.red{background: #e43;}
-.corner-ribbon.orange{background: #e82;}
-.corner-ribbon.yellow{background: #ec0;}
+.corner-ribbon.white {
+  background: #f0f0f0;
+  color: #555;
+}
+
+.corner-ribbon.black {
+  background: #333;
+}
+
+.corner-ribbon.grey {
+  background: #999;
+}
+
+.corner-ribbon.blue {
+  background: #39d;
+}
+
+.corner-ribbon.green {
+  background: #2c7;
+}
+
+.corner-ribbon.turquoise {
+  background: #1b9;
+}
+
+.corner-ribbon.purple {
+  background: #95b;
+}
+
+.corner-ribbon.red {
+  background: #e43;
+}
+
+.corner-ribbon.orange {
+  background: #e82;
+}
+
+.corner-ribbon.yellow {
+  background: #ec0;
+}
 
 @-webkit-keyframes glowing1 {
-  0% { background-color: tomato; -webkit-box-shadow: 0 0 3px tomato; }
-  50% { background-color: darkorange; -webkit-box-shadow: 0 0 40px darkorange; }
-  100% { background-color: #tomato; -webkit-box-shadow: 0 0 3px tomato; }
+  0% {
+    background-color: tomato;
+    -webkit-box-shadow: 0 0 3px tomato;
+  }
+
+  50% {
+    background-color: darkorange;
+    -webkit-box-shadow: 0 0 40px darkorange;
+  }
+
+  100% {
+    background-color: #tomato;
+    -webkit-box-shadow: 0 0 3px tomato;
+  }
 }
 
 @-moz-keyframes glowing1 {
-  0% { background-color: tomato; -moz-box-shadow: 0 0 3px tomato; }
-  50% { background-color: darkorange; -moz-box-shadow: 0 0 40px darkorange; }
-  100% { background-color: tomato; -moz-box-shadow: 0 0 3px tomato; }
+  0% {
+    background-color: tomato;
+    -moz-box-shadow: 0 0 3px tomato;
+  }
+
+  50% {
+    background-color: darkorange;
+    -moz-box-shadow: 0 0 40px darkorange;
+  }
+
+  100% {
+    background-color: tomato;
+    -moz-box-shadow: 0 0 3px tomato;
+  }
 }
 
 @-o-keyframes glowing1 {
-  0% { background-color: tomato; box-shadow: 0 0 3px tomato; }
-  50% { background-color: darkorange; box-shadow: 0 0 40px darkorange; }
-  100% { background-color: tomato; box-shadow: 0 0 3px tomato; }
+  0% {
+    background-color: tomato;
+    box-shadow: 0 0 3px tomato;
+  }
+
+  50% {
+    background-color: darkorange;
+    box-shadow: 0 0 40px darkorange;
+  }
+
+  100% {
+    background-color: tomato;
+    box-shadow: 0 0 3px tomato;
+  }
 }
 
 @keyframes glowing1 {
-  0% { background-color: tomato; box-shadow: 0 0 3px tomato; }
-  50% { background-color: darkorange; box-shadow: 0 0 40px darkorange; }
-  100% { background-color: tomato; box-shadow: 0 0 3px tomato; }
+  0% {
+    background-color: tomato;
+    box-shadow: 0 0 3px tomato;
+  }
+
+  50% {
+    background-color: darkorange;
+    box-shadow: 0 0 40px darkorange;
+  }
+
+  100% {
+    background-color: tomato;
+    box-shadow: 0 0 3px tomato;
+  }
 }
 
 @-webkit-keyframes glowing2 {
-  0% { background-color: darkviolet; -webkit-box-shadow: 0 0 3px darkviolet; }
-  50% { background-color: orchid; -webkit-box-shadow: 0 0 40px orchid; }
-  100% { background-color: darkviolet; -webkit-box-shadow: 0 0 3px darkviolet; }
+  0% {
+    background-color: darkviolet;
+    -webkit-box-shadow: 0 0 3px darkviolet;
+  }
+
+  50% {
+    background-color: orchid;
+    -webkit-box-shadow: 0 0 40px orchid;
+  }
+
+  100% {
+    background-color: darkviolet;
+    -webkit-box-shadow: 0 0 3px darkviolet;
+  }
 }
 
 @-moz-keyframes glowing2 {
-  0% { background-color: darkviolet; -moz-box-shadow: 0 0 3px darkviolet; }
-  50% { background-color: orchid; -moz-box-shadow: 0 0 40px orchid; }
-  100% { background-color: darkviolet; -moz-box-shadow: 0 0 3px darkviolet; }
+  0% {
+    background-color: darkviolet;
+    -moz-box-shadow: 0 0 3px darkviolet;
+  }
+
+  50% {
+    background-color: orchid;
+    -moz-box-shadow: 0 0 40px orchid;
+  }
+
+  100% {
+    background-color: darkviolet;
+    -moz-box-shadow: 0 0 3px darkviolet;
+  }
 }
 
 @-o-keyframes glowing2 {
-  0% { background-color: darkviolet; box-shadow: 0 0 3px darkviolet; }
-  50% { background-color: orchid; box-shadow: 0 0 40px orchid; }
-  100% { background-color: darkviolet; box-shadow: 0 0 3px darkviolet; }
+  0% {
+    background-color: darkviolet;
+    box-shadow: 0 0 3px darkviolet;
+  }
+
+  50% {
+    background-color: orchid;
+    box-shadow: 0 0 40px orchid;
+  }
+
+  100% {
+    background-color: darkviolet;
+    box-shadow: 0 0 3px darkviolet;
+  }
 }
 
 @keyframes glowing2 {
-  0% { background-color: darkviolet; box-shadow: 0 0 3px darkviolet; }
-  50% { background-color: orchid; box-shadow: 0 0 40px orchid; }
-  100% { background-color: darkviolet; box-shadow: 0 0 3px darkviolet; }
+  0% {
+    background-color: darkviolet;
+    box-shadow: 0 0 3px darkviolet;
+  }
+
+  50% {
+    background-color: orchid;
+    box-shadow: 0 0 40px orchid;
+  }
+
+  100% {
+    background-color: darkviolet;
+    box-shadow: 0 0 3px darkviolet;
+  }
 }
 
 a {
@@ -12607,24 +12729,24 @@ textarea.form-control {
   color: hotpink;
 }
 
-.gmap{
+.gmap {
   width: 100%;
   height: 500px;
   margin: 5px 10px;
 }
 
-@media only screen and (max-width: 786px){
-  .gmap{
-      width: 100%;
-      height: 350px;
+@media only screen and (max-width: 786px) {
+  .gmap {
+    width: 100%;
+    height: 350px;
   }
 }
 
 
-@media only screen and (max-width: 480px){
-  .gmap{
-      width: 100%;
-      height: 200px;
+@media only screen and (max-width: 480px) {
+  .gmap {
+    width: 100%;
+    height: 200px;
   }
 }
 
