@@ -11061,10 +11061,12 @@ h5,
   margin: 5px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.4);
+  outline: none;
 }
 
 .owl-carousel.home-slider .owl-dots .owl-dot.active {
   background: #fff;
+  outline: none;
 }
 
 .hero-wrap {
