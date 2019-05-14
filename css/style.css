@@ -181,13 +181,14 @@ sup {
   transform: rotate(90deg);
   position: fixed;
   top: 270px;
-  right: -73px;
+  right: -58px;
   display: block;
   font-size: 16px;
   text-transform: uppercase;
   padding: 10px;
   background-color: #072c7a;
   text-decoration: none;
+  z-index: 1;
 }
 
 a {
