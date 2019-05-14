@@ -12090,12 +12090,14 @@ h5,
   height: 10px;
   margin: 5px;
   border-radius: 50%;
+  outline: none;
   background: rgba(0, 0, 0, 0.2);
 }
 
 .testimony-section .owl-dots .owl-dot.active {
   background: #7ed321;
   background: #7ed321;
+  outline: none;
   background: -moz-linear-gradient(-45deg, #7ed321 0%, #76b800 100%);
   background: -webkit-gradient(left top, right bottom, color-stop(0%, #7ed321), color-stop(100%, #76b800));
   background: -webkit-linear-gradient(-45deg, #7ed321 0%, #76b800 100%);
@@ -12681,7 +12683,7 @@ textarea.form-control {
 }
 
 .block-23 ul li span {
-  color: rgba(255, 255, 255, 0.7);
+  color: #fff;
 }
 
 .block-23 ul li .icon,
