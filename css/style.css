@@ -260,8 +260,8 @@ sup {
 
 .corner-ribbon.bottom-left{
   top: auto;
-  bottom: 12px;
-  left: -68px;
+  bottom: 8px;
+  left: -72px;
   font-size: 16px;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -297,8 +297,8 @@ sup {
 @media (min-width:580px) {
   .corner-ribbon.bottom-left{
       font-size: 17px;
-      bottom: 14px;
-    left: -66px;
+      bottom: 10px;
+    left: -70px;
     }
     .corner-ribbon.bottom-right{
       font-size: 17px;
@@ -312,8 +312,8 @@ sup {
 @media (min-width:770px) {
   .corner-ribbon.bottom-left{
       font-size: 18px;
-      bottom: 16px;
-    left: -64px;
+      bottom: 12px;
+    left: -68px;
     }
     .corner-ribbon.bottom-right{
       font-size: 18px;
@@ -327,8 +327,8 @@ sup {
 @media (min-width:995px) {
   .corner-ribbon.bottom-left{
       font-size: 19px;
-      bottom: 18px;
-    left: -62px;
+      bottom: 14px;
+    left: -66px;
     }
     .corner-ribbon.bottom-right{
       font-size: 19px;
@@ -341,8 +341,8 @@ sup {
 @media (min-width:1200px) {
 .corner-ribbon.bottom-left{
     font-size: 20px;
-    bottom: 20px;
-  left: -60px;
+    bottom: 16px;
+  left: -64px;
   }
   .corner-ribbon.bottom-right{
     font-size: 20px;
