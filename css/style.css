@@ -271,6 +271,10 @@ sup {
   animation: glowing1 1500ms infinite;
 }
 
+.corner-ribbon.bottom-left:hover{
+  color: black;
+}
+
 .corner-ribbon.bottom-right{
   top: auto;
   bottom: 20px;
@@ -282,6 +286,10 @@ sup {
   -moz-animation: glowing2 1500ms infinite;
   -o-animation: glowing2 1500ms infinite;
   animation: glowing2 1500ms infinite;
+}
+
+.corner-ribbon.bottom-right:hover{
+  color: black;
 }
 
 
