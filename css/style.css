@@ -10541,6 +10541,8 @@ h5,
     padding-right: 20px;
     color: rgba(255, 255, 255, 0.8);
     letter-spacing: 1px;
+    text-align: center;
+    vertical-align: middle;
   }
 }
 
