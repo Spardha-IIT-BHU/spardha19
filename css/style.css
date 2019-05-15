@@ -178,7 +178,7 @@ sup {
 }
 
 .icon-bar {
-  position: fixed;
+  position: absolute;
   left: calc(100% - 40px);
   z-index: 1;
   top: 50%;
