@@ -99,6 +99,7 @@
 			center: true,
 			loop: true,
 			items:1,
+            autoplay: true,
 			margin: 30,
 			stagePadding: 0,
 			nav: false,
@@ -315,4 +316,28 @@
 
 
 })(jQuery);
+
+$('#carousel-event').owlCarousel({
+    loop:true,
+    margin:0,
+    autoplay: true,
+    autoplayHoverPause: true,
+    dots: true,
+    nav: true,
+    responsive:{
+        500:{
+            items:1
+        },
+        750:{
+            items:2
+        },
+        1000:{
+            items:3
+        },
+        1250:{
+            items:4
+        }
+    }
+})
+
 
