@@ -328,13 +328,7 @@ $('#carousel-event').owlCarousel({
         500:{
             items:1
         },
-        750:{
-            items:2
-        },
         1000:{
-            items:3
-        },
-        1250:{
             items:4
         }
     }
