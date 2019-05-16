@@ -154,12 +154,14 @@
 
 			if (st > 150) {
 				if ( !navbar.hasClass('scrolled') ) {
-					navbar.addClass('scrolled');	
+					navbar.addClass('scrolled');
+                    $('.navbar-brand img').attr('src','images/logos/spardha-small.png');
 				}
 			} 
 			if (st < 150) {
 				if ( navbar.hasClass('scrolled') ) {
 					navbar.removeClass('scrolled sleep');
+                    $('.navbar-brand img').attr('src','images/logos/spardha-small-white.png');
 				}
 			} 
 			if ( st > 350 ) {

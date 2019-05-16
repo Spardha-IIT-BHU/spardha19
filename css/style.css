@@ -11116,18 +11116,20 @@ h5,
 
 .ftco-navbar-light.scrolled .navbar-brand {
   color: #fff;
-  background: #7ed321;
+  
 }
 
+.navbar-brand.scrolled {
+    background: #000;
+}
 .ftco-navbar-light.scrolled .navbar-brand:after {
-  border-color: #7ed321 transparent transparent transparent;
+  border-color: transparent transparent transparent;
 }
 
 .navbar-brand {
   font-size: 22px;
   display: block;
   font-weight: 800;
-  background: #7ed321;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -11146,7 +11148,7 @@ h5,
   transform: translateY(100%);
   border-style: solid;
   border-width: 20px 63px 0 63px;
-  border-color: #7ed321 transparent transparent transparent;
+  border-color: transparent transparent transparent;
 }
 
 .owl-carousel {
