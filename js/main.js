@@ -323,16 +323,19 @@ $('#carousel-event').owlCarousel({
     autoplay: true,
     autoplayHoverPause: true,
     dots: true,
-    nav: true,
+    nav: false,
     responsive:{
         0:{
-            items: 1
+            items: 1,
+            dots: false
         },
         500:{
-            items:1
+            items:1,
+            dots: false
         },
         750:{
-            items:2
+            items:2,
+            dots: false
         },
         1000:{
             items:3
