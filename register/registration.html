@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Spardha 2018 Registration</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .form-horizontal .form-group {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 10px;
+        }
+
+        .btn-block {
+            display: block;
+            width: 70%;
+            margin: auto;
+        }
+
+        .panel-default {
+            background-color: #f9f9f9;
+        }
+
+        .panel-heading {
+            background-color: #f2f2f2 !important;
+        }
+
+        .inputWithIcon input[type="text"] {
+            padding-left: 40px;
+        }
+
+        .inputWithIcon input[type="email"] {
+            padding-left: 40px;
+        }
+
+        .inputWithIcon {
+            position: relative;
+        }
+
+        .inputWithIcon i {
+            position: absolute;
+            left: 2px;
+            top: 2px;
+            padding: 9px 8px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .inputWithIcon input[type="text"]:focus+i {
+            color: dodgerBlue;
+        }
+
+        .inputWithIcon input[type="email"]:focus+i {
+            color: dodgerBlue;
+        }
+
+        .inputWithIcon.inputIconBg i {
+            background-color: #aaa;
+            color: #fff;
+            padding: 9px 4px;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .inputWithIcon.inputIconBg input[type="text"]:focus+i {
+            color: #fff;
+            background-color: dodgerBlue;
+        }
+
+        .inputWithIcon.inputIconBg input[type="email"]:focus+i {
+            color: #fff;
+            background-color: dodgerBlue;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+    <div class="container"
+        style="padding: 1em 2em 3em 2em; margin-top: 50px; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);">
+        <h3 style="text-align:center;color:#7ed321"> COLLEGE REGISTRATION </h3>
+        <hr>
+        <div class="col-sm-12">
+            <div class="alert alert-info">
+                <strong>NOTE:</strong> Individual registrations are not entertained. Only one registration is allowed
+                per college.
+            </div>
+        </div>
+
+        <form class="form-horizontal" role="form" method="post" action="database.php">
+            <div class="col-sm-12" style="margin-top: 10px;">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center" style="color:#59ba00;">
+                            <a style="color:#59ba00;"><i class="fa fa-user fa-lg"></i> Details </a>
+                        </h4>
+                    </div>
+                    <div class="form-group">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label heading-color" for="name">Name: </label>
+                                <div class="inputWithIcon">
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Enter Your Name" required><i class="fa fa-user fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label heading-color" for="designation">Designation: </label>
+                                <div class="inputWithIcon">
+                                    <input type="text" class="form-control" id="designation" name="designation"
+                                        placeholder="Write Your Designation" required><i class="fa fa-briefcase fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label heading-color" for="institute">Institute Name:</label>
+                                <div class="inputWithIcon">
+                                    <input type="text" class="form-control" id="institute_name" name="institute_name"
+                                        list="instituteList" placeholder="Type out your Institute and City" required><i
+                                        class="fa fa-building fa-lg"></i>
+                                </div>
+                                <datalist id="instituteList"></datalist>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label heading-color" for="academic_yr">Academic Year:</label>
+                                <div class="inputWithIcon">
+                                    <input type="text" class="form-control" id="academic_yr" name="academic_yr"
+                                        placeholder="Enter your Academic Year" required><i class="fa fa-graduation-cap fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label heading-color" for="email">Email Address:</label>
+                                <div class="inputWithIcon">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Enter Your Email Address" required><i class="fa fa-envelope fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label heading-color" for="phone">Phone:</label>
+                                <div class="inputWithIcon">
+                                    <input type="text" class="form-control" id="phone" name="phone"
+                                        placeholder="Enter Your Phone No." required><i class="fa fa-phone fa-lg"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!--List for Male-->
+            <div class="col-sm-6" style="margin-top: 30px;">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center" style="color:#59ba00;">
+                            <a data-toggle="collapse" href="#collapse1" class="" style="color:#59ba00;">
+                                <i class="fa fa-male fa-lg"></i> Events for Male Teams </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body expanded-panel">
+
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-athletics"><span>Aquatics</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-aquatics"><span>Athletics</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-badminton"><span>Badminton</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-basketball"><span>Basketball</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-boxing"><span>Boxing</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-carrom"><span>Carrom</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-chess"><span>Chess</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-cricket"><span>Cricket</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-football"><span>Football</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-handball"><span>Handball</span></label>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-hockey"><span>Hockey</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-kabaddi"><span>Kabaddi</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-kho-kho"><span>Kho-Kho</span></label>
+                                </div>
+
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-p-lift"><span>Power Lifting</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-squash"><span>Squash</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-tai-kwan-do"><span>Taekwondo</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-tennis"><span>Tennis</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-table-tennis"><span>Table Tennis</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-volleyball"><span>Volleyball</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="M-w-lift"><span>Weight Lifting</span></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--List for Female-->
+            <div class="col-sm-6" style="margin-top: 30px;">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title text-center" style="color:#59ba00;">
+                            <a data-toggle="collapse" href="#collapse2" class="" style="color:#59ba00;">
+                                <i class="fa fa-female fa-lg"></i> Events for Female Teams </a>
+                        </h4>
+                    </div>
+
+                    <div id="collapse2" class="panel-collapse collapse in">
+                        <div class="panel-body expanded-panel">
+
+                            <div class="col-sm-6">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-athletics"><span>Athletics</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-badminton"><span>Badminton</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-basketball"><span>Basketball</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-boxing"><span>Boxing</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-carrom"><span>Carrom</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-kabaddi"><span>Kabaddi</span></label>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-kho-kho"><span>Kho-Kho</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-tai-kwan-do"><span>Taekwondo</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-tennis"><span>Tennis</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-table-tennis"><span>Table Tennis</span></label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" class="register" name="opt[]"
+                                            value="F-volleyball"><span>Volleyball</span></label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-12">
+                <div class="form-group ">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">By submitting this form, you agree to abide by the <a href="pdf/rules.pdf"
+                            target="_blank">"Rules of Spardha 2018."</a></label>
+                    <hr>
+                    <button type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;
+                        <i class="fa fa-paper-plane"></i> Register
+                    </button>
+                </div>
+            </div>
+
+
+
+
+
+
+        </form>
+        <script>
+            $("document").ready(function () {
+                let dropdown = $('#instituteList');
+                dropdown.empty();
+                dropdown.append('<option selected="true" disabled>Select your institute</option>');
+                dropdown.prop('selectedIndex', 0);
+                const url2 = 'institutelist.json';
+                $.getJSON(url2, function (data) {
+                    $.each(data, function (key, entry) {
+                        dropdown.append($('<option></option>').attr('value', entry.abbreviation)
+                            .text(entry.name));
+                    })
+                });
+            });
+        </script>
+    </div>
+
+
+
+
+</body>
+
+</html>
