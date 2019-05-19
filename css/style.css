@@ -286,6 +286,9 @@ sup {
     font-size: 16px;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
+}
+
+.corner-ribbon.bottom-left.glowing {
     -webkit-animation: glowing1 1500ms infinite;
     -moz-animation: glowing1 1500ms infinite;
     -o-animation: glowing1 1500ms infinite;
@@ -304,6 +307,9 @@ sup {
     left: auto;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
+}
+
+.corner-ribbon.bottom-right.glowing {
     -webkit-animation: glowing2 1500ms infinite;
     -moz-animation: glowing2 1500ms infinite;
     -o-animation: glowing2 1500ms infinite;
@@ -433,7 +439,7 @@ sup {
     }
 
     100% {
-        background-color: #tomato;
+        background-color: tomato;
         -webkit-box-shadow: 0 0 3px tomato;
     }
 }
