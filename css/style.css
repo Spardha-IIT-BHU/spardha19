@@ -1843,6 +1843,12 @@ pre code {
     flex: 0 0 16.66667%;
     max-width: 16.66667%;
   }
+    .col-lg-2-5 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
 
   .col-lg-3 {
     -webkit-box-flex: 0;
