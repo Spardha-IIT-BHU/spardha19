@@ -205,6 +205,16 @@ sup {
   background: #3B5998;
   color: white;
 }
+.fa-facebook{
+    color: grey;
+}
+.fa-envelope{
+    color: grey;
+}
+.fa-linkedin{
+    color:grey;
+}
+
 
 .twitter {
   background: #55ACEE;
@@ -12324,7 +12334,7 @@ h5,
   margin-bottom: 15px;
   font-size: 12px;
   font-weight: 400;
-  color: #cccccc;
+  color: #000;
 }
 
 .staff .img {
@@ -14158,6 +14168,8 @@ g {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
+    height: 50%,
+        width: 50%,
     
     
   -moz-transition: all 0.3s ease;
@@ -14176,10 +14188,10 @@ g {
         color: #7ed321; }
     .staff .info span.position {
       display: block;
-      margin-bottom: 15px;
-      font-size: 13px;
+      margin-bottom: 13px;
+      font-size: 15px;
       font-weight: 400;
-      color: #b3b3b3; }
+      color: #000; }
   .staff .img {
     width: 110px;
     height: 110px;
@@ -14222,4 +14234,3 @@ g {
   -webkit-border-radius: 8px;
      -moz-border-radius: 8px;
           border-radius: 8px;
-}
