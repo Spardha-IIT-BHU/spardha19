@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <style>
@@ -32,10 +33,12 @@
 
         .inputWithIcon input[type="text"] {
             padding-left: 40px;
+            padding-right: 30px;
         }
 
         .inputWithIcon input[type="email"] {
             padding-left: 40px;
+            padding-right: 30px;
         }
 
         .inputWithIcon {
@@ -75,18 +78,22 @@
             color: #fff;
             background-color: dodgerBlue;
         }
+
+        .error {
+            color: #a94442;
+            margin-top: 5px;
+            padding-left: 40px;
+        }
     </style>
     <script>
     </script>
 </head>
 
 <body>
-    <div class="container" style="padding: 1em 2em 3em 2em; margin-top: 50px; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);">
+    <div class="container"
+        style="padding: 1em 2em 3em 2em; margin-top: 50px; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);">
         <h3 style="text-align:center;color:#7ed321"> COLLEGE REGISTRATION </h3>
         <hr>
-        <div class="col-sm-12">
-            <div id="error" class="alert alert-danger" style="display:none;"></div>
-        </div>
         <div class="col-sm-12">
             <div class="alert alert-info">
                 <strong>NOTE:</strong> Individual registrations are not entertained. Only one registration is allowed
@@ -96,7 +103,8 @@
         <div class="col-sm-12 text-right">
             <span style="color: red">*</span>&nbsp;Mandatory
         </div>
-        <form class="form-horizontal" role="form" method="post" action="database.php">
+        <form class="form-horizontal" role="form" method="post" action="database.php" onsubmit="return validate(this);"
+            novalidate>
             <div class="col-sm-12" style="margin-top: 10px;">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -107,51 +115,79 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="name">Name:&nbsp;<span style="color: red">*</span></label>
+                                <label class="control-label heading-color" for="name">Name:&nbsp;<span
+                                        style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name" required><i class="fa fa-user fa-lg"></i>
+                                    <input type="text" class="form-control" id="name" name="name" onfocus='onInput("name")' oninput='onInput("name")' onblur='onLeave("name")'
+                                        placeholder="Enter your Name" required><i class="fa fa-user fa-lg form-control-feedback"></i>
+                                    <span id="name-icon"></span>
                                 </div>
+                                <div class="error" id="name-error">&nbsp;</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="designation">Designation:&nbsp;<span style="color: red">*</span></label>
+                                <label class="control-label heading-color" for="designation">Designation:&nbsp;<span
+                                        style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="designation" name="designation" placeholder="Write your Designation" required><i class="fa fa-briefcase fa-lg"></i>
+                                    <input type="text" class="form-control" id="designation" name="designation" onfocus='onInput("designation")' oninput='onInput("designation")' onblur='onLeave("designation")'
+                                        placeholder="Write your Designation" required>
+                                        <i class="fa fa-briefcase fa-lg form-control-feedback"></i>
+                                    <span id="designation-icon"></span>
                                 </div>
+                                <div class="error" id="designation-error">&nbsp;</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="institute">Institute Name:&nbsp;<span style="color: red">*</span></label>
+                                <label class="control-label heading-color" for="institute">Institute Name:&nbsp;<span
+                                        style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="institute_name" name="institute_name" list="instituteList" placeholder="Enter your Institute & City" required><i class="fa fa-building fa-lg"></i>
+                                    <input type="text" class="form-control" id="institute" name="institute" onfocus='onInput("institute")' oninput='onInput("institute")' onblur='onLeave("institute")'
+                                        list="instituteList" placeholder="Enter your Institute & City" required><i
+                                        class="fa fa-building fa-lg form-control-feedback"></i>
+                                    <span id="institute-icon"></span>
                                 </div>
+                                <div class="error" id="institute-error">&nbsp;</div>
                                 <datalist id="instituteList"></datalist>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="academic_yr">Academic Year:&nbsp;<span style="color: red">*</span></label>
+                                <label class="control-label heading-color" for="year">Academic Year:&nbsp;<span
+                                        style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="academic_yr" name="academic_yr" placeholder="Enter your Academic Year" required><i class="fa fa-graduation-cap fa-lg"></i>
+                                    <input type="text" class="form-control" id="year" name="year" onfocus='onInput("year")' oninput='onInput("year")' onblur='onLeave("year")'
+                                        placeholder="Enter your Academic Year" required><i
+                                        class="fa fa-graduation-cap fa-lg form-control-feedback"></i>
+                                    <span id="year-icon"></span>
                                 </div>
+                                <div class="error" id="year-error">&nbsp;</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="email">Email Address:&nbsp;<span style="color: red">*</span></label>
+                                <label class="control-label heading-color" for="email">Email Address:&nbsp;<span
+                                        style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" required><i class="fa fa-envelope fa-lg"></i>
+                                    <input type="email" class="form-control" id="email" name="email" onfocus='onInput("email")' oninput='onInput("email")' onblur='onLeave("email")'
+                                        placeholder="Enter Your Email Address" required><i
+                                        class="fa fa-envelope fa-lg form-control-feedback"></i>
+                                    <span id="email-icon"></span>
                                 </div>
+                                <div class="error" id="email-error">&nbsp;</div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="phone">Phone Number:&nbsp;<span style="color: red">*</span></label>
+                                <label class="control-label heading-color" for="phone">Phone Number:&nbsp;<span
+                                        style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone No." required><i class="fa fa-phone fa-lg"></i>
+                                    <input type="text" class="form-control" id="phone" name="phone" onfocus='onInput("phone")' oninput='onInput("phone")' onblur='onLeave("phone")'
+                                        placeholder="Enter Your Phone No." required><i class="fa fa-phone fa-lg form-control-feedback"></i>
+                                    <span id="phone-icon"></span>
                                 </div>
+                                <div class="error" id="phone-error">&nbsp;</div>
                             </div>
                         </div>
                     </div>
@@ -169,66 +205,86 @@
                         <div class="panel-body expanded-panel">
                             <div class="col-sm-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-aquatics"><span>Aquatics</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-aquatics"><span>Aquatics</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-athletics"><span>Athletics</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-athletics"><span>Athletics</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-badminton"><span>Badminton</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-badminton"><span>Badminton</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-basketball"><span>Basketball</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-basketball"><span>Basketball</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-boxing"><span>Boxing</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-boxing"><span>Boxing</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-carrom"><span>Carrom</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-carrom"><span>Carrom</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-chess"><span>Chess</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-chess"><span>Chess</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-cricket"><span>Cricket</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-cricket"><span>Cricket</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-football"><span>Football</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-football"><span>Football</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-handball"><span>Handball</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-handball"><span>Handball</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-hockey"><span>Hockey</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-hockey"><span>Hockey</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-kabaddi"><span>Kabaddi</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-kabaddi"><span>Kabaddi</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-kho-kho"><span>Kho-Kho</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-kho-kho"><span>Kho-Kho</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-powerlifting"><span>Powerlifting</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-powerlifting"><span>Powerlifting</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-squash"><span>Squash</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-squash"><span>Squash</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-taekwondo"><span>Taekwondo</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-taekwondo"><span>Taekwondo</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-tennis"><span>Tennis</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-tennis"><span>Tennis</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-table-tennis"><span>Table Tennis</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-table-tennis"><span>Table Tennis</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-volleyball"><span>Volleyball</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-volleyball"><span>Volleyball</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-wrightlifting"><span>Weight Lifting</span></label>
+                                    <label><input type="checkbox" class="event" name="opt[]"
+                                            value="M-wrightlifting"><span>Weight Lifting</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-6" style="margin-top: 30px;">
@@ -243,39 +299,50 @@
                                         <div class="panel-body expanded-panel">
                                             <div class="col-sm-6">
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-athletics"><span>Athletics</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-athletics"><span>Athletics</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-badminton"><span>Badminton</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-badminton"><span>Badminton</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-basketball"><span>Basketball</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-basketball"><span>Basketball</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-boxing"><span>Boxing</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-boxing"><span>Boxing</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-carrom"><span>Carrom</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-carrom"><span>Carrom</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-kabaddi"><span>Kabaddi</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-kabaddi"><span>Kabaddi</span></label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-kho-kho"><span>Kho-Kho</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-kho-kho"><span>Kho-Kho</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-taekwondo"><span>Taekwondo</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-taekwondo"><span>Taekwondo</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-tennis"><span>Tennis</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-tennis"><span>Tennis</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-table-tennis"><span>Table Tennis</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-table-tennis"><span>Table Tennis</span></label>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-volleyball"><span>Volleyball</span></label>
+                                                    <label><input type="checkbox" class="event" name="opt[]"
+                                                            value="F-volleyball"><span>Volleyball</span></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -291,6 +358,7 @@
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms"> <span style="color: red">*</span> By submitting this form, you agree to abide by
                         the <a target="_blank">"Rules of Spardha 2019."</a></label>
+                    <div id="finalerror" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;
                         <i class="fa fa-paper-plane"></i> Register
@@ -299,20 +367,21 @@
             </div>
         </form>
         <script>
-        $("document").ready(function() {
-            let dropdown = $('#instituteList');
-            dropdown.empty();
-            dropdown.append('<option selected="true" disabled>Select your institute</option>');
-            dropdown.prop('selectedIndex', 0);
-            const url2 = 'institutelist.json';
-            $.getJSON(url2, function(data) {
-                $.each(data, function(key, entry) {
-                    dropdown.append($('<option></option>').attr('value', entry.abbreviation)
-                        .text(entry.name));
-                })
+            $("document").ready(function () {
+                let dropdown = $('#instituteList');
+                dropdown.empty();
+                dropdown.append('<option selected="true" disabled>Select your institute</option>');
+                dropdown.prop('selectedIndex', 0);
+                const url2 = 'institutelist.json';
+                $.getJSON(url2, function (data) {
+                    $.each(data, function (key, entry) {
+                        dropdown.append($('<option></option>').attr('value', entry.abbreviation)
+                            .text(entry.name));
+                    })
+                });
             });
-        });
         </script>
+        <script src="form.js"></script>
     </div>
 </body>
 
