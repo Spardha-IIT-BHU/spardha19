@@ -179,7 +179,7 @@ sup {
 
 .icon-bar {
     position: absolute;
-    left: calc(100% - 40px);
+    left: calc(100% - 50px);
     z-index: 1;
     top: 50%;
     -webkit-transform: translateY(+50%);
@@ -196,13 +196,24 @@ sup {
     font-size: 20px;
 }
 
-.icon-bar a:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
+
+.icon-bar a:hover .fa-facebook {
+    color: #3B5998;
+}
+.icon-bar a:hover .fa-twitter{
+    color:#55ACEE;
+}
+.icon-bar a:hover .fa-instagram{
+    color:#007bb5;
+}
+.icon-bar a:hover .fa-linkedin{
+    color:deeppink;
+}
+.icon-bar a:hover .fa-mapmarker{
+    color:green;
 }
 
 .facebook {
-    background: #3B5998;
     color: white;
 }
 
@@ -228,22 +239,18 @@ sup {
 
 
 .twitter {
-    background: #55ACEE;
     color: white;
 }
 
 .linkedin {
-    background: #007bb5;
     color: white;
 }
 
 .instagram {
-    background: deeppink;
     color: white;
 }
 
 .mapmarker {
-    background: green;
     color: white;
 }
 
