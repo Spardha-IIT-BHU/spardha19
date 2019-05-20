@@ -101,32 +101,32 @@
                     <div class="form-group">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="name">Name: </label>
+                                <label class="control-label heading-color" for="name">Name:&nbsp;<span style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required><i class="fa fa-user fa-lg"></i>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your Name" required><i class="fa fa-user fa-lg"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="designation">Designation: </label>
+                                <label class="control-label heading-color" for="designation">Designation:&nbsp;<span style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="designation" name="designation" placeholder="Write Your Designation" required><i class="fa fa-briefcase fa-lg"></i>
+                                    <input type="text" class="form-control" id="designation" name="designation" placeholder="Write your Designation" required><i class="fa fa-briefcase fa-lg"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="institute">Institute Name:</label>
+                                <label class="control-label heading-color" for="institute">Institute Name:&nbsp;<span style="color: red">*</span></label>
                                 <div class="inputWithIcon">
-                                    <input type="text" class="form-control" id="institute_name" name="institute_name" list="instituteList" placeholder="Type out your Institute and City" required><i class="fa fa-building fa-lg"></i>
+                                    <input type="text" class="form-control" id="institute_name" name="institute_name" list="instituteList" placeholder="Enter your Institute & City" required><i class="fa fa-building fa-lg"></i>
                                 </div>
                                 <datalist id="instituteList"></datalist>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="academic_yr">Academic Year:</label>
+                                <label class="control-label heading-color" for="academic_yr">Academic Year:&nbsp;<span style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="academic_yr" name="academic_yr" placeholder="Enter your Academic Year" required><i class="fa fa-graduation-cap fa-lg"></i>
                                 </div>
@@ -134,7 +134,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="email">Email Address:</label>
+                                <label class="control-label heading-color" for="email">Email Address:&nbsp;<span style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" required><i class="fa fa-envelope fa-lg"></i>
                                 </div>
@@ -142,7 +142,7 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label heading-color" for="phone">Phone:</label>
+                                <label class="control-label heading-color" for="phone">Phone Number:&nbsp;<span style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="phone" name="phone" placeholder="Enter Your Phone No." required><i class="fa fa-phone fa-lg"></i>
                                 </div>
@@ -151,23 +151,22 @@
                     </div>
                 </div>
             </div>
-            <!--List for Male-->
-            <div class="col-sm-6" style="margin-top: 30px;">
+            <div class="col-sm-12" style="margin-top: 30px;">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title text-center" style="color:#59ba00;">
                             <a data-toggle="collapse" href="#collapse1" class="" style="color:#59ba00;">
-                                <i class="fa fa-male fa-lg"></i> Select Events </a>
+                                Select Events&nbsp;<span style="color: red">*</span></a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
                         <div class="panel-body expanded-panel">
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-athletics"><span>Aquatics</span></label>
+                                    <label><input type="checkbox" class="register" name="opt[]" value="M-aquatics"><span>Aquatics</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-aquatics"><span>Athletics</span></label>
+                                    <label><input type="checkbox" class="register" name="opt[]" value="M-athletics"><span>Athletics</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-badminton"><span>Badminton</span></label>
@@ -194,7 +193,7 @@
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-handball"><span>Handball</span></label>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-3">
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-hockey"><span>Hockey</span></label>
                                 </div>
@@ -205,13 +204,13 @@
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-kho-kho"><span>Kho-Kho</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-p-lift"><span>Power Lifting</span></label>
+                                    <label><input type="checkbox" class="register" name="opt[]" value="M-powerlifting"><span>Powerlifting</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-squash"><span>Squash</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-tai-kwan-do"><span>Taekwondo</span></label>
+                                    <label><input type="checkbox" class="register" name="opt[]" value="M-taekwondo"><span>Taekwondo</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-tennis"><span>Tennis</span></label>
@@ -223,59 +222,58 @@
                                     <label><input type="checkbox" class="register" name="opt[]" value="M-volleyball"><span>Volleyball</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="M-w-lift"><span>Weight Lifting</span></label>
+                                    <label><input type="checkbox" class="register" name="opt[]" value="M-wrightlifting"><span>Weight Lifting</span></label>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--List for Female-->
-            <div class="col-sm-6" style="margin-top: 30px;">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title text-center" style="color:#59ba00;">
-                            <a data-toggle="collapse" href="#collapse2" class="" style="color:#59ba00;">
-                                <i class="fa fa-female fa-lg"></i> Events for Girls </a>
-                        </h4>
-                    </div>
-                    <div id="collapse2" class="panel-collapse collapse in">
-                        <div class="panel-body expanded-panel">
-                            <div class="col-sm-6">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-athletics"><span>Athletics</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-badminton"><span>Badminton</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-basketball"><span>Basketball</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-boxing"><span>Boxing</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-carrom"><span>Carrom</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-kabaddi"><span>Kabaddi</span></label>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-kho-kho"><span>Kho-Kho</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-tai-kwan-do"><span>Taekwondo</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-tennis"><span>Tennis</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-table-tennis"><span>Table Tennis</span></label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" class="register" name="opt[]" value="F-volleyball"><span>Volleyball</span></label>
+                            <div class="col-sm-6" style="margin-top: 30px;">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title text-center" style="color:#59ba00;">
+                                            <a data-toggle="collapse" href="#collapse2" class="" style="color:#59ba00;">
+                                                <i class="fa fa-female fa-lg"></i> Events for Girls </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse2" class="panel-collapse collapse in">
+                                        <div class="panel-body expanded-panel">
+                                            <div class="col-sm-6">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-athletics"><span>Athletics</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-badminton"><span>Badminton</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-basketball"><span>Basketball</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-boxing"><span>Boxing</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-carrom"><span>Carrom</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-kabaddi"><span>Kabaddi</span></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-kho-kho"><span>Kho-Kho</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-taekwondo"><span>Taekwondo</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-tennis"><span>Tennis</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-table-tennis"><span>Table Tennis</span></label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" class="register" name="opt[]" value="F-volleyball"><span>Volleyball</span></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +283,8 @@
             <div class="col-sm-12">
                 <div class="form-group ">
                     <input type="checkbox" id="terms" name="terms" required>
-                    <label for="terms">By submitting this form, you agree to abide by the <a href="pdf/rules.pdf" target="_blank">"Rules of Spardha 2018."</a></label>
+                    <label for="terms"> <span style="color: red">*</span> By submitting this form, you agree to abide by
+                        the <a target="_blank">"Rules of Spardha 2019."</a></label>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;
                         <i class="fa fa-paper-plane"></i> Register
