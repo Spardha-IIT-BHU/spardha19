@@ -204,10 +204,10 @@ sup {
     color:#55ACEE;
 }
 .icon-bar a:hover .fa-instagram{
-    color:#007bb5;
+    color:deeppink;
 }
 .icon-bar a:hover .fa-linkedin{
-    color:deeppink;
+    color:#007bb5;
 }
 .icon-bar a:hover .fa-mapmarker{
     color:green;
