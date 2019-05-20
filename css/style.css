@@ -193,7 +193,7 @@ sup {
     padding: 10px;
     transition: all 0.3s ease;
     color: white;
-    font-size: 25px;
+    font-size: calc(20px + (25 - 20) * ((100vw - 300px) / (1600 - 300)));
 }
 
 
