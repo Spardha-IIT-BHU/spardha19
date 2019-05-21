@@ -6,9 +6,6 @@
  (function ($) {
 
      "use strict";
-     $(document).ready(function () {
-         $('.fixed-action-btn').floatingActionButton();
-     });
 
      $(window).stellar({
          responsive: true,
@@ -193,19 +190,19 @@
                  navbar = $('.ftco_navbar'),
                  sd = $('.js-scroll-wrap');
 
-             if (st > 150) {
+             if (st > 400) {
                  if (!navbar.hasClass('scrolled')) {
                      navbar.addClass('scrolled');
                      $('.navbar-brand img').attr('src', 'images/logos/spardha-small.png');
                  }
              }
-             if (st < 150) {
+             if (st < 400) {
                  if (navbar.hasClass('scrolled')) {
                      navbar.removeClass('scrolled sleep');
                      $('.navbar-brand img').attr('src', 'images/logos/spardha-small-white.png');
                  }
              }
-             if (st > 350) {
+             if (st > 450) {
                  if (!navbar.hasClass('awake')) {
                      navbar.addClass('awake');
                  }
@@ -214,7 +211,7 @@
                      sd.addClass('sleep');
                  }
              }
-             if (st < 350) {
+             if (st < 450) {
                  if (navbar.hasClass('awake')) {
                      navbar.removeClass('awake');
                      navbar.addClass('sleep');
@@ -361,3 +358,10 @@
 
 
  })(jQuery);
+
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      hoverEnabled: false
+    });
+  });
