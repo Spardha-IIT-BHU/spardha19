@@ -14300,3 +14300,13 @@ g {
 .team-section h4 {
     color: #7ed321;
 }
+@media screen and (max-width: 991px) {
+    .corner-ribbon {
+        display: none !important;
+    }
+}
+@media screen and (min-width: 991px) {
+    .tray {
+        display: none !important;
+    }
+}
