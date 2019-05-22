@@ -365,3 +365,7 @@
       hoverEnabled: false
     });
   });
+var img1= new Image();
+img1.src='images/logos/spardha-small.png';
+var img2= new Image();
+img2.src= 'images/logos/spardha-small-white.png';
