@@ -159,6 +159,6 @@ function validate(form) {
         showError("Please check above box before proceeding.");
         return false;
     }
-    showError("SORRY! &nbsp;REGISTRATION &nbsp;IS &nbsp;CURRENTLY &nbsp;UNAVAILABLE!!");
-    return false;
+    $('html, body').stop().animate( parent.scrollTo(0,0), 1000);
+    return true;
 }

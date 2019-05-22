@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-     <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <iframe id="registerframe" src="register/registration.html" class="align-center" onload="scroll(0,0);"></iframe>
+                    <iframe id="registerframe" src="register/" class="align-center" onload="scroll(0,0);"></iframe>
                 </div>
             </div>
         </section>

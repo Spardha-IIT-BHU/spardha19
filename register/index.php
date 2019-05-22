@@ -84,6 +84,9 @@
             margin-top: 5px;
             padding-left: 40px;
         }
+        td {
+            padding: 5px;
+        }
     </style>
     <script>
     </script>
@@ -94,6 +97,46 @@
         style="padding: 1em 2em 3em 2em; margin-top: 50px; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);">
         <h3 style="text-align:center;color:#7ed321"> COLLEGE REGISTRATION </h3>
         <hr>
+        <?php
+            echo '<div class="col-sm-12">';
+            include("db.php");
+            $flag = 0;
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $flag = 1;
+                $name = mysqli_real_escape_string ($conn, clean($_POST["name"]));
+                $designation = mysqli_real_escape_string ($conn, clean($_POST["designation"]));
+                $institute_name = mysqli_real_escape_string ($conn, clean($_POST["institute"]));
+                $acad_year = mysqli_real_escape_string ($conn, clean($_POST["year"]));
+                $email = mysqli_real_escape_string ($conn, clean($_POST["email"]));
+                $phone = mysqli_real_escape_string ($conn, clean($_POST["phone"]));
+                $checkbox1=$_POST["opt"];  
+                $chk="";
+                foreach($checkbox1 as $chk1)  
+                {  
+                    $chk .= $chk1.", ";  
+                }  
+                $opted_events = mysqli_real_escape_string ($conn, clean($chk));
+                $query = "SELECT * FROM `registration2019` WHERE (`institute_name`='$institute_name')";
+                $result = mysqli_query ($conn, $query);
+                if ($result) {
+                    $rows = mysqli_num_rows ($result);
+                    if ($rows) {
+                        $flag = 2;
+                    }
+                    $query = "INSERT INTO `registration2019` (`name`, `designation`, `institute_name`, `acad_year`, `email`, `phone`, `opted_events`) VALUES ('$name', '$designation', '$institute_name', '$acad_year', '$email', '$phone', '$opted_events')";
+                    $result = mysqli_query ($conn, $query);
+                    if ($result) {
+                        include("success.php");
+                    }
+                    else echo "Could not register: " . mysqli_error($conn);
+                }
+                else {
+                    echo "Could not connect: ". mysqli_error($conn);
+                }
+            }
+            echo '</div>';
+            if ($flag == 0) {
+        ?>
         <div class="col-sm-12">
             <div class="alert alert-info">
                 <strong>NOTE:</strong> Individual registrations are not entertained. Only one registration is allowed
@@ -101,9 +144,9 @@
             </div>
         </div>
         <div class="col-sm-12 text-right">
-            <span style="color: red">*</span>&nbsp;Mandatory
+            <span style="color: red">*&nbsp;Mandatory</span>
         </div>
-        <form class="form-horizontal" role="form" method="post" action="database.php" onsubmit="return validate(this);"
+        <form class="form-horizontal" role="form" method="post" action="" onsubmit="return validate(this);"
             novalidate>
             <div class="col-sm-12" style="margin-top: 10px;">
                 <div class="panel panel-default">
@@ -206,85 +249,85 @@
                             <div class="col-sm-3">
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-aquatics"><span>Aquatics</span></label>
+                                            value="Aquatics"><span>Aquatics</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-athletics"><span>Athletics</span></label>
+                                            value="Athletics"><span>Athletics</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-badminton"><span>Badminton</span></label>
+                                            value="Badminton"><span>Badminton</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-basketball"><span>Basketball</span></label>
+                                            value="Basketball"><span>Basketball</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-boxing"><span>Boxing</span></label>
+                                            value="Boxing"><span>Boxing</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-carrom"><span>Carrom</span></label>
+                                            value="Carrom"><span>Carrom</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-chess"><span>Chess</span></label>
+                                            value="Chess"><span>Chess</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-cricket"><span>Cricket</span></label>
+                                            value="Cricket"><span>Cricket</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-football"><span>Football</span></label>
+                                            value="Football"><span>Football</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-handball"><span>Handball</span></label>
+                                            value="Handball"><span>Handball</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-hockey"><span>Hockey</span></label>
+                                            value="Hockey"><span>Hockey</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-kabaddi"><span>Kabaddi</span></label>
+                                            value="Kabaddi"><span>Kabaddi</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-kho-kho"><span>Kho-Kho</span></label>
+                                            value="Kho-kho"><span>Kho-Kho</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-powerlifting"><span>Powerlifting</span></label>
+                                            value="Powerlifting"><span>Powerlifting</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-squash"><span>Squash</span></label>
+                                            value="Squash"><span>Squash</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-taekwondo"><span>Taekwondo</span></label>
+                                            value="Taekwondo"><span>Taekwondo</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-tennis"><span>Tennis</span></label>
+                                            value="Tennis"><span>Tennis</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-table-tennis"><span>Table Tennis</span></label>
+                                            value="Table-tennis"><span>Table Tennis</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-volleyball"><span>Volleyball</span></label>
+                                            value="Volleyball"><span>Volleyball</span></label>
                                 </div>
                                 <div class="checkbox">
                                     <label><input type="checkbox" class="event" name="opt[]"
-                                            value="M-wrightlifting"><span>Weight Lifting</span></label>
+                                            value="Weightlifting"><span>Weightlifting</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-6" style="margin-top: 30px;">
@@ -300,49 +343,49 @@
                                             <div class="col-sm-6">
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-athletics"><span>Athletics</span></label>
+                                                            value="F-Athletics"><span>Athletics</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-badminton"><span>Badminton</span></label>
+                                                            value="F-Badminton"><span>Badminton</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-basketball"><span>Basketball</span></label>
+                                                            value="F-Basketball"><span>Basketball</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-boxing"><span>Boxing</span></label>
+                                                            value="F-Boxing"><span>Boxing</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-carrom"><span>Carrom</span></label>
+                                                            value="F-Carrom"><span>Carrom</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-kabaddi"><span>Kabaddi</span></label>
+                                                            value="F-Kabaddi"><span>Kabaddi</span></label>
                                                 </div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-kho-kho"><span>Kho-Kho</span></label>
+                                                            value="F-Kho-kho"><span>Kho-Kho</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-taekwondo"><span>Taekwondo</span></label>
+                                                            value="F-Taekwondo"><span>Taekwondo</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-tennis"><span>Tennis</span></label>
+                                                            value="F-Tennis"><span>Tennis</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-table-tennis"><span>Table Tennis</span></label>
+                                                            value="F-Table-tennis"><span>Table Tennis</span></label>
                                                 </div>
                                                 <div class="checkbox">
                                                     <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-volleyball"><span>Volleyball</span></label>
+                                                            value="F-Volleyball"><span>Volleyball</span></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -382,6 +425,16 @@
             });
         </script>
         <script src="form.js"></script>
+        <?php
+        }
+        mysqli_close ($conn);
+        function clean($data) {
+            $data = trim($data);
+            $data = stripslashes($data);
+            $data = htmlspecialchars($data);
+            return $data;
+        }
+        ?>
     </div>
 </body>
 
