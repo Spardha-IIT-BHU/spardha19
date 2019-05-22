@@ -200,17 +200,21 @@ sup {
 .icon-bar a:hover .fa-facebook {
     color: #3B5998;
 }
-.icon-bar a:hover .fa-twitter{
-    color:#55ACEE;
+
+.icon-bar a:hover .fa-twitter {
+    color: #55ACEE;
 }
-.icon-bar a:hover .fa-instagram{
-    color:deeppink;
+
+.icon-bar a:hover .fa-instagram {
+    color: deeppink;
 }
-.icon-bar a:hover .fa-linkedin{
-    color:#007bb5;
+
+.icon-bar a:hover .fa-linkedin {
+    color: #007bb5;
 }
-.icon-bar a:hover .fa-mapmarker{
-    color:green;
+
+.icon-bar a:hover .fa-mapmarker {
+    color: green;
 }
 
 .facebook {
@@ -262,7 +266,7 @@ sup {
 .corner-ribbon {
     z-index: 1;
     width: 200px;
-    background: #e43;
+    background: green;
     position: absolute;
     top: 25px;
     left: -50px;
@@ -487,18 +491,18 @@ sup {
 
 @keyframes glowing1 {
     0% {
-        background-color: tomato;
-        box-shadow: 0 0 3px tomato;
+        background-color: deepskyblue;
+        box-shadow: 0 0 3px deepskyblue;
     }
 
     50% {
-        background-color: darkorange;
-        box-shadow: 0 0 40px darkorange;
+        background-color: #5DADE2;
+        box-shadow: 0 0 40px #5DADE2;
     }
 
     100% {
-        background-color: tomato;
-        box-shadow: 0 0 3px tomato;
+        background-color: #2196F3;
+        box-shadow: 0 0 3px #2196F3;
     }
 }
 
@@ -6666,7 +6670,7 @@ button.close {
     }
 }
 
-.tooltip {
+. {
     position: absolute;
     z-index: 1070;
     display: block;
@@ -14238,12 +14242,13 @@ g {
     font-weight: 400;
     color: #000;
 }
+
 .staff .info span.pos {
-  display: block;
-  margin-bottom: 15px;
-  font-size: 15px;
-  font-weight: 400;
-  color: #808080;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #808080;
 }
 
 .staff .img {
@@ -14300,11 +14305,19 @@ g {
 .team-section h4 {
     color: #7ed321;
 }
+
 @media screen and (max-width: 991px) {
     .corner-ribbon {
         display: none !important;
     }
+
+    .icon-bar {
+        -webkit-transform: translateY(-15%);
+        -ms-transform: translateY(-15%);
+        transform: translateY(-15%);
+    }
 }
+
 @media screen and (min-width: 991px) {
     .tray {
         display: none !important;
