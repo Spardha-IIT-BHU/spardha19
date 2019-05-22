@@ -364,15 +364,15 @@ sup {
 }
 
 
-@media (min-width:995px) {
+@media (min-width:990px) {
     .corner-ribbon.bottom-left {
-        font-size: 19px;
-        bottom: 14px;
-        left: -66px;
+        font-size: 17px;
+        bottom: 19px;
+        left: -61px;
     }
 
     .corner-ribbon.bottom-right {
-        font-size: 19px;
+        font-size: 17px;
         bottom: 18px;
         right: -62px;
     }
@@ -381,13 +381,13 @@ sup {
 
 @media (min-width:1200px) {
     .corner-ribbon.bottom-left {
-        font-size: 20px;
-        bottom: 16px;
-        left: -64px;
+        font-size: 18px;
+        bottom: 22px;
+        left: -58px;
     }
 
     .corner-ribbon.bottom-right {
-        font-size: 20px;
+        font-size: 18px;
         bottom: 20px;
         right: -60px;
     }
@@ -440,69 +440,69 @@ sup {
 
 @-webkit-keyframes glowing1 {
     0% {
-        background-color: #2196F3;
-        -webkit-box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        -webkit-box-shadow: 0 0 3px #007bff;
     }
 
     50% {
-        background-color: #2196F3;
-        -webkit-box-shadow: 0 0 40px #2196F3;
+        background-color: #007bff;
+        -webkit-box-shadow: 0 0 40px #007bff;
     }
 
     100% {
-        background-color: #2196F3;
-        -webkit-box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        -webkit-box-shadow: 0 0 3px #007bff;
     }
 }
 
 @-moz-keyframes glowing1 {
      0% {
-        background-color: #2196F3;
-        -moz-box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        -moz-box-shadow: 0 0 3px #007bff;
     }
 
     50% {
-        background-color: #2196F3;
-        -moz-box-shadow: 0 0 40px #2196F3;
+        background-color: #007bff;
+        -moz-box-shadow: 0 0 40px #007bff;
     }
 
     100% {
-        background-color: #2196F3;
-        -moz-box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        -moz-box-shadow: 0 0 3px #007bff;
     }
 }
 
 @-o-keyframes glowing1 {
      0% {
-        background-color: #2196F3;
-        box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        box-shadow: 0 0 3px #007bff;
     }
 
     50% {
-        background-color: #2196F3;
-        box-shadow: 0 0 40px #2196F3;
+        background-color: #007bff;
+        box-shadow: 0 0 40px #007bff;
     }
 
     100% {
-        background-color: #2196F3;
-        box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        box-shadow: 0 0 3px #007bff;
     }
 }
 
 @keyframes glowing1 {
     0% {
-        background-color: #2196F3;
-        box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        box-shadow: 0 0 3px #007bff;
     }
 
     50% {
-        background-color: #2196F3;
-        box-shadow: 0 0 40px #2196F3;
+        background-color: #007bff;
+        box-shadow: 0 0 40px #007bff;
     }
 
     100% {
-        background-color: #2196F3;
-        box-shadow: 0 0 3px #2196F3;
+        background-color: #007bff;
+        box-shadow: 0 0 3px #007bff;
     }
 }
 
