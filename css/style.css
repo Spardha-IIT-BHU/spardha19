@@ -440,64 +440,64 @@ sup {
 
 @-webkit-keyframes glowing1 {
     0% {
-        background-color: tomato;
-        -webkit-box-shadow: 0 0 3px tomato;
+        background-color: #2196F3;
+        -webkit-box-shadow: 0 0 3px #2196F3;
     }
 
     50% {
-        background-color: darkorange;
-        -webkit-box-shadow: 0 0 40px darkorange;
+        background-color: #2196F3;
+        -webkit-box-shadow: 0 0 40px #2196F3;
     }
 
     100% {
-        background-color: tomato;
-        -webkit-box-shadow: 0 0 3px tomato;
+        background-color: #2196F3;
+        -webkit-box-shadow: 0 0 3px #2196F3;
     }
 }
 
 @-moz-keyframes glowing1 {
-    0% {
-        background-color: tomato;
-        -moz-box-shadow: 0 0 3px tomato;
+     0% {
+        background-color: #2196F3;
+        -moz-box-shadow: 0 0 3px #2196F3;
     }
 
     50% {
-        background-color: darkorange;
-        -moz-box-shadow: 0 0 40px darkorange;
+        background-color: #2196F3;
+        -moz-box-shadow: 0 0 40px #2196F3;
     }
 
     100% {
-        background-color: tomato;
-        -moz-box-shadow: 0 0 3px tomato;
+        background-color: #2196F3;
+        -moz-box-shadow: 0 0 3px #2196F3;
     }
 }
 
 @-o-keyframes glowing1 {
-    0% {
-        background-color: tomato;
-        box-shadow: 0 0 3px tomato;
+     0% {
+        background-color: #2196F3;
+        box-shadow: 0 0 3px #2196F3;
     }
 
     50% {
-        background-color: darkorange;
-        box-shadow: 0 0 40px darkorange;
+        background-color: #2196F3;
+        box-shadow: 0 0 40px #2196F3;
     }
 
     100% {
-        background-color: tomato;
-        box-shadow: 0 0 3px tomato;
+        background-color: #2196F3;
+        box-shadow: 0 0 3px #2196F3;
     }
 }
 
 @keyframes glowing1 {
     0% {
-        background-color: deepskyblue;
-        box-shadow: 0 0 3px deepskyblue;
+        background-color: #2196F3;
+        box-shadow: 0 0 3px #2196F3;
     }
 
     50% {
-        background-color: #5DADE2;
-        box-shadow: 0 0 40px #5DADE2;
+        background-color: #2196F3;
+        box-shadow: 0 0 40px #2196F3;
     }
 
     100% {
@@ -508,69 +508,69 @@ sup {
 
 @-webkit-keyframes glowing2 {
     0% {
-        background-color: darkviolet;
-        -webkit-box-shadow: 0 0 3px darkviolet;
+        background-color: #ff1a1a;
+        -webkit-box-shadow: 0 0 3px #ff1a1a;
     }
 
     50% {
-        background-color: orchid;
-        -webkit-box-shadow: 0 0 40px orchid;
+        background-color: #ff1a1a;
+        -webkit-box-shadow: 0 0 40px #ff1a1a;
     }
 
     100% {
-        background-color: darkviolet;
-        -webkit-box-shadow: 0 0 3px darkviolet;
+        background-color:  #ff1a1a;
+        -webkit-box-shadow: 0 0 3px  #ff1a1a;
     }
 }
 
 @-moz-keyframes glowing2 {
     0% {
-        background-color: darkviolet;
-        -moz-box-shadow: 0 0 3px darkviolet;
+        background-color: #ff1a1a;
+        -moz-box-shadow: 0 0 3px #ff1a1a;
     }
 
     50% {
-        background-color: orchid;
-        -moz-box-shadow: 0 0 40px orchid;
+        background-color: #ff1a1a;
+        -moz-box-shadow: 0 0 40px #ff1a1a;
     }
 
     100% {
-        background-color: darkviolet;
-        -moz-box-shadow: 0 0 3px darkviolet;
+        background-color:  #ff1a1a;
+        -moz-box-shadow: 0 0 3px  #ff1a1a;
     }
 }
 
 @-o-keyframes glowing2 {
     0% {
-        background-color: darkviolet;
-        box-shadow: 0 0 3px darkviolet;
+        background-color: #ff1a1a;
+        box-shadow: 0 0 3px #ff1a1a;
     }
 
     50% {
-        background-color: orchid;
-        box-shadow: 0 0 40px orchid;
+        background-color: #ff1a1a;
+        box-shadow: 0 0 40px #ff1a1a;
     }
 
     100% {
-        background-color: darkviolet;
-        box-shadow: 0 0 3px darkviolet;
+        background-color:  #ff1a1a;
+        box-shadow: 0 0 3px  #ff1a1a;
     }
 }
 
 @keyframes glowing2 {
     0% {
-        background-color: darkviolet;
-        box-shadow: 0 0 3px darkviolet;
+        background-color: #ff1a1a;
+        box-shadow: 0 0 3px #ff1a1a;
     }
 
     50% {
-        background-color: orchid;
-        box-shadow: 0 0 40px orchid;
+        background-color: #ff1a1a;
+        box-shadow: 0 0 40px #ff1a1a;
     }
 
     100% {
-        background-color: darkviolet;
-        box-shadow: 0 0 3px darkviolet;
+        background-color:  #ff1a1a;
+        box-shadow: 0 0 3px  #ff1a1a;
     }
 }
 
