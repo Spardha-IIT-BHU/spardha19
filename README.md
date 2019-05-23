@@ -3,4 +3,4 @@
 # Spardha 2019
 > Spardha is annual Games and Sports Festival of IIT (BHU) Varanasi.
 
-Official website for Spardha 2019. https://spardha19.netlify.com/
+Source code for the Spardha'19 website. https://spardha19.netlify.com/
