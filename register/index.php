@@ -150,13 +150,28 @@ else {
                 $acad_year = mysqli_real_escape_string ($conn, clean($_POST["year"]));
                 $email = mysqli_real_escape_string ($conn, clean($_POST["email"]));
                 $phone = mysqli_real_escape_string ($conn, clean($_POST["phone"]));
-                $checkbox1=$_POST["opt"];  
-                $chk="";
+                if (strlen($phone) == 11) {
+                    $phone = substr($phone, 1);
+                }
+                else if (strlen($phone) == 13) {
+                    $phone = substr($phone, 3);
+                }
+                $checkbox1 = $_POST["opt"];  
+                $chk = "";
+                $chkF = "";
                 foreach($checkbox1 as $chk1)  
-                {  
-                    $chk .= $chk1.", ";  
-                }  
+                {
+                    if (substr($chk1,0,2) == "F-") {
+                        $chkF .= $chk1 . ", ";
+                    }
+                    else {
+                        $chk .= $chk1.", "; 
+                    }
+                }
+                $chk = rtrim($chk, ", ");
+                $chkF = rtrim($chkF, ", ");
                 $opted_events = mysqli_real_escape_string ($conn, clean($chk));
+                $girls_events = mysqli_real_escape_string ($conn, clean($chkF));
                 $query = "SELECT * FROM `registration2019` WHERE (`institute_name`='$institute_name')";
                 $result = mysqli_query ($conn, $query);
                 if ($result) {
@@ -164,7 +179,7 @@ else {
                     if ($rows) {
                         $flag = 2;
                     }
-                    $query = "INSERT INTO `registration2019` (`name`, `designation`, `institute_name`, `acad_year`, `email`, `phone`, `opted_events`) VALUES ('$name', '$designation', '$institute_name', '$acad_year', '$email', '$phone', '$opted_events')";
+                    $query = "INSERT INTO `registration2019` (`name`, `designation`, `institute_name`, `acad_year`, `email`, `phone`, `opted_events`, `girls_events`) VALUES ('$name', '$designation', '$institute_name', '$acad_year', '$email', '$phone', '$opted_events', '$girls_events')";
                     $result = mysqli_query ($conn, $query);
                     if ($result) {
                         include("success.php");
@@ -451,7 +466,7 @@ else {
                         </div>
                     <div id="finalerror" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
                     <hr>
-                    <button type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;
+                    <button id="submit" type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;
                         <i class="fa fa-paper-plane"></i> Register
                     </button>
                 </div>

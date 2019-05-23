@@ -150,6 +150,12 @@ function validCaptcha() {
     return true;
 }
 
+
+function disableAll() {
+    document.getElementById("submit").disabled = "true";
+    document.getElementById("submit").innerHTML = "Processing...";
+}
+
 function validate(form) {
     hideError();
     if (!validCaptcha()) {
@@ -172,8 +178,9 @@ function validate(form) {
         return false;
     }
     if (!$("form #terms").is(":checked")) {
-        showError("Please check above box before proceeding.");
+        showError("Please check the above box before proceeding.");
         return false;
     }
+    disableAll();
     return true;
 }

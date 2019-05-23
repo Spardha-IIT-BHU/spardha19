@@ -23,7 +23,7 @@ $mail->Password = ""; // Your Gmail login password or App Specific Password.
  * Message Configuration
  */
 
-$mail->setFrom('convener@spardha.co.in', "Spardha'19 IIT (BHU) Varanasi"); // Set the sender of the message.
+$mail->setFrom('info@spardha.co.in', "Spardha'19 IIT (BHU) Varanasi"); // Set the sender of the message.
 $mail->addAddress($row[5], $row[1]); // Set the recipient of the message.
 $mail->Subject = "Registration Successful || Spardha'19 IIT (BHU) Varanasi"; // The subject of the message.
 
@@ -36,8 +36,10 @@ $mail->Subject = "Registration Successful || Spardha'19 IIT (BHU) Varanasi"; // 
 
 // ... or send an email with HTML.
 $mail->AddEmbeddedImage('../images/logos/spardha.png', 'spardhalogo');
-$mail->msgHTML('<img src="cid:spardhalogo" style="width: 100%; max-width: 250px; display: block; margin: 0 auto 20px;">
-<div style="text-align: center; font-size: 15px;"><strong>Congrats!</strong> You have successfully registered for Spardha 2019! <br><br>
+$mail->msgHTML('Hello ' . $row[1] . ',<br><br><img src="cid:spardhalogo" style="width: 100%; max-width: 250px; display: block; margin: 0 auto 20px;">
+<div style="text-align: center; font-size: 17px;"><strong>Greetings from Team Spardha!!</strong></div><br>
+<div style="text-align: center; font-size: 15px;"><strong>Congrats!</strong> You have successfully registered for Spardha 2019, the annual
+Games and Sports Festival of IIT (BHU) Varanasi! <br><br>
 The details received are: </div><br>
 <table align="center" style="margin-top: 2px; font-size: 15px;">
 <tr>
@@ -72,7 +74,11 @@ The details received are: </div><br>
 <td>EVENTS:</td>
 <td>' . $row[7] . '</td>
 </tr>
-</table>');
+<tr>GIRLS EVENTS:</td>
+<td>' . $row[8] . '</td>
+</table>
+<br><br><br>
+Regards,<br><br>Team Spardha<br>IIT (BHU) Varanasi');
 // Optional when using HTML: Set an alternative plain text message for email clients who prefer that.
 //$mail->AltBody = 'This is a plain-text message body'; 
 

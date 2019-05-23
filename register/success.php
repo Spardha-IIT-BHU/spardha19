@@ -49,6 +49,10 @@
                           echo '<td>EVENTS:</td>';
                           echo '<td>' . $row[7] . '</td>';
                       echo '</tr>';
+                      echo '<tr>';
+                          echo '<td>GIRLS EVENTS:</td>';
+                          echo '<td>' . $row[8] . '</td>';
+                      echo '</tr>';
                   echo '</table>';
               echo '</div>';
               echo '<div style="margin: 0 30px 0 30px;">';
