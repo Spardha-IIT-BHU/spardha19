@@ -193,13 +193,15 @@
              if (st > 400) {
                  if (!navbar.hasClass('scrolled')) {
                      navbar.addClass('scrolled');
-                     $('.navbar-brand img').attr('src', 'images/logos/spardha-small.png');
+                     $('.img2').show();
+                     $('.img1').hide();
                  }
              }
              if (st < 400) {
                  if (navbar.hasClass('scrolled')) {
                      navbar.removeClass('scrolled sleep');
-                     $('.navbar-brand img').attr('src', 'images/logos/spardha-small-white.png');
+                     $('.img2').hide();
+                     $('.img1').show();
                  }
              }
              if (st > 450) {
@@ -365,7 +367,3 @@
       hoverEnabled: false
     });
   });
-var img1= new Image();
-img1.src='images/logos/spardha-small.png';
-var img2= new Image();
-img2.src= 'images/logos/spardha-small-white.png';
