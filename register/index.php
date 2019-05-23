@@ -87,12 +87,53 @@
         td {
             padding: 5px;
         }
+        canvas {
+            pointer-events:none;
+        }
+        input[type=text] {
+            padding: 8px 15px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
     </style>
     <script>
+    var code;
+        function createCaptcha() {
+            document.getElementById('captcha').innerHTML = "";
+            var charsArray =
+                "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@!#$%^&*";
+            var lengthOtp = 6;
+            var captcha = [];
+            for (var i = 0; i < lengthOtp; i++) {
+                //below code will not allow Repetition of Characters
+                var index = Math.floor(Math.random() * charsArray.length + 1); //get the next character from the array
+                if (captcha.indexOf(charsArray[index]) == -1)
+                    captcha.push(charsArray[index]);
+                else i--;
+            }
+            var canv = document.createElement("canvas");
+            canv.id = "captcha";
+            canv.width = 120;
+            canv.height = 50;
+            var ctx = canv.getContext("2d");
+            ctx.font = "25px Georgia";
+            ctx.strokeText(captcha.join(""), 0, 30);
+            //storing captcha so that can validate you can save it somewhere else according to your specific requirements
+            code = captcha.join("");
+            document.getElementById("captcha").appendChild(canv); // adds the canvas to the body element
+        }
     </script>
 </head>
-
-<body>
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "<body>";
+}
+else {
+    echo '<body onload="createCaptcha();">';
+}
+?>
     <div class="container"
         style="padding: 1em 2em 3em 2em; margin-top: 50px; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);">
         <h3 style="text-align:center;color:#7ed321"> COLLEGE REGISTRATION </h3>
@@ -401,6 +442,13 @@
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms"> <span style="color: red">*</span> By submitting this form, you agree to abide by
                         the <a target="_blank">"Rules of Spardha 2019."</a></label>
+                        <div class="row">
+                            <div class="col-sm-12" style="text-align: center;">
+                                <div id="captcha" style="padding-left: 50px;"></div>
+                                <label>Captcha:&nbsp;<span style="color: red">*</span></label>
+                                <input type="text" placeholder="Enter the Captcha" id="captchaTextBox">
+                            </div>
+                        </div>
                     <div id="finalerror" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
                     <hr>
                     <button type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;

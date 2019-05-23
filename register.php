@@ -32,18 +32,18 @@
             overflow: hidden;
         }
         #registerframe {
-            height: 155em;
+            height: 165em;
         }
 
         @media screen and (min-width: 320px) {
             #registerframe {
-                height: calc(155em + -400 * ((100vw - 320px) / 960));
+                height: calc(165em + -400 * ((100vw - 320px) / 960));
             }
         }
 
         @media screen and (min-width: 992px) {
             #registerframe {
-                height: 80em;
+                height: 90em;
             }
         }
     </style>

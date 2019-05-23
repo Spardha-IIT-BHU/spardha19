@@ -23,7 +23,7 @@ $mail->Password = ""; // Your Gmail login password or App Specific Password.
  * Message Configuration
  */
 
-$mail->setFrom('spardha19.reg@gmail.com', "Spardha'19 IIT (BHU) Varanasi"); // Set the sender of the message.
+$mail->setFrom('convener@spardha.co.in', "Spardha'19 IIT (BHU) Varanasi"); // Set the sender of the message.
 $mail->addAddress($row[5], $row[1]); // Set the recipient of the message.
 $mail->Subject = "Registration Successful || Spardha'19 IIT (BHU) Varanasi"; // The subject of the message.
 
