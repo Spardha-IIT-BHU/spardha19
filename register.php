@@ -277,6 +277,7 @@
         });
     });
     </script>
+    <noscript>Sorry, your browser does not support JavaScript! Please enable Javascript for better experience.</noscript>
 </body>
 
 </html>
