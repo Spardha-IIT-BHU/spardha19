@@ -13454,6 +13454,16 @@ g {
     font-weight: 400;
     color: #808080;
 }
+.staff .info span.position a{
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    color: #000;
+}
+
+.staff .info span.position a:hover{
+    color:#7ed321;
+}
 
 .staff .img {
     width: 125px;
