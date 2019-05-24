@@ -213,8 +213,8 @@ sup {
     color: #007bb5;
 }
 
-.icon-bar a:hover .fa-mapmarker {
-    color: green;
+.icon-bar a:hover .fa-map-marker {
+    color: #F44336;
 }
 
 .facebook {
