@@ -13454,15 +13454,16 @@ g {
     font-weight: 400;
     color: #808080;
 }
-.staff .info span.position a{
+
+.staff .info span.position a {
     display: block;
     font-size: 15px;
     font-weight: 400;
     color: #000;
 }
 
-.staff .info span.position a:hover{
-    color:#7ed321;
+.staff .info span.position a:hover {
+    color: #7ed321;
 }
 
 .staff .img {
@@ -13519,4 +13520,29 @@ g {
 
 .team-section h4 {
     color: #7ed321;
+}
+
+.short-text {
+    display: none;
+}
+
+.full-text {
+    color: white;
+}
+
+.full-text:hover {
+    color: black;
+}
+
+@media (max-width: 991px) {
+    .short-text {
+        display: inline-block;
+        color: white;
+    }
+    .short-text:hover {
+        color: black;
+    }
+    .full-text {
+        display: none;
+    }
 }
