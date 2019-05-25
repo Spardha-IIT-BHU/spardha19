@@ -13534,7 +13534,7 @@ g {
     color: black;
 }
 
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
     .short-text {
         display: inline-block;
         color: white;
@@ -13544,5 +13544,10 @@ g {
     }
     .full-text {
         display: none;
+    }
+    .icon-bar {
+        -webkit-transform: translateY(-15%);
+        -ms-transform: translateY(-15%);
+        transform: translateY(-15%);
     }
 }
