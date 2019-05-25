@@ -13551,3 +13551,10 @@ g {
         transform: translateY(-15%);
     }
 }
+
+.team-heading {
+    font-weight: 600;
+    color: #59ba00;
+    font-size: 24px;
+    padding-top: 55px;
+}
