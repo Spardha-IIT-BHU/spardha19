@@ -13520,20 +13520,3 @@ g {
 .team-section h4 {
     color: #7ed321;
 }
-
-@media screen and (max-width: 991px) {
-    .corner-ribbon {
-        display: none !important;
-    }
-    .icon-bar {
-        -webkit-transform: translateY(-15%);
-        -ms-transform: translateY(-15%);
-        transform: translateY(-15%);
-    }
-}
-
-@media screen and (min-width: 991px) {
-    .tray {
-        display: none !important;
-    }
-}
