@@ -81,12 +81,28 @@ function check(x, arg) {
         }
     }
     if (x == "designation") {
-        showok(x);
-        hide(x, parent, second);
+        if (!$.isNumeric(firstval)) {
+            showok(x);
+            hide(x, parent, second);
+        } else {
+            showcross(x);
+            show(x, parent, second, "Please enter a valid designation.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
     }
     if (x == "institute") {
-        showok(x);
-        hide(x, parent, second);
+        if (!$.isNumeric(firstval)) {
+            showok(x);
+            hide(x, parent, second);
+        } else {
+            showcross(x);
+            show(x, parent, second, "Please enter a valid Institute Name.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
     }
     if (x == "year") {
         showok(x);
@@ -132,14 +148,22 @@ function onLeave(x) {
     check(x, 1);
 }
 
-function hideError() {
-    $('#finalerror').html('');
-    $('#finalerror').fadeOut();
+function hideError(x) {
+    $('#finalerror' + x).fadeOut();
 }
 
-function showError(error) {
-    $("#finalerror").fadeIn();
-    $("#finalerror").html(error);
+function showError(x, error) {
+    $("#finalerror" + x).fadeIn();
+    $("#finalerror" + x).html(error);
+}
+
+function hideSuccess(x) {
+    $('#finalsuccess' + x).fadeOut();
+}
+
+function showSuccess(x, success) {
+    $("#finalsuccess" + x).fadeIn();
+    $("#finalsuccess" + x).html(success);
 }
 
 function validCaptcha() {
@@ -152,17 +176,32 @@ function validCaptcha() {
 
 
 function disableAll() {
-    document.getElementById("submit").disabled = "true";
-    document.getElementById("submit").innerHTML = "Processing...";
+    document.getElementById("submit1").disabled = "true";
+    document.getElementById("submit1").innerHTML = "Processing...";
+}
+
+function disableAll2() {
+    $("#OTPdiv").fadeIn();
+    document.getElementById("submit1").disabled = "true";
+    document.getElementById("submit1").innerHTML = '<i class="fa fa-paper-plane"></i> Register';
+    document.getElementById("name").disabled = "true";
+    document.getElementById("designation").disabled = "true";
+    document.getElementById("institute").disabled = "true";
+    document.getElementById("year").disabled = "true";
+    document.getElementById("email").disabled = "true";
+    document.getElementById("phone").disabled = "true";
+    document.getElementById("captchaTextBox").disabled = "true";
+    document.getElementById("terms").disabled = "true";
+    $(".event").prop("disabled", true);
 }
 
 function validate(form) {
-    hideError();
+    hideError(1);
+    hideSuccess(1);
     if (!validCaptcha()) {
-        showError("Invalid Captcha! Please try again!");
+        showError(1, "Invalid Captcha! Please try again!");
         return false;
     }
-    var error = document.getElementById("finalerror");
     var f = 1;
     for (var key in flag) {
         check(key, 0);
@@ -170,17 +209,31 @@ function validate(form) {
         if (flag[key] == 0) f = 0;
     }
     if (f == 0) {
-        showError("Please enter the correct details.");
+        showError(1, "Please enter the correct details.");
         return false;
     }
     if ($("form .event:checked").length == 0) {
-        showError("Please select at least one event.");
+        showError(1, "Please select at least one event.");
         return false;
     }
     if (!$("form #terms").is(":checked")) {
-        showError("Please check the above box before proceeding.");
+        showError(1, "Please check the above box before proceeding.");
         return false;
     }
     disableAll();
+    return true;
+}
+
+function verifyOTP(form) {
+    hideError(1);
+    hideSuccess(1);
+    hideSuccess(2);
+    var otp = document.getElementById("OTPTextBox").value;
+    if (otp.length != 6 || !$.isNumeric(otp)) {
+        showError(2, "Invalid OTP! Please try again.");
+        return false;
+    }
+    document.getElementById("submit2").disabled = "true";
+    document.getElementById("submit2").innerHTML = "Verifying...";
     return true;
 }

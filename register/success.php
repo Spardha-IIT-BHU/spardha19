@@ -1,6 +1,6 @@
 <?php
         echo '<div class="col-sm-12" style="padding-top: 50px;">';
-        if ($flag == 2) {
+        if ($flag == 3) {
           echo '<div class="alert alert-warning">';
           echo '<strong>NOTE:</strong> Someone already registered from your institute but we have saved your response.';
           echo '</div>';
@@ -10,7 +10,8 @@
             echo '</div>';
             echo '<img src="../images/logos/spardha.png" style="width: 100%; max-width: 500px; display: block; margin: 0 auto 10px;">';
             $id = mysqli_insert_id ($conn);
-            $query = "SELECT * FROM `registration2019` WHERE (`id`='$id')";
+            $email = $_SESSION['email'];
+            $query = "SELECT * FROM `registration2019` WHERE (`email`='$email')";
             $result = mysqli_query ($conn, $query);
             $row = mysqli_fetch_row($result);
             if ($result) {
@@ -63,4 +64,5 @@
             else {
               echo "Unable to retrieve the details: " . mysqli_error($conn);
             }
+session_destroy();
 ?>

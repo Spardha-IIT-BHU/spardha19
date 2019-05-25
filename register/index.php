@@ -1,3 +1,10 @@
+<?php
+session_start();
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+    session_destroy();
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,14 +61,25 @@ else {
         <?php
             echo '<div class="col-sm-12">';
             include("db.php");
-            $flag = 0;
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                $flag = 1;
-                $name = mysqli_real_escape_string ($conn, clean($_POST["name"]));
-                $designation = mysqli_real_escape_string ($conn, clean($_POST["designation"]));
-                $institute_name = mysqli_real_escape_string ($conn, clean($_POST["institute"]));
-                $acad_year = mysqli_real_escape_string ($conn, clean($_POST["year"]));
-                $email = mysqli_real_escape_string ($conn, clean($_POST["email"]));
+            if (!isset($_SESSION['flag'])) {
+                $_SESSION['flag'] = 0;
+            }
+            if (!isset($_SESSION['OTPck'])) {
+                $_SESSION['OTPck'] = 0;
+            }
+            if (!isset($_SESSION['email'])) {
+                $_SESSION['email'] = "";
+            }
+            if (!isset($_SESSION['email_reg'])) {
+                $_SESSION['email_reg'] = 0;
+            }
+            if ($_SESSION['flag'] == 0 && $_SERVER["REQUEST_METHOD"] == "POST") {
+                $_SESSION['flag'] = 1;
+                $_SESSION['name'] = mysqli_real_escape_string ($conn, clean($_POST["name"]));
+                $_SESSION['designation'] = mysqli_real_escape_string ($conn, clean($_POST["designation"]));
+                $_SESSION['institute_name'] = mysqli_real_escape_string ($conn, clean($_POST["institute"]));
+                $_SESSION['acad_year'] = mysqli_real_escape_string ($conn, clean($_POST["year"]));
+                $_SESSION['email'] = mysqli_real_escape_string ($conn, clean($_POST["email"]));
                 $phone = mysqli_real_escape_string ($conn, clean($_POST["phone"]));
                 if (strlen($phone) == 11) {
                     $phone = substr($phone, 1);
@@ -69,6 +87,7 @@ else {
                 else if (strlen($phone) == 13) {
                     $phone = substr($phone, 3);
                 }
+                $_SESSION['phone'] = $phone;
                 $checkbox1 = $_POST["opt"];  
                 $chk = "";
                 $chkF = "";
@@ -83,28 +102,66 @@ else {
                 }
                 $chk = rtrim($chk, ", ");
                 $chkF = rtrim($chkF, ", ");
-                $opted_events = mysqli_real_escape_string ($conn, clean($chk));
-                $girls_events = mysqli_real_escape_string ($conn, clean($chkF));
+                $institute_name = $_SESSION['institute_name'];
+                $email = $_SESSION['email'];
+                $_SESSION['opted_events'] = mysqli_real_escape_string ($conn, clean($chk));
+                $_SESSION['girls_events'] = mysqli_real_escape_string ($conn, clean($chkF));
                 $query = "SELECT * FROM `registration2019` WHERE (`institute_name`='$institute_name')";
-                $result = mysqli_query ($conn, $query);
-                if ($result) {
-                    $rows = mysqli_num_rows ($result);
-                    if ($rows) {
-                        $flag = 2;
+                $result1 = mysqli_query ($conn, $query);
+                $query = "SELECT * FROM `registration2019` WHERE (`email`='$email')";
+                $result2 = mysqli_query ($conn, $query);
+                if ($result1 && $result2) {
+                    $rows1 = mysqli_num_rows ($result1);
+                    $rows2 = mysqli_num_rows ($result2);
+                    if ($rows1) {
+                        $_SESSION['flag'] = 3;
                     }
-                    $query = "INSERT INTO `registration2019` (`name`, `designation`, `institute_name`, `acad_year`, `email`, `phone`, `opted_events`, `girls_events`) VALUES ('$name', '$designation', '$institute_name', '$acad_year', '$email', '$phone', '$opted_events', '$girls_events')";
+                    if ($rows2) {
+                        $_SESSION['email_reg'] = 1;
+                    }
+                }
+                else {
+                    echo "Could not connect: ". mysqli_error($conn);
+                    session_destroy();
+                }
+                include("otp.php");
+            }
+            else if ($_SESSION['flag'] == 1 && $_SERVER["REQUEST_METHOD"] == "POST") {
+                $otp_user = mysqli_real_escape_string ($conn, clean($_POST["OTPTextBox"]));
+                if ($otp_user == $_SESSION['otp']) {
+                    $_SESSION['flag'] = 2;
+                    $name = $_SESSION['name'];
+                    $designation = $_SESSION['designation'];
+                    $institute_name = $_SESSION['institute_name'];
+                    $acad_year = $_SESSION['acad_year'];
+                    $email = $_SESSION['email'];
+                    $phone = $_SESSION['phone'];
+                    $opted_events = $_SESSION['opted_events'];
+                    $girls_events = $_SESSION['girls_events'];
+                    $flag = $_SESSION['flag'];
+                    if ($_SESSION['email_reg'] == 0)
+                        $query = "INSERT INTO `registration2019` (`name`, `designation`, `institute_name`, `acad_year`, `email`, `phone`, `opted_events`, `girls_events`) VALUES ('$name', '$designation', '$institute_name', '$acad_year', '$email', '$phone', '$opted_events', '$girls_events')";
+                    else {
+                        $query1 = "SELECT * FROM `registration2019` WHERE (`email`='$email')";
+                        $result1 = mysqli_query ($conn, $query1);
+                        $row = mysqli_fetch_row($result1);
+                        $query = "UPDATE `registration2019` SET `id`='$row[0]', `name`='$name', `designation`='$designation', `institute_name`='$institute_name', `acad_year`='$acad_year', `email`='$email', `phone`='$phone', `opted_events`='$opted_events', `girls_events`='$girls_events' WHERE `email`='$email'";
+                    }
                     $result = mysqli_query ($conn, $query);
                     if ($result) {
                         include("success.php");
                     }
-                    else echo "Could not register: " . mysqli_error($conn);
+                    else {
+                        echo "Could not register: " . mysqli_error($conn);
+                        session_destroy();
+                    }
                 }
                 else {
-                    echo "Could not connect: ". mysqli_error($conn);
+                    $_SESSION['OTPck'] = -1;
                 }
             }
             echo '</div>';
-            if ($flag == 0) {
+            if ($_SESSION['flag'] == 0 || $_SESSION['flag'] == 1) {
         ?>
         <div class="col-sm-12">
             <div class="alert alert-info">
@@ -354,7 +411,7 @@ else {
                 </div>
             </div>
             <div class="col-sm-12">
-                <div class="form-group ">
+                <div class="form-group">
                     <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms"> <span style="color: red">*</span> By submitting this form, you agree to abide by
                         the <a target="_blank">"Rules of Spardha 2019."</a></label>
@@ -362,13 +419,48 @@ else {
                             <div class="col-sm-12" style="text-align: center;">
                                 <div id="captcha" style="padding-left: 50px;"></div>
                                 <label>Captcha:&nbsp;<span style="color: red">*</span></label>
-                                <input type="text" placeholder="Enter the Captcha" id="captchaTextBox">
+                                <input type="text" placeholder="Enter the Captcha" id="captchaTextBox" name="captchaTextBox">
                             </div>
                         </div>
-                    <div id="finalerror" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
+                    <div id="finalerror1" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
+                    <div id="finalsuccess1" class="alert alert-success" style="margin-top: 20px; display: none;"></div>
                     <hr>
-                    <button id="submit" type="submit" name="submit" class="btn btn-default btn-success btn-block"> &nbsp;
+                    <button id="submit1" type="submit1" name="submit1" class="btn btn-default btn-success btn-block"> &nbsp;
                         <i class="fa fa-paper-plane"></i> Register
+                    </button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" role="form" method="post" action="" onsubmit="return verifyOTP(this);"
+            novalidate>
+            <div id="OTPdiv" class="col-sm-12" style="padding-top: 25px; text-align: center; display: none;">
+                <?php
+                if ($_SESSION['OTPck'] == 0)
+                    echo '<div id="finalsuccess2" class="alert alert-success" style="margin-top: 20px; display: none;">
+                    OTP has been sent to your email address: <b>' . $_SESSION['email'] .
+                    '</b><br> Please enter the OTP below to verify and confirm your registration.
+                    <br><b>NOTE: </b>Check your spam folder if you didn\'t receive the email.
+                    </div>';
+                else if ($_SESSION['OTPck'] == 1)
+                    echo '<div id="finalsuccess2" class="alert alert-success" style="margin-top: 20px; display: none;">
+                    OTP has been re-sent to your email address: <b>' . $_SESSION['email'] .
+                    '</b><br> Please enter the OTP below to verify and confirm your registration.
+                    <br><b>NOTE: </b>Check your spam folder if you didn\'t receive the email.
+                    </div>';
+                else
+                    echo '<div id="finalsuccess2" class="alert alert-success" style="margin-top: 20px; display: none;"></div>';
+                if ($_SESSION['OTPck'] == -1)
+                    echo '<div id="finalerror2" class="alert alert-danger" style="margin-top: 20px; display: none;">
+                    Invalid OTP! Please try again.
+                    </div>';
+                else
+                    echo '<div id="finalerror2" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>';
+                ?>
+                <div class="form-group">
+                    <label>OTP:&nbsp;<span style="color: red">*</span></label>
+                    <input type="text" placeholder="Enter the OTP" id="OTPTextBox" name="OTPTextBox">
+                    <button id="submit2" type="submit2" name="submit2" class="btn btn-default btn-success"> &nbsp;
+                        <i class="fa fa-check"></i> Verify
                     </button>
                 </div>
             </div>
@@ -390,7 +482,23 @@ else {
         </script>
         <script src="form.js"></script>
         <?php
+        if ($_SESSION['flag'] == 1)
+            echo '<script type="text/javascript"> disableAll2(); </script>';
         }
+        if ($_SESSION['OTPck'] >= 0)
+            echo '<script type="text/javascript">
+            hideError(1);
+            hideError(2);
+            hideSuccess(1);
+            $("#finalsuccess2").fadeIn();
+            </script>';
+        else
+            echo '<script type="text/javascript">
+            hideError(1);
+            hideSuccess(1);
+            hideSuccess(2);
+            $("#finalerror2").fadeIn();
+            </script>';
         mysqli_close ($conn);
         function clean($data) {
             $data = trim($data);

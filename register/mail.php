@@ -78,7 +78,7 @@ The details received are: </div><br>
 <td>' . $row[8] . '</td>
 </table>
 <br><br><br>
-Regards,<br><br>Team Spardha<br>IIT (BHU) Varanasi');
+Regards,<br><br>Team Spardha,<br>IIT (BHU) Varanasi.');
 // Optional when using HTML: Set an alternative plain text message for email clients who prefer that.
 //$mail->AltBody = 'This is a plain-text message body'; 
 
