@@ -297,7 +297,7 @@ else {
                     <div class="panel-heading">
                         <h4 class="panel-title text-center" style="color:#59ba00;">
                             <a data-toggle="collapse" href="#collapse1" class="" style="color:#59ba00;">
-                                Select Events&nbsp;<span style="color: red">*</span></a>
+                                Select Events for Participation&nbsp;<span style="color: red">*</span></a>
                         </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
@@ -386,65 +386,53 @@ else {
                                             value="Weightlifting"><span>Weightlifting</span></label>
                                 </div>
                             </div>
-                            <div class="col-sm-6" style="margin-top: 30px;">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h4 class="panel-title text-center" style="color:#59ba00;">
-                                            <a data-toggle="collapse" href="#collapse2" class="" style="color:#59ba00;">
-                                                <i class="fa fa-female fa-lg"></i> Events for Girls </a>
-                                        </h4>
+                            <div class="col-sm-6">
+                                <div class="col-sm-6">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Athletics"><span>Athletics (GIRLS)</span></label>
                                     </div>
-                                    <div id="collapse2" class="panel-collapse collapse in">
-                                        <div class="panel-body expanded-panel">
-                                            <div class="col-sm-6">
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Athletics"><span>Athletics</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Badminton"><span>Badminton</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Basketball"><span>Basketball</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Boxing"><span>Boxing</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Carrom"><span>Carrom</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Kabaddi"><span>Kabaddi</span></label>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Kho-kho"><span>Kho-Kho</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Taekwondo"><span>Taekwondo</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Tennis"><span>Tennis</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Table-tennis"><span>Table Tennis</span></label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox" class="event" name="opt[]"
-                                                            value="F-Volleyball"><span>Volleyball</span></label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Badminton"><span>Badminton (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Basketball"><span>Basketball (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Boxing"><span>Boxing (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Carrom"><span>Carrom (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Kabaddi"><span>Kabaddi (GIRLS)</span></label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Kho-kho"><span>Kho-Kho (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Taekwondo"><span>Taekwondo (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Tennis"><span>Tennis (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Table-tennis"><span>Table Tennis (GIRLS)</span></label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" class="event" name="opt[]"
+                                                value="F-Volleyball"><span>Volleyball (GIRLS)</span></label>
                                     </div>
                                 </div>
                             </div>
