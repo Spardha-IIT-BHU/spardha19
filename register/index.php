@@ -77,9 +77,9 @@ else {
                 $_SESSION['flag'] = 1;
                 $_SESSION['name'] = mysqli_real_escape_string ($conn, clean($_POST["name"]));
                 $_SESSION['designation'] = mysqli_real_escape_string ($conn, clean($_POST["designation"]));
-                $_SESSION['institute_name'] = mysqli_real_escape_string ($conn, clean($_POST["institute"]));
+                $_SESSION['institute_name'] = strtoupper (mysqli_real_escape_string ($conn, clean($_POST["institute"])));
                 $_SESSION['acad_year'] = mysqli_real_escape_string ($conn, clean($_POST["year"]));
-                $_SESSION['email'] = mysqli_real_escape_string ($conn, clean($_POST["email"]));
+                $_SESSION['email'] = strtolower (mysqli_real_escape_string ($conn, clean($_POST["email"])));
                 $phone = mysqli_real_escape_string ($conn, clean($_POST["phone"]));
                 if (strlen($phone) == 11) {
                     $phone = substr($phone, 1);
@@ -88,10 +88,10 @@ else {
                     $phone = substr($phone, 3);
                 }
                 $_SESSION['phone'] = $phone;
-                $checkbox1 = $_POST["opt"];  
+                $_SESSION['checkbox'] = $_POST["opt"];  
                 $chk = "";
                 $chkF = "";
-                foreach($checkbox1 as $chk1)  
+                foreach($_SESSION['checkbox'] as $chk1)  
                 {
                     if (substr($chk1,0,2) == "F-") {
                         $chkF .= $chk1 . ", ";
@@ -188,7 +188,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="name" name="name" onfocus='onInput("name")' oninput='onInput("name")' onblur='onLeave("name")'
-                                        placeholder="Enter your Name" required><i class="fa fa-user fa-lg form-control-feedback"></i>
+                                    value="<?php echo (isset($_SESSION['name']) ? $_SESSION['name'] : ''); ?>" placeholder="Enter your Name" required><i class="fa fa-user fa-lg form-control-feedback"></i>
                                     <span id="name-icon"></span>
                                 </div>
                                 <div class="error" id="name-error">&nbsp;</div>
@@ -200,7 +200,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="designation" name="designation" onfocus='onInput("designation")' oninput='onInput("designation")' onblur='onLeave("designation")'
-                                        placeholder="Write your Designation" required>
+                                    value="<?php echo (isset($_SESSION['designation']) ? $_SESSION['designation'] : ''); ?>" placeholder="Write your Designation" required>
                                         <i class="fa fa-briefcase fa-lg form-control-feedback"></i>
                                     <span id="designation-icon"></span>
                                 </div>
@@ -213,7 +213,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="institute" name="institute" onfocus='onInput("institute")' oninput='onInput("institute")' onblur='onLeave("institute")'
-                                        list="instituteList" placeholder="Enter your Institute & City" required><i
+                                    value="<?php echo (isset($_SESSION['institute_name']) ? $_SESSION['institute_name'] : ''); ?>" list="instituteList" placeholder="Enter your Institute & City" required><i
                                         class="fa fa-building fa-lg form-control-feedback"></i>
                                     <span id="institute-icon"></span>
                                 </div>
@@ -227,7 +227,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="year" name="year" onfocus='onInput("year")' oninput='onInput("year")' onblur='onLeave("year")'
-                                        placeholder="Enter your Academic Year" required><i
+                                    value="<?php echo (isset($_SESSION['acad_year']) ? $_SESSION['acad_year'] : ''); ?>" placeholder="Enter your Academic Year" required><i
                                         class="fa fa-graduation-cap fa-lg form-control-feedback"></i>
                                     <span id="year-icon"></span>
                                 </div>
@@ -240,7 +240,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="email" class="form-control" id="email" name="email" onfocus='onInput("email")' oninput='onInput("email")' onblur='onLeave("email")'
-                                        placeholder="Enter Your Email Address" required><i
+                                    value="<?php echo (isset($_SESSION['email']) ? $_SESSION['email'] : ''); ?>" placeholder="Enter Your Email Address" required><i
                                         class="fa fa-envelope fa-lg form-control-feedback"></i>
                                     <span id="email-icon"></span>
                                 </div>
@@ -253,7 +253,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="phone" name="phone" onfocus='onInput("phone")' oninput='onInput("phone")' onblur='onLeave("phone")'
-                                        placeholder="Enter Your Phone No." required><i class="fa fa-phone fa-lg form-control-feedback"></i>
+                                    value="<?php echo (isset($_SESSION['phone']) ? $_SESSION['phone'] : ''); ?>" placeholder="Enter Your Phone No." required><i class="fa fa-phone fa-lg form-control-feedback"></i>
                                     <span id="phone-icon"></span>
                                 </div>
                                 <div class="error" id="phone-error">&nbsp;</div>
@@ -274,134 +274,134 @@ else {
                         <div class="panel-body expanded-panel">
                             <div class="col-sm-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Aquatics") ?>
                                             value="Aquatics"><span>Aquatics</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Athletics") ?>
                                             value="Athletics"><span>Athletics</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Badminton") ?>
                                             value="Badminton"><span>Badminton</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Basketball") ?>
                                             value="Basketball"><span>Basketball</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Boxing") ?>
                                             value="Boxing"><span>Boxing</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Carrom") ?>
                                             value="Carrom"><span>Carrom</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Chess") ?>
                                             value="Chess"><span>Chess</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Cricket") ?>
                                             value="Cricket"><span>Cricket</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Football") ?>
                                             value="Football"><span>Football</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Handball") ?>
                                             value="Handball"><span>Handball</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Hockey") ?>
                                             value="Hockey"><span>Hockey</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Kabaddi") ?>
                                             value="Kabaddi"><span>Kabaddi</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Kho-kho") ?>
                                             value="Kho-kho"><span>Kho-Kho</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Powerlifting") ?>
                                             value="Powerlifting"><span>Powerlifting</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Squash") ?>
                                             value="Squash"><span>Squash</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Taekwondo") ?>
                                             value="Taekwondo"><span>Taekwondo</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Tennis") ?>
                                             value="Tennis"><span>Tennis</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Table-tennis") ?>
                                             value="Table-tennis"><span>Table Tennis</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Volleyball") ?>
                                             value="Volleyball"><span>Volleyball</span></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" class="event" name="opt[]"
+                                    <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("Weightlifting") ?>
                                             value="Weightlifting"><span>Weightlifting</span></label>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="col-sm-6">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Athletics") ?>
                                                 value="F-Athletics"><span>Athletics (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Badminton") ?>
                                                 value="F-Badminton"><span>Badminton (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Basketball") ?>
                                                 value="F-Basketball"><span>Basketball (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Boxing") ?>
                                                 value="F-Boxing"><span>Boxing (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Carrom") ?>
                                                 value="F-Carrom"><span>Carrom (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Kabaddi") ?>
                                                 value="F-Kabaddi"><span>Kabaddi (GIRLS)</span></label>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Kho-kho") ?>
                                                 value="F-Kho-kho"><span>Kho-Kho (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Taekwondo") ?>
                                                 value="F-Taekwondo"><span>Taekwondo (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Tennis") ?>
                                                 value="F-Tennis"><span>Tennis (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Table-tennis") ?>
                                                 value="F-Table-tennis"><span>Table Tennis (GIRLS)</span></label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" class="event" name="opt[]"
+                                        <label><input type="checkbox" class="event" name="opt[]" <?php fillbox("F-Volleyball") ?>
                                                 value="F-Volleyball"><span>Volleyball (GIRLS)</span></label>
                                     </div>
                                 </div>
@@ -412,7 +412,7 @@ else {
             </div>
             <div class="col-sm-12">
                 <div class="form-group">
-                    <input type="checkbox" id="terms" name="terms" required>
+                    <input type="checkbox" id="terms" name="terms" <?php echo isset($_POST['terms'])?'checked="checked"':'';?> required>
                     <label for="terms"> <span style="color: red">*</span> By submitting this form, you agree to abide by
                         the <a target="_blank">"Rules of Spardha 2019."</a></label>
                         <div class="row">
@@ -487,16 +487,16 @@ else {
         }
         if ($_SESSION['OTPck'] >= 0)
             echo '<script type="text/javascript">
-            hideError(1);
-            hideError(2);
-            hideSuccess(1);
+            $("#finalerror1").fadeOut();
+            $("#finalerror2").fadeOut();
+            $("#finalsuccess1").fadeOut();
             $("#finalsuccess2").fadeIn();
             </script>';
         else
             echo '<script type="text/javascript">
-            hideError(1);
-            hideSuccess(1);
-            hideSuccess(2);
+            $("#finalerror1").fadeOut();
+            $("#finalsuccess1").fadeOut();
+            $("#finalsuccess2").fadeIn();
             $("#finalerror2").fadeIn();
             </script>';
         mysqli_close ($conn);
@@ -505,6 +505,17 @@ else {
             $data = stripslashes($data);
             $data = htmlspecialchars($data);
             return $data;
+        }
+        function fillbox ($data) {
+            $temp = 0;
+            if (isset($_SESSION['checkbox'])) {
+                foreach ($_SESSION['checkbox'] as $chk) {
+                    if ($chk == $data) {
+                        $temp = 1;
+                    }
+                }
+            }
+            if ($temp) echo ' checked = "checked" ';
         }
         ?>
     </div>
