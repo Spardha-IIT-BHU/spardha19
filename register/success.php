@@ -1,6 +1,6 @@
 <?php
         echo '<div class="col-sm-12" style="padding-top: 50px;">';
-        if ($flag == 3) {
+        if ($flag == 4) {
           echo '<div class="alert alert-warning">';
           echo '<strong>NOTE:</strong> Someone already registered from your institute but we have saved your response.';
           echo '</div>';

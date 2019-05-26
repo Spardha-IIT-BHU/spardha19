@@ -126,10 +126,15 @@ else {
                 }
                 include("otp.php");
             }
-            else if ($_SESSION['flag'] == 1 && $_SERVER["REQUEST_METHOD"] == "POST") {
+            else if (($_SESSION['flag'] == 1 || $_SESSION['flag'] == 3) && $_SERVER["REQUEST_METHOD"] == "POST") {
                 $otp_user = mysqli_real_escape_string ($conn, clean($_POST["OTPTextBox"]));
                 if ($otp_user == $_SESSION['otp']) {
-                    $_SESSION['flag'] = 2;
+                    if ($_SESSION['flag'] == 1) {
+                        $_SESSION['flag'] = 2;
+                    }
+                    else if ($_SESSION['flag'] == 3) {
+                        $_SESSION['flag'] = 4;
+                    }
                     $name = $_SESSION['name'];
                     $designation = $_SESSION['designation'];
                     $institute_name = $_SESSION['institute_name'];
@@ -161,7 +166,7 @@ else {
                 }
             }
             echo '</div>';
-            if ($_SESSION['flag'] == 0 || $_SESSION['flag'] == 1) {
+            if ($_SESSION['flag'] == 0 || $_SESSION['flag'] == 1 || $_SESSION['flag'] == 3) {
         ?>
         <div class="col-sm-12">
             <div class="alert alert-info">
@@ -482,9 +487,8 @@ else {
         </script>
         <script src="form.js"></script>
         <?php
-        if ($_SESSION['flag'] == 1)
+        if ($_SESSION['flag'] == 1 || $_SESSION['flag'] == 3)
             echo '<script type="text/javascript"> disableAll2(); </script>';
-        }
         if ($_SESSION['OTPck'] >= 0)
             echo '<script type="text/javascript">
             $("#finalerror1").fadeOut();
@@ -499,6 +503,7 @@ else {
             $("#finalsuccess2").fadeIn();
             $("#finalerror2").fadeIn();
             </script>';
+        }
         mysqli_close ($conn);
         function clean($data) {
             $data = trim($data);
@@ -515,7 +520,9 @@ else {
                     }
                 }
             }
-            if ($temp) echo ' checked = "checked" ';
+            if ($temp) {
+                echo ' checked = "checked" ';
+            }
         }
         ?>
     </div>
