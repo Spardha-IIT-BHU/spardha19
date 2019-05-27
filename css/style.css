@@ -299,7 +299,8 @@ sup {
     top: auto;
     bottom: 8px;
     left: -72px;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
@@ -319,7 +320,8 @@ sup {
     top: auto;
     bottom: 12px;
     right: -68px;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 600;
     left: auto;
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
@@ -338,12 +340,14 @@ sup {
 
 @media (min-width:580px) {
     .corner-ribbon.bottom-left {
-        font-size: 17px;
+        font-size: 18px;
+        font-weight: 600;
         bottom: 10px;
         left: -70px;
     }
     .corner-ribbon.bottom-right {
-        font-size: 17px;
+        font-size: 18px;
+        font-weight: 600;
         bottom: 14px;
         right: -66px;
     }
@@ -351,12 +355,14 @@ sup {
 
 @media (min-width:770px) {
     .corner-ribbon.bottom-left {
-        font-size: 18px;
+        font-size: 19px;
+        font-weight: 600;
         bottom: 12px;
         left: -68px;
     }
     .corner-ribbon.bottom-right {
-        font-size: 18px;
+        font-size: 19px;
+        font-weight: 600;
         bottom: 16px;
         right: -64px;
     }
@@ -364,12 +370,14 @@ sup {
 
 @media (min-width:990px) {
     .corner-ribbon.bottom-left {
-        font-size: 17px;
+        font-size: 20px;
+        font-weight: 600;
         bottom: 19px;
         left: -61px;
     }
     .corner-ribbon.bottom-right {
-        font-size: 17px;
+        font-size: 20px;
+        font-weight: 600;
         bottom: 18px;
         right: -62px;
     }
@@ -377,12 +385,14 @@ sup {
 
 @media (min-width:1200px) {
     .corner-ribbon.bottom-left {
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: 700;
         bottom: 22px;
         left: -58px;
     }
     .corner-ribbon.bottom-right {
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: 700;
         bottom: 20px;
         right: -60px;
     }
