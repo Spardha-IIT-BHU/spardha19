@@ -48,10 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 </head>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "<body>";
+    echo "<body style='background-color: transparent'>";
 }
 else {
-    echo '<body onload="createCaptcha();">';
+    echo '<body style="background-color: transparent" onload="createCaptcha();">';
 }
 ?>
     <div class="container"
