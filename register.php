@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
@@ -74,16 +75,16 @@
         </div>
     </nav>
     <!-- END nav -->
-    <section class="home-slider js-fullheight owl-carousel ftco-degree-bottom">
+    <section class="home-slider js-fullheight owl-carousel">
         <div class="slider-item js-fullheight" style="background-image: url(images/bg/bg_1.jpg);">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
-                    <div class="col-lg-4 col-md-6 col-sm-8 col-9 ftco-animate text-center">
-                        <div class="container">
+                    <div class="col-lg-12 col-md-6 col-sm-8 col-9 ftco-animate text-center">
+                        <div class="container col-lg-4">
                             <img src="images/logos/spardha-white.png">
                         </div>
-                        <h1 class="mb-4 text-overflow-center" style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300)));">Spardha 2019</h1>
+                        <h1 class="mb-4 text-overflow-center" style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500;">Spardha 2019</h1>
                         <h2 class="subheading text-overflow-center" style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));">IIT (BHU), Varanasi</h2>
                         <h2 class="subheading text-overflow-center" style="color: yellow; font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));">October 18-20,
                             2019</h2>
@@ -95,11 +96,11 @@
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text js-fullheight justify-content-center align-items-center" data-scrollax-parent="true">
-                    <div class="col-lg-4 col-md-6 col-sm-8 col-9 ftco-animate text-center">
-                        <div class="container">
+                    <div class="col-lg-12 col-md-6 col-sm-8 col-9 ftco-animate text-center">
+                        <div class="container col-lg-4">
                             <img src="images/logos/spardha-white.png">
                         </div>
-                        <h1 class="mb-4 text-overflow-center" style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300)));">Spardha 2019</h1>
+                        <h1 class="mb-4 text-overflow-center" style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500;">Spardha 2019</h1>
                         <h2 class="subheading text-overflow-center" style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));">IIT (BHU), Varanasi</h2>
                         <h2 class="subheading text-overflow-center" style="color: yellow; font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300)));">October 18-20,
                             2019</h2>
@@ -109,11 +110,11 @@
         </div>
     </section>
     <div id="register">
-        <section class="ftco-section-services ftco-degree bg-light">
+        <section class="ftco-section-services bg-light">
             <div class="container">
                 <div class="row justify-content-center mb-5 pb-3">
                     <div class="col-md-7 heading-section ftco-animate text-center">
-                        <h3 class="subheading"></h3>
+                        <h3 class="subheading mt-5 pt-5"></h3>
                         <h2 class="mb-1">Register For Events</h2>
                     </div>
                 </div>

@@ -11326,9 +11326,8 @@ h5,
     color: #fff;
     line-height: 1.2;
     font-weight: normal;
-    letter-spacing: 1px;
-    font-weight: 700;
-    font-style: italic;
+    letter-spacing: 5px;
+    word-spacing: 10px;
 }
 
 .owl-carousel.home-slider .slider-item .slider-text h1 strong {
@@ -11375,7 +11374,6 @@ h5,
     font-size: 16px;
     letter-spacing: 2px;
     font-weight: 500;
-    font-style: italic;
 }
 
 .owl-carousel.home-slider .slider-item .slider-text .breadcrumbs span {
@@ -12856,22 +12854,21 @@ textarea.form-control {
     color: #000;
     line-height: 1;
     z-index: 1;
-    font-weight: 700;
     letter-spacing: 7px;
     text-transform: uppercase;
-    font-style: italic;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 .heading-section h2 {
     z-index: -1;
     font-size: 50px;
-    font-weight: 900;
     position: relative;
     text-transform: uppercase;
     line-height: 1.2;
-    letter-spacing: 1px;
-    font-style: italic;
+    letter-spacing: 2px;
+    word-spacing: 5px;
     margin-left: 15px;
+    font-family: 'Fjalla One', sans-serif;
 }
 
 @media (max-width: 767.98px) {
