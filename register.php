@@ -88,7 +88,7 @@
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mb-4 text-overflow-center"
-                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
+                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family:'League Spartan';font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
                         </h1>
                         <h2 class="subheading text-overflow-center"
                             style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))); font-weight: 700; text-shadow: 2px 2px #000;">IIT (BHU),
@@ -112,7 +112,7 @@
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mb-4 text-overflow-center"
-                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
+                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family:'League Spartan';font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
                         </h1>
                         <h2 class="subheading text-overflow-center"
                             style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))); font-weight: 700; text-shadow: 2px 2px #000;">IIT (BHU),
@@ -137,7 +137,7 @@
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mb-4 text-overflow-center"
-                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
+                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family:'League Spartan';font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
                         </h1>
                         <h2 class="subheading text-overflow-center"
                             style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))); font-weight: 700; text-shadow: 2px 2px #000;">IIT (BHU),
@@ -162,7 +162,7 @@
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mb-4 text-overflow-center"
-                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
+                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family:'League Spartan';font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
                         </h1>
                         <h2 class="subheading text-overflow-center"
                             style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))); font-weight: 700; text-shadow: 2px 2px #000;">IIT (BHU),
@@ -187,7 +187,7 @@
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mb-4 text-overflow-center"
-                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family: 'Fjalla One', sans-serif;font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
+                            style="font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))); font-family:'League Spartan';font-weight: 500; text-shadow: 2px 2px #000;">Spardha 2019
                         </h1>
                         <h2 class="subheading text-overflow-center"
                             style="font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))); font-weight: 700; text-shadow: 2px 2px #000;">IIT (BHU),
@@ -298,7 +298,7 @@
     <div id="ftco-loader" class="show fullscreen">
         <svg class="circular" width="48px" height="48px">
             <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
-            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#7ed321" />
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#6db549" />
         </svg>
         <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 3255 964" enable-background="new 0 0 955 364" xml:space="preserve" style="padding-left: calc(46vw - 130px); padding-top: 55vh; min-width: 1000px">
             <g id="itall">
