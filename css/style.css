@@ -14367,15 +14367,16 @@ g {
     float: right;
     height: 55px;
     width: 200px;
+    padding-top: 8px;
     background:white;
     display:inline-block;
-    font-size:1.5em;
-    padding-top: 5px;
+    font-size:1.3em;
     text-decoration:none;
+    border-radius: 4px;
   }
   
   .button:hover {
-    background: green;
+    padding-top: 4px;
     color: white;
     background: transparent;
     border: 0.2rem solid white;
@@ -14385,32 +14386,29 @@ g {
     float: left;
     height: 55px;
     width: 320px;
-    padding-top: 5px;
+    padding-top: 8px;
     background: white;
     display:inline-block;
-    font-size:1.5em;
+    font-size:1.3em;
     text-decoration:none;
+    border-radius: 4px;
   }
   
   .button1:hover {
+    padding-top: 4px;
     color: white;
     background: transparent;
     border: 0.2rem solid white;
   }
-
-.parallelogram{
-    transform: skew(-10deg);
-  }
   
-  .skew-fix{
+  .ca span{
     display:inline-block;
-    transform: skew(10deg);
-    color: #555;
-    font-family: 'League Spartan';
+    color: #555 !important;
+    font-family: 'Montserrat', sans-serif;
   }
 
-  .skew-fix:hover {
-      color: white;
+  .ca:hover span {
+      color: white !important;
   }
 
   .spardha-19 {
@@ -14463,4 +14461,48 @@ g {
 
   .spardha-mainlogo {
       padding-top: 100px;
+  }
+
+  
+.img-guests {
+    opacity: 1;
+    display: block;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.img-guests:hover {
+    opacity: 0.5;
+}
+
+.img-guests:hover + div {
+    display: inline-block;
+}
+
+#guests .col-md-3, .col-4, .col-lg-3 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.middle {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: none;
+  }
+
+  .middle:hover {
+      display: inline-block;
+  }
+
+  .guest-text {
+      font-size: 18px;
+      font-weight: 500;
   }
