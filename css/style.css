@@ -14382,17 +14382,36 @@ g {
     border: 0.2rem solid white;
   }
 
+  a.button {
+    color: #555 !important;
+    background: white;
+}
+
+a.button:hover {
+    background: transparent;
+  color: white !important;
+}
+
   .button1 {
     float: left;
     height: 55px;
     width: 320px;
     padding-top: 8px;
-    background: white;
     display:inline-block;
     font-size:1.3em;
     text-decoration:none;
     border-radius: 4px;
   }
+
+  a.button1 {
+      color: #555 !important;
+      background: white;
+  }
+
+  a.button1:hover {
+      background: transparent;
+    color: white !important;
+}
   
   .button1:hover {
     padding-top: 4px;
@@ -14400,16 +14419,7 @@ g {
     background: transparent;
     border: 0.2rem solid white;
   }
-  
-  .ca span{
-    display:inline-block;
-    color: #555 !important;
-    font-family: 'Montserrat', sans-serif;
-  }
 
-  .ca:hover span {
-      color: white !important;
-  }
 
   .spardha-19 {
     font-size: 35px !important;
