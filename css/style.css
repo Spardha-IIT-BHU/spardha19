@@ -11314,17 +11314,6 @@ h5,
     opacity: .4;
 }
 
-.owl-carousel.home-slider .slider-item .overlay1 {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
-    height: 80px;
-    opacity: .4;
-}
-
 .owl-carousel.home-slider .slider-item .slider-text {
     color: #fff;
     height: 750px;
@@ -14365,3 +14354,96 @@ g {
     border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
 }
+
+.button {
+    float: right;
+    height: 55px;
+    width: 200px;
+    background:#6db549;
+    box-shadow:10px 10px 0 rgba(0,0,0,.5);
+    display:inline-block;
+    font-size:2em;
+    text-decoration:none;
+  }
+  
+  .button:hover {
+    box-shadow: 10px 10px 0 rgba(0,0,0,1);
+    background: green;
+  }
+
+  .button1 {
+    float: left;
+    height: 55px;
+    width: 200px;
+    background:#6db549;
+    box-shadow:10px 10px 0 rgba(0,0,0,.5);
+    display:inline-block;
+    font-size:2em;
+    text-decoration:none;
+  }
+  
+  .button1:hover {
+    box-shadow: 10px 10px 0 rgba(0,0,0,1);
+    background: green;
+  }
+
+.parallelogram{
+    transform: skew(-10deg);
+  }
+  
+  .skew-fix{
+    display:inline-block;
+    transform: skew(10deg);
+  }
+
+  .spardha-19 {
+    font-size: 35px !important;
+    font-family: 'League Spartan';
+    font-weight: 500;
+    text-shadow: 2px 2px #000;
+  }
+
+  @media (min-width:500px) {
+      .spardha-19 {
+          font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))) !important;
+      }
+    }
+
+  .spardha-subheading {
+    font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
+    font-weight: 700;
+    font-family: 'League Spartan';
+    text-shadow: 2px 2px #000;
+  }
+
+  .small-screen {
+      display: none;
+  }
+
+  @media only screen 
+    and (max-width : 780px){ 
+      .small-screen {
+          display: inline;
+        }
+        .button, .button1 {
+            float: none;
+        }
+        .button1 {
+            margin-top: 10px;
+        }
+        .spardha-mainlogo {
+            padding-top: 0 !important;
+        }
+      .large-screen {display: none;}
+  }
+  
+  @media only screen 
+    and (max-width : 991px){ 
+        .spardha-mainlogo {
+            padding-top: 0px !important;
+        }
+    }
+
+  .spardha-mainlogo {
+      padding-top: 100px;
+  }
