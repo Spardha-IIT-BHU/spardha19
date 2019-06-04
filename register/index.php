@@ -55,7 +55,7 @@ else {
 }
 ?>
     <div class="container"
-        style="padding: 1em 2em 3em 2em; margin-top: 50px; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);">
+        style="padding: 1em 2em 3em 2em; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2); background: white;">
         <h3 style="text-align:center;color:#7ed321"> COLLEGE REGISTRATION </h3>
         <hr>
         <?php
