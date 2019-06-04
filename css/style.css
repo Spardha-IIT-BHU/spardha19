@@ -14398,7 +14398,7 @@ g {
 
   .spardha-19 {
     font-size: 35px !important;
-    font-family: 'League Spartan';
+    font-family: 'League Spartan'!important;
     font-weight: 500;
     text-shadow: 2px 2px #000;
   }
@@ -14412,7 +14412,7 @@ g {
   .spardha-subheading {
     font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
     font-weight: 700;
-    font-family: 'League Spartan';
+    font-family: 'League Spartan'!important;
     text-shadow: 2px 2px #000;
   }
 
