@@ -54,7 +54,7 @@ html {
 
 @font-face {
     font-family: "League Spartan";
-    src: url(fonts/leaguespartan.ttf);
+    src: url(../fonts/leaguespartan.ttf);
   }
   
 
@@ -1004,6 +1004,14 @@ pre code {
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.container-wrap {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 0px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -4987,7 +4995,7 @@ input[type="button"].btn-block {
     padding: 0.5rem 1rem;
 }
 
-.navbar>.container,
+.navbar>.container-wrap,
 .navbar>.container-fluid {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5087,7 +5095,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 575.98px) {
 
-    .navbar-expand-sm>.container,
+    .navbar-expand-sm>.container-wrap,
     .navbar-expand-sm>.container-fluid {
         padding-right: 0;
         padding-left: 0;
@@ -5121,7 +5129,7 @@ input[type="button"].btn-block {
         padding-left: 0.5rem;
     }
 
-    .navbar-expand-sm>.container,
+    .navbar-expand-sm>.container-wrap,
     .navbar-expand-sm>.container-fluid {
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
@@ -5142,7 +5150,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 767.98px) {
 
-    .navbar-expand-md>.container,
+    .navbar-expand-md>.container-wrap,
     .navbar-expand-md>.container-fluid {
         padding-right: 0;
         padding-left: 0;
@@ -5197,7 +5205,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 991.98px) {
 
-    .navbar-expand-lg>.container,
+    .navbar-expand-lg>.container-wrap,
     .navbar-expand-lg>.container-fluid {
         padding-right: 0;
         padding-left: 0;
@@ -5252,7 +5260,7 @@ input[type="button"].btn-block {
 
 @media (max-width: 1199.98px) {
 
-    .navbar-expand-xl>.container,
+    .navbar-expand-xl>.container-wrap,
     .navbar-expand-xl>.container-fluid {
         padding-right: 0;
         padding-left: 0;
@@ -5315,7 +5323,7 @@ input[type="button"].btn-block {
     justify-content: flex-start;
 }
 
-.navbar-expand>.container,
+.navbar-expand>.container-wrap,
 .navbar-expand>.container-fluid {
     padding-right: 0;
     padding-left: 0;
@@ -5337,7 +5345,7 @@ input[type="button"].btn-block {
     padding-left: 0.5rem;
 }
 
-.navbar-expand>.container,
+.navbar-expand>.container-wrap,
 .navbar-expand>.container-fluid {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
@@ -12856,7 +12864,7 @@ textarea.form-control {
 .heading-section .subheading {
     font-size: 20px;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     margin-left: 15px;
     color: #000;
     line-height: 1;
@@ -14359,32 +14367,35 @@ g {
     float: right;
     height: 55px;
     width: 200px;
-    background:#6db549;
-    box-shadow:10px 10px 0 rgba(0,0,0,.5);
+    background:white;
     display:inline-block;
-    font-size:2em;
+    font-size:1.5em;
+    padding-top: 5px;
     text-decoration:none;
   }
   
   .button:hover {
-    box-shadow: 10px 10px 0 rgba(0,0,0,1);
     background: green;
+    color: white;
+    background: transparent;
+    border: 0.2rem solid white;
   }
 
   .button1 {
     float: left;
     height: 55px;
-    width: 200px;
-    background:#6db549;
-    box-shadow:10px 10px 0 rgba(0,0,0,.5);
+    width: 320px;
+    padding-top: 5px;
+    background: white;
     display:inline-block;
-    font-size:2em;
+    font-size:1.5em;
     text-decoration:none;
   }
   
   .button1:hover {
-    box-shadow: 10px 10px 0 rgba(0,0,0,1);
-    background: green;
+    color: white;
+    background: transparent;
+    border: 0.2rem solid white;
   }
 
 .parallelogram{
@@ -14394,6 +14405,12 @@ g {
   .skew-fix{
     display:inline-block;
     transform: skew(10deg);
+    color: #555;
+    font-family: 'League Spartan';
+  }
+
+  .skew-fix:hover {
+      color: white;
   }
 
   .spardha-19 {
