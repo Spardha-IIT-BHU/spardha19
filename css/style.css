@@ -12888,7 +12888,13 @@ textarea.form-control {
 
 @media (max-width: 767.98px) {
     .heading-section h2 {
-        font-size: 28px;
+        font-size: 22px;
+    }
+    .heading-section .subheading {
+        font-size: 15px;
+    }
+    h3, .h3 {
+        font-size: 1.5rem;
     }
 }
 
@@ -14279,7 +14285,7 @@ g {
 .img-sponsor {
     opacity: 1;
     display: block;
-    width: 75%;
+    width: 80%;
     height: auto;
     transition: .5s ease;
     backface-visibility: hidden;
@@ -14287,6 +14293,28 @@ g {
 
 .img-sponsor:hover {
     opacity: 0.5;
+}
+
+.div-sponsor {
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .img-sponsor {
+        width: 90%;
+    }
+    .div-sponsor {
+        margin-left: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .img-sponsor {
+        width: 100%;
+    }
+    .div-sponsor {
+        margin-left: 0px;
+    }
 }
 
 .btn-xlg {
@@ -14336,15 +14364,15 @@ g {
     }
 
     .staff .img {
-        width: 125px;
-        height: 125px;
+        width: 150px;
+        height: 150px;
     }
 }
 
 @media screen and (max-width: 575px) {
     .staff .img {
-        width: 200px;
-        height: 200px;
+        width: 125px;
+        height: 125px;
     }
 }
 
@@ -14422,20 +14450,15 @@ a.button:hover {
 
 
   .spardha-19 {
-    font-size: 35px !important;
+    font-size: 22px !important;
     font-family: 'League Spartan'!important;
     font-weight: 500;
     text-shadow: 2px 2px #000;
   }
-
-  @media (min-width:500px) {
-      .spardha-19 {
-          font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))) !important;
-      }
-    }
+  
 
   .spardha-subheading {
-    font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
+    font-size: 12px !important;
     font-weight: 700;
     font-family: 'League Spartan'!important;
     text-shadow: 2px 2px #000;
@@ -14446,7 +14469,7 @@ a.button:hover {
   }
 
   @media only screen 
-    and (max-width : 780px){ 
+    and (max-width : 768px){ 
       .small-screen {
           display: inline;
         }
@@ -14459,21 +14482,61 @@ a.button:hover {
         .spardha-mainlogo {
             padding-top: 0 !important;
         }
-      .large-screen {display: none;}
-  }
-  
-  @media only screen 
-    and (max-width : 991px){ 
-        .spardha-mainlogo {
-            padding-top: 0px !important;
+      .large-screen {
+          display: none;
         }
+  }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .spardha-mainlogo {
+        padding-top: 40px !important;
     }
+    .button, .button1 {
+        padding-top: 0;
+        height: 40px;
+        font-size: 18px;
+        width: 230px;
+    }
+} 
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .spardha-19 {
+        font-size: calc(40px + (55 - 40) * ((100vw - 300px) / (1600 - 300))) !important;
+    }
+    .spardha-subheading {
+      font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
+    }
+    .spardha-mainlogo {
+        padding-top: 40px !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .spardha-mainlogo {
+        padding-top: 70px !important;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .spardha-mainlogo {
+        padding-top: 100px !important;
+    }
+}
 
   .spardha-mainlogo {
       padding-top: 100px;
   }
 
-  #guests .col-md-3, .col-4, .col-lg-3 {
+  #guests .col-md-3, .col-lg-3 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#guests {
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -14500,9 +14563,27 @@ a.button:hover {
       color: white;
   }
 
+  @media only screen and (max-width: 600px) {
+      .guest-text {
+          font-size: 15px;
+      }
+    #guests {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .col-6 {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+}
+
   #guests {
     background-image: url(../images/bg/bg_12.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
+  }
+
+  .testimony-section .owl-carousel .owl-stage-outer {
+      padding-bottom: 0 !important;
   }

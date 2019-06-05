@@ -111,7 +111,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button1" href="#register">
+                              <a class="button" href="#register">
                                 REGISTER
                               </a>
                             </div>
@@ -159,7 +159,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button1" href="#register">
+                              <a class="button" href="#register">
                                 REGISTER
                               </a>
                             </div>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button1" href="#register">
+                              <a class="button" href="#register">
                                 REGISTER
                               </a>
                             </div>
@@ -255,7 +255,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button1" href="#register">
+                              <a class="button" href="#register">
                                 REGISTER
                               </a>
                             </div>
