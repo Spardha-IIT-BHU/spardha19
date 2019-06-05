@@ -14506,6 +14506,7 @@ a.button:hover {
   padding-left: 10px;
   padding-right: 10px;
   display: none;
+  border-radius: 4px;
   }
 
   .middle:hover {
