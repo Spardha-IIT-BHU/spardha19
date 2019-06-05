@@ -36,7 +36,7 @@ h3 {
 }
 
 body {
-	background: url(../images/bg/bg_1.jpg) no-repeat;
+	background: url(../images/bg/bg_2.jpg) no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -97,17 +97,18 @@ img {
 	padding: 11px 0px 8px;
 	letter-spacing: 2px;
 	display: inline-block;
-	background: #7ed321;
+	background: #6db549;
 	font-family: 'Ropa Sans', sans-serif;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-o-transition: 0.5s all;
 	-moz-transition: 0.5s all;
 	-ms-transition: 0.5s all;
+	border-radius: 4px;
 }
 
 .agile-info a:hover {
-	background: #59ba00;
+	background: green;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-o-transition: 0.5s all;
@@ -589,4 +590,8 @@ img {
   .fa-map-marker {
 	background: #F44336;
 	color: white;
+  }
+
+  .agile-info, .footer {
+	  background-color: rgb(245,245,245);
   }
