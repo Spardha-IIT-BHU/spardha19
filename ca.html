@@ -71,6 +71,32 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
+                        <div class="container mt-5 pt-5 large-screen">
+                            <div class="row">
+                                <div class="col-6 ca">
+                                    <a class="button1" href="#ca">
+                                        CAMPUS AMBASSADOR
+                                      </a>
+                                </div>
+                                <div class="col-6 reg">
+                                    <a class="button" href="register.php#register">
+                                        REGISTER
+                                      </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-screen container">
+                            <div class="reg">
+                              <a class="button1" href="register.html#register">
+                                REGISTER
+                              </a>
+                            </div>
+                            <div class="ca">
+                              <a class="button1" href="#ca">
+                                CAMPUS AMBASSADOR
+                              </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,6 +119,32 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
+                        <div class="container mt-5 pt-5 large-screen">
+                            <div class="row">
+                                <div class="col-6 ca">
+                                    <a class="button1" href="#ca">
+                                        CAMPUS AMBASSADOR
+                                      </a>
+                                </div>
+                                <div class="col-6 reg">
+                                    <a class="button" href="register.php#register">
+                                        REGISTER
+                                      </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-screen container">
+                            <div class="reg">
+                              <a class="button1" href="register.html#register">
+                                REGISTER
+                              </a>
+                            </div>
+                            <div class="ca">
+                              <a class="button1" href="#ca">
+                                CAMPUS AMBASSADOR
+                              </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -115,6 +167,32 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
+                        <div class="container mt-5 pt-5 large-screen">
+                            <div class="row">
+                                <div class="col-6 ca">
+                                    <a class="button1" href="#ca">
+                                        CAMPUS AMBASSADOR
+                                      </a>
+                                </div>
+                                <div class="col-6 reg">
+                                    <a class="button" href="register.php#register">
+                                        REGISTER
+                                      </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-screen container">
+                            <div class="reg">
+                              <a class="button1" href="register.html#register">
+                                REGISTER
+                              </a>
+                            </div>
+                            <div class="ca">
+                              <a class="button1" href="#ca">
+                                CAMPUS AMBASSADOR
+                              </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,13 +215,38 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
+                        <div class="container mt-5 pt-5 large-screen">
+                            <div class="row">
+                                <div class="col-6 ca">
+                                    <a class="button1" href="#ca">
+                                        CAMPUS AMBASSADOR
+                                      </a>
+                                </div>
+                                <div class="col-6 reg">
+                                    <a class="button" href="register.php#register">
+                                        REGISTER
+                                      </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="small-screen container">
+                            <div class="reg">
+                              <a class="button1" href="register.html#register">
+                                REGISTER
+                              </a>
+                            </div>
+                            <div class="ca">
+                              <a class="button1" href="#ca">
+                                CAMPUS AMBASSADOR
+                              </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <div id="ca">
-        <section class="ftco-section-services bg-light">
+        <section class="ftco-section-services bg-light" id="ca">
             <div class="container">
                 <div class="row justify-content-center pt-5 mt-5 mb-5 pb-3">
                     <div class="col-md-7 heading-section ftco-animate text-center">
@@ -236,7 +339,6 @@
                 </div>
             </div>
         </section>
-    </div>
     <section id="contactus">
         <footer class="ftco-footer ftco-section img">
             <div class="overlay"></div>
@@ -383,6 +485,32 @@
                     nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
                 }
             });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $(".button1").on('click', function(event) {
+        
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "ca") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (700) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 700, function(){
+        
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
         });
     </script>
     <noscript>Sorry, your browser does not support JavaScript! Please enable Javascript for better experience.</noscript>
