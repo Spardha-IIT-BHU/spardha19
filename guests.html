@@ -40,6 +40,16 @@
 
         .container video {
             display: block;
+            z-index: 0;
+        }
+        #overlay-text {
+            position:absolute;
+            top: 5%;
+            left: 10px;
+            z-index:1;
+            font-size: 18px;
+            text-shadow: 2px 2px #000;
+            color: white;
         }
 
         .positioner {
@@ -435,8 +445,12 @@
                 <video id="video1" width="320" height="240" onclick="myfunc();" controls>
                     <source src="videos/1.mp4" type="video/mp4">
                 </video>
+                
                 <div class="positioner" onclick="playPause();">
                     <img src="images/icons/youtube.png" width="20%" id="youtubeplay">
+                </div>
+                <div id="overlay-text">
+                    <p>Best Wishes from Mr. Muttiah Mularitharan</p>
                 </div>
             </div>
             <div id="controls" style="padding-bottom: 20px; text-align: center;">
@@ -744,6 +758,7 @@
     <script>
         var vid = document.getElementById("video1");
         var vidList = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
+        var message = ['Mr. Muttiah Muralitharan', 'Miss Alex Blackwell', 'Mr. Baichung Bhutia', 'Mr. Gary Kirsten', 'Miss P. V. Sindhu', 'Mr. Pullela Gopichand'];
         var index = vidList.indexOf(window.currentVideoName);
         if (index < 0)
             index = 0;
@@ -774,9 +789,11 @@
                 index = 0;
             vid.src = 'videos/' + vidList[index];
             window.currentVideoName = vidList[index];
+            var overlay = document.getElementById("overlay-text");
+            overlay.innerHTML = "Best Wishes from " + message[index];
             document.getElementById('youtubeplay').style.visibility = "hidden";
             vid.play();
-        }hidden
+        }
 
         function previousButton() {
             vid.pause();
@@ -786,6 +803,8 @@
                 index = vidList.length - 1;
             vid.src = 'videos/' + vidList[index];
             window.currentVideoName = vidList[index];
+            var overlay = document.getElementById("overlay-text");
+            overlay.innerHTML = "Best Wishes from " + message[index];
             document.getElementById('youtubeplay').style.visibility = "hidden";
             vid.play();
         }
