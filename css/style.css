@@ -14499,3 +14499,10 @@ a.button:hover {
       font-family: "Fjalla One";
       color: white;
   }
+
+  #guests {
+    background-image: url(../images/bg/bg_12.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+  }
