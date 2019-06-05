@@ -31,6 +31,24 @@
         .ftco-navbar-light.scrolled .nav-link{
             color: #fff!important;
         }
+        #video1 {
+            outline: none;
+        }
+        #video1:hover {
+            cursor: pointer;
+        }
+
+        .container video {
+            display: block;
+        }
+
+        .positioner {
+            cursor: pointer;
+            position: absolute;
+            left: 47%;
+            top: 47%;
+        }
+
     </style>
 </head>
 
@@ -411,6 +429,22 @@
             </div>
         </div>
     </section>
+    <section id="video" class="ftco-section" style="padding: 0; background-color: black;">
+        <div class="container col-sm-7">
+            <div class="embed-responsive embed-responsive-4by3">
+                <video id="video1" width="320" height="240" onclick="myfunc();" controls>
+                    <source src="videos/1.mp4" type="video/mp4">
+                </video>
+                <div class="positioner" onclick="playPause();">
+                    <img src="images/icons/youtube.png" width="20%" id="youtubeplay">
+                </div>
+            </div>
+            <div id="controls" style="padding-bottom: 20px; text-align: center;">
+                <a class="btn btn-success control" href="javascript:previousButton();" style="font-size:18px; color: white; margin-right: 5px;">Previous</a>
+                <a class="btn btn-success control" href="javascript:nextButton();" style="font-size:18px; color: white; margin-left: 5px;">&nbsp; Next &nbsp;</a>
+            </div>
+        </div>
+    </section>
     <section id="testimonials" class="ftco-section testimony-section" style="background-image: url(images/bg/bg_4.jpg);">
         <div class="overlay"></div>
         <div class="overlay"></div>
@@ -698,10 +732,63 @@
                     sections.removeClass('active');
 
                     $(this).addClass('active');
-                    nav.find('a[href="#' + $(this).attr('id') + '"]').addClass('active');
+                    var attr = $(this).attr('id');
+                    if (attr !== "contactus") {
+                        attr = "guests";
+                    }
+                    nav.find('a[href="#' + attr + '"]').addClass('active');
                 }
             });
         });
+    </script>
+    <script>
+        var vid = document.getElementById("video1");
+        var vidList = ['1.mp4', '2.mp4', '3.mp4', '4.mp4', '5.mp4', '6.mp4'];
+        var index = vidList.indexOf(window.currentVideoName);
+        if (index < 0)
+            index = 0;
+        function myfunc() {
+            if (vid.paused) {
+                document.getElementById('youtubeplay').style.visibility = "hidden";
+            }
+            else {
+                document.getElementById('youtubeplay').style.visibility = "visible";
+            }
+        }
+        vid.addEventListener('ended', nextButton, false);
+        function playPause() {
+            if (vid.paused) {
+                vid.play();
+                document.getElementById('youtubeplay').style.visibility = "hidden";
+            }
+            else {
+                vid.pause();
+                document.getElementById('youtubeplay').style.visibility = "visible";
+            }
+        }
+        function nextButton() {
+            vid.pause();
+            vid.currentTime = 0;
+            index = index + 1;
+            if (index == vidList.length)
+                index = 0;
+            vid.src = 'videos/' + vidList[index];
+            window.currentVideoName = vidList[index];
+            document.getElementById('youtubeplay').style.visibility = "hidden";
+            vid.play();
+        }hidden
+
+        function previousButton() {
+            vid.pause();
+            vid.currentTime = 0;
+            index = index - 1;
+            if (index == -1)
+                index = vidList.length - 1;
+            vid.src = 'videos/' + vidList[index];
+            window.currentVideoName = vidList[index];
+            document.getElementById('youtubeplay').style.visibility = "hidden";
+            vid.play();
+        }
     </script>
     <noscript>Sorry, your browser does not support JavaScript! Please enable Javascript for better experience.</noscript>
 </body>
