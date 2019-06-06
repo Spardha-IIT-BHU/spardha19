@@ -14603,3 +14603,15 @@ a.button:hover {
   .testimony-section .owl-carousel .owl-stage-outer {
       padding-bottom: 0 !important;
   }
+
+  @media (max-width: 575.98px) {
+      .team-desktop {
+          display: none;
+      }
+  }
+
+  @media (min-width: 575.98px) {
+    .team-mobile {
+        display: none;
+    }
+}
