@@ -10547,6 +10547,7 @@ button.bg-dark:focus {
 
 .text-nowrap {
     white-space: nowrap !important;
+    font-family: "League Spartan";
 }
 
 .text-truncate {
