@@ -12470,7 +12470,7 @@ h5,
     font-size: 18px;
     margin-bottom: 0;
     color: #fff;
-    font-family: "Raleway", Arial, sans-serif;
+    font-family: "League Spartan";
     text-transform: uppercase;
 }
 
@@ -13015,15 +13015,15 @@ textarea.form-control {
 }
 
 .ftco-counter .text strong.number {
-    font-weight: 500;
-    font-size: 50px;
+    font-weight: 400;
+    font-size: 40px;
     color: #fff;
 }
 
 .ftco-counter .text span {
     text-transform: uppercase;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 18px;
     color: rgba(255, 255, 255, 1);
 }
 
@@ -14380,6 +14380,7 @@ g {
 }
 
 .team-heading {
+    font-family: "League Spartan";
     font-weight: 600;
     color: #6db549;
     font-size: 24px;
@@ -14626,6 +14627,11 @@ a.button:hover {
     border-color: white;
     border-style: solid;
     color : white;
-    padding : 45px 15px;
+    padding : 60px 15px;
     text-align: center;
+    font-family: "League Spartan";
+  }
+
+  .gallery-heading {
+      font-family: "League Spartan";
   }
