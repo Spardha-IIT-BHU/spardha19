@@ -12437,6 +12437,10 @@ h5,
     display: block;
     position: relative;
     color: rgba(255, 255, 255, 0.7);
+    -webkit-box-shadow: 0px 3px 40px -24px white;
+    -moz-box-shadow: 0px 3px 40px -24px white;
+    box-shadow: 0px 3px 40px -24px white;
+    border: 2px solid white;
 }
 
 .testimony-wrap .user-img {
@@ -12467,6 +12471,7 @@ h5,
 }
 
 .testimony-wrap .name {
+    color: #6db549 !important;
     font-weight: 700;
     font-size: 18px;
     margin-bottom: 0;
@@ -12502,7 +12507,7 @@ h5,
 }
 
 .testimony-section .owl-carousel .owl-stage-outer {
-    padding-top: 3.5em;
+    padding-top: 0em;
     padding-bottom: 2em;
     position: relative;
 }
@@ -12603,6 +12608,7 @@ h5,
 
 .testimony-section .owl-item.center p {
     font-size: 18px;
+    font-family: "League Spartan";
 }
 
 .ftco-social a {
@@ -12681,7 +12687,7 @@ textarea.form-control {
 
 .ftco-footer .ftco-footer-widget h2 {
     font-weight: normal;
-    color: #fff;
+    color: #7ed321;
     margin-top: 50px;
     margin-bottom: 40px;
     font-size: 18px;
@@ -12720,7 +12726,7 @@ textarea.form-control {
 .ftco-footer .ftco-heading-2 {
     font-size: 17px;
     font-weight: 400;
-    color: #000;
+    color: rgb(252, 247, 247);
 }
 
 .ftco-footer .block-21 .text .heading {
@@ -13015,7 +13021,8 @@ textarea.form-control {
     color: #7ed321;
 }
 
-.ftco-counter .text strong.number {
+.ftco-counter .text span.number {
+    letter-spacing: 3px;
     font-weight: 400;
     font-size: 40px;
     color: #fff;
@@ -13159,6 +13166,10 @@ textarea.form-control {
     margin-bottom: 30px;
     padding: 30px;
     background: #fff;
+    -webkit-box-shadow: 0px 3px 35px -24px black;
+    -moz-box-shadow: 0px 3px 35px -24px black;
+    box-shadow: 0px 3px 35px -24px black;
+    border-color: #000;
 }
 
 .block-7 .heading {
@@ -14619,16 +14630,16 @@ a.button:hover {
 }
 
 .circle {
-    width: 220px;
-    height: 220px;
+    width: 230px;
+    height: 230px;
     text-align: center;
     vertical-align: middle;
-    border-radius: 110px;
+    border-radius: 115px;
     border-width: 4px;
     border-color: white;
     border-style: solid;
     color : white;
-    padding : 60px 15px;
+    padding : 65px 5px;
     text-align: center;
     font-family: "League Spartan";
   }
