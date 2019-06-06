@@ -237,22 +237,27 @@ sup {
 
 .fa-facebook {
     color: grey;
+    font-size: 20px !important;
 }
 
 .fa-envelope {
     color: grey;
+    font-size: 20px !important;
 }
 
 .fa-github {
     color: grey;
+    font-size: 20px !important;
 }
 
 .fa-linkedin {
     color: grey;
+    font-size: 20px;
 }
 
 .twitter {
     color: white;
+    font-size: 20px;
 }
 
 .linkedin {
