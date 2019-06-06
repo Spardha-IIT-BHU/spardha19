@@ -52,10 +52,10 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container-wrap">
-            <a class="navbar-brand img1" style="padding-left: 2rem; padding-right: 2rem" href="index.html">
+            <a class="navbar-brand img1" href="index.html">
                 <img src="images/logos/spardha-small-white.png" height="60px">
             </a>
-            <a class="navbar-brand img2" style="padding-left: 2rem; padding-right: 2rem; display: none;" href="index.html">
+            <a class="navbar-brand img2" style="display: none;" href="index.html">
                 <img src="images/logos/spardha-small.png" height="60px">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,10 +77,10 @@
     </nav>
     <!-- END nav -->
     <section class="home-slider js-fullheight owl-carousel" style="background-color: rgba(0, 0, 0, 0.9);">
-    <div class="slider-item js-fullheight" style="background-image: url(images/bg/bg_1.jpg);">
+        <div class="slider-item js-fullheight" style="background-image: url(images/bg/bg_1.jpg);">
             <div class="overlay"></div>
             <div class="container">
-                <div class="row slider-text js-fullheight justify-content-center spardha-mainlogo"
+                <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
                     <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
                         <div class="container col-lg-4 col-md-5">
@@ -109,9 +109,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container mt-5 pt-5 large-screen">
+                            &nbsp;
+                        </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="#register">
+                              <a class="button" href="register.php#register">
                                 REGISTER
                               </a>
                             </div>
@@ -119,6 +122,9 @@
                               <a class="button1" href="ca.html#ca">
                                 CAMPUS AMBASSADOR
                               </a>
+                            </div>
+                            <div class="container mt-5">
+                                &nbsp;
                             </div>
                         </div>
                     </div>
@@ -128,7 +134,7 @@
         <div class="slider-item js-fullheight" style="background-image: url(images/bg/bg_2.jpg);">
             <div class="overlay"></div>
             <div class="container">
-                <div class="row slider-text js-fullheight justify-content-center spardha-mainlogo"
+                <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
                     <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
                         <div class="container col-lg-4 col-md-5">
@@ -157,9 +163,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container mt-5 pt-5 large-screen">
+                            &nbsp;
+                        </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="#register">
+                              <a class="button" href="register.php#register">
                                 REGISTER
                               </a>
                             </div>
@@ -167,6 +176,9 @@
                               <a class="button1" href="ca.html#ca">
                                 CAMPUS AMBASSADOR
                               </a>
+                            </div>
+                            <div class="container mt-5">
+                                &nbsp;
                             </div>
                         </div>
                     </div>
@@ -176,7 +188,7 @@
         <div class="slider-item js-fullheight" style="background-image: url(images/bg/bg_3.jpg);">
             <div class="overlay"></div>
             <div class="container">
-                <div class="row slider-text js-fullheight justify-content-center spardha-mainlogo"
+                <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
                     <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
                         <div class="container col-lg-4 col-md-5">
@@ -205,9 +217,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container mt-5 pt-5 large-screen">
+                            &nbsp;
+                        </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="#register">
+                              <a class="button" href="register.php#register">
                                 REGISTER
                               </a>
                             </div>
@@ -215,6 +230,9 @@
                               <a class="button1" href="ca.html#ca">
                                 CAMPUS AMBASSADOR
                               </a>
+                            </div>
+                            <div class="container mt-5">
+                                &nbsp;
                             </div>
                         </div>
                     </div>
@@ -224,7 +242,7 @@
         <div class="slider-item js-fullheight" style="background-image: url(images/bg/bg_4.jpg);">
             <div class="overlay"></div>
             <div class="container">
-                <div class="row slider-text js-fullheight justify-content-center spardha-mainlogo"
+                <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
                     <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
                         <div class="container col-lg-4 col-md-5">
@@ -253,9 +271,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="container mt-5 pt-5 large-screen">
+                            &nbsp;
+                        </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="#register">
+                              <a class="button" href="register.php#register">
                                 REGISTER
                               </a>
                             </div>
@@ -263,6 +284,9 @@
                               <a class="button1" href="ca.html#ca">
                                 CAMPUS AMBASSADOR
                               </a>
+                            </div>
+                            <div class="container mt-5">
+                                &nbsp;
                             </div>
                         </div>
                     </div>

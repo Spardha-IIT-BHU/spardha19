@@ -1010,10 +1010,8 @@ pre code {
 
 .container-wrap {
     width: 100%;
-    padding-right: 15px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 15px !important;
+    margin-left: 15px !important;
 }
 
 @media (min-width: 576px) {
@@ -10963,7 +10961,7 @@ h5,
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover,
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link:focus {
-    color: #6db549;
+    color: #6db549 !important;
 }
 
 .ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover:after,
@@ -14394,7 +14392,7 @@ g {
 .button {
     float: right;
     height: 55px;
-    width: 300px;
+    width: 310px;
     padding-top: 8px;
     background:white;
     display:inline-block;
@@ -14424,7 +14422,7 @@ a.button:hover {
   .button1 {
     float: left;
     height: 55px;
-    width: 320px;
+    width: 310px;
     padding-top: 8px;
     display:inline-block;
     font-size:1.3em;
@@ -14491,9 +14489,6 @@ a.button:hover {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .spardha-mainlogo {
-        padding-top: 40px !important;
-    }
     .button, .button1 {
         padding-top: 4px;
         height: 40px;
@@ -14502,6 +14497,13 @@ a.button:hover {
     }
     .button1 {
         margin-top: 10px;
+    }
+    .container-wrap {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    .img1, .img2 {
+        margin-left: 15px;
     }
 } 
 
@@ -14513,15 +14515,23 @@ a.button:hover {
     .spardha-subheading {
       font-size: calc(18px + (25 - 18) * ((100vw - 300px) / (1600 - 300))) !important;
     }
-    .spardha-mainlogo {
-        padding-top: 40px !important;
+    .container-wrap {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+    .img1, .img2 {
+        margin-left: 15px;
     }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    .spardha-mainlogo {
-        padding-top: 70px !important;
+    .container-wrap {
+        margin-right: 30px !important;
+        margin-left: 30px !important;
+    }
+    .img1, .img2 {
+        margin-left: 0;
     }
 }
 
@@ -14531,10 +14541,6 @@ a.button:hover {
         padding-top: 100px !important;
     }
 }
-
-  .spardha-mainlogo {
-      padding-top: 100px;
-  }
 
   #guests .col-md-3, .col-lg-3 {
     padding-left: 20px;
