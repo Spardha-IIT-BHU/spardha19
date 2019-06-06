@@ -12957,14 +12957,14 @@ textarea.form-control {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #6db549;
-    background: -moz-linear-gradient(45deg, #6db549 0%, #6db549 100%);
-    background: -webkit-gradient(left bottom, right top, color-stop(0%, #6db549), color-stop(100%, #6db549));
-    background: -webkit-linear-gradient(45deg, #6db549 0%, #6db549 100%);
-    background: -o-linear-gradient(45deg, #6db549 0%, #6db549 100%);
-    background: -ms-linear-gradient(45deg, #6db549 0%, #6db549 100%);
-    background: linear-gradient(45deg, #6db549 0%, #6db549 100%);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#6db549', endColorstr='#6db549', GradientType=1);
+    background: #7ed321;
+    background: -moz-linear-gradient(45deg, #7ed321 0%, #7ed321 100%);
+    background: -webkit-gradient(left bottom, right top, color-stop(0%, #7ed321), color-stop(100%, #7ed321));
+    background: -webkit-linear-gradient(45deg, #7ed321 0%, #7ed321 100%);
+    background: -o-linear-gradient(45deg, #7ed321 0%, #7ed321 100%);
+    background: -ms-linear-gradient(45deg, #7ed321 0%, #7ed321 100%);
+    background: linear-gradient(45deg, #7ed321 0%, #7ed321 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#7ed321', endColorstr='#7ed321', GradientType=1);
     opacity: .8;
 }
 
@@ -12994,7 +12994,7 @@ textarea.form-control {
     right: 0;
     bottom: 0;
     content: '';
-    bordeR: 1px solid #6db549;
+    bordeR: 1px solid #7ed321;
     z-index: -1;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -13011,7 +13011,7 @@ textarea.form-control {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    color: #6db549;
+    color: #7ed321;
 }
 
 .ftco-counter .text strong.number {
@@ -13037,7 +13037,7 @@ textarea.form-control {
     -webkit-transform: rotate(135deg);
     -ms-transform: rotate(135deg);
     transform: rotate(135deg);
-    background: #6db549;
+    background: #7ed321;
 }
 
 @media (max-width: 991.98px) {
@@ -14615,3 +14615,17 @@ a.button:hover {
         display: none;
     }
 }
+
+.circle {
+    width: 220px;
+    height: 220px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 110px;
+    border-width: 2px;
+    border-color: white;
+    border-style: solid;
+    color : white;
+    padding : 45px 15px;
+    text-align: center;
+  }
