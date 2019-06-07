@@ -49,6 +49,12 @@
                 height: 100em;
             }
         }
+        .ftco-section-services {
+            background-image: url("images/bg/bg_football.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            /* background-size: cover; */
+        }
     </style>
 </head>
 
@@ -298,12 +304,12 @@
         </div>
     </section>
     <div id="register">
-        <section class="ftco-section-services bg-light">
+        <section class="ftco-section-services">
             <div class="container">
                 <div class="row justify-content-center mb-5 pb-3">
                     <div class="col-md-7 heading-section ftco-animate text-center">
                         <h3 class="subheading mt-5 pt-5"></h3>
-                        <h2 class="mb-1">Register For Events</h2>
+                        <h2 class="mb-1" style="color: white;">Register For Events</h2>
                     </div>
                 </div>
                 <div class="row">
