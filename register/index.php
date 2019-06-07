@@ -55,7 +55,7 @@ else {
 }
 ?>
     <div class="container register-box">
-        <h3 style="text-align: center; color: #7ed321;"> COLLEGE REGISTRATION </h3>
+        <h3 style="text-align: center; color: #6db549; font-family: 'League Spartan'; font-size: 30px;"> COLLEGE REGISTRATION </h3>
         <hr>
         <?php
             echo '<div class="col-sm-12">';
@@ -429,8 +429,8 @@ else {
                     <div id="finalerror1" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
                     <div id="finalsuccess1" class="alert alert-success" style="margin-top: 20px; display: none;"></div>
                     <hr>
-                    <button id="submit1" type="submit1" name="submit1" class="btn btn-default btn-success btn-block"> &nbsp;
-                        <i class="fa fa-paper-plane"></i> Register
+                    <button id="submit1" type="submit1" name="submit1" class="btn btn-default btn-success btn-block" style="font-size: 16px; font-family: 'League Spartan'; padding-top: 10px;"> &nbsp;
+                        <i class="fa fa-paper-plane"></i> REGISTER
                     </button>
                 </div>
             </div>
@@ -463,8 +463,8 @@ else {
                 <div class="form-group">
                     <label>OTP:&nbsp;<span style="color: red">*</span></label>
                     <input type="text" placeholder="Enter the OTP" id="OTPTextBox" name="OTPTextBox">
-                    <button id="submit2" type="submit2" name="submit2" class="btn btn-default btn-success"> &nbsp;
-                        <i class="fa fa-check"></i> Verify
+                    <button id="submit2" type="submit2" name="submit2" class="btn btn-default btn-success" style="font-size: 16px; font-family: 'League Spartan'; padding-top: 10px; padding-right: 23px;"> &nbsp;
+                        <i class="fa fa-check"></i> VERIFY
                     </button>
                 </div>
             </div>

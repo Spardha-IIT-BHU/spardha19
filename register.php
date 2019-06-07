@@ -34,19 +34,19 @@
 
         @media screen and (max-width: 600px) {
             #registerframe {
-                height: calc(170em + -400 * ((100vw - 320px) / 960));
+                height: calc(180em + -400 * ((100vw - 320px) / 960));
             }
         }
 
         @media screen and (min-width: 600px) {
             #registerframe {
-                height: calc(170em + -400 * ((100vw - 320px) / 960));
+                height: calc(180em + -400 * ((100vw - 320px) / 960));
             }
         }
 
         @media screen and (min-width: 992px) {
             #registerframe {
-                height: 100em;
+                height: 110em;
             }
         }
         .ftco-section-services {
