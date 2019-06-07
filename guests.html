@@ -48,13 +48,26 @@
             left: 10px;
             z-index:1;
             font-size: 18px;
-            text-shadow: 2px 2px white;
-            color: black;
+            text-shadow: 2px 2px black;
+            color: white;
         }
         @media only screen and (max-width: 600px) {
             #overlay-text {
                 font-size: 12px;
             }
+        }
+        #guests {
+            background-image: url(images/bg/bg_football.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        #video {
+            padding: 0;
+            background-image: url(images/bg/bg_football.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
         #testimonials {
             background-image: url(images/bg/bg_basketball.jpg);
@@ -62,6 +75,7 @@
             background-attachment: fixed;
             background-position: center;
         }
+        
 
 
     </style>
@@ -468,7 +482,7 @@
             </div>
         </div>
     </section>
-    <section id="video" class="ftco-section" style="padding: 0; background-color: white;">
+    <section id="video" class="ftco-section">
         <div class="container col-sm-7">
             <div class="embed-responsive embed-responsive-4by3">
                 <video id="video1" width="320" height="240" controls>
@@ -479,8 +493,8 @@
                 </div>
             </div>
             <div id="controls" style="padding-bottom: 20px; text-align: center;">
-                <a class="btn btn-success control" href="javascript:previousButton();" style="font-size:18px; color: white; margin-right: 5px;">Previous</a>
-                <a class="btn btn-success control" href="javascript:nextButton();" style="font-size:18px; color: white; margin-left: 5px;">&nbsp; Next &nbsp;</a>
+                <a class="btn btn-success control" href="javascript:previousButton();" style="font-size:18px; color: white; margin-right: 5px; margin-top: 10px;">Previous</a>
+                <a class="btn btn-success control" href="javascript:nextButton();" style="font-size:18px; color: white; margin-left: 5px; margin-top: 10px;">&nbsp; Next &nbsp;</a>
             </div>
         </div>
     </section>

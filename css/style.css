@@ -14608,13 +14608,6 @@ a.button:hover {
     }
 }
 
-  #guests {
-    background-image: url(../images/bg/bg_football.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-  }
-
   .testimony-section .owl-carousel .owl-stage-outer {
       padding-bottom: 0 !important;
   }
