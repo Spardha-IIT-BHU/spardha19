@@ -14429,7 +14429,7 @@ g {
   }
 
   a.button {
-    color: #6db549 !important;
+    color: #555 !important;
     background: white;
 }
 
@@ -14452,7 +14452,7 @@ a.button:hover {
   }
 
   a.button1 {
-      color: #6db549 !important;
+      color: #555 !important;
       background: white;
   }
 
