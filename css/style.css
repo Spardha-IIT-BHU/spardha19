@@ -14411,24 +14411,25 @@ g {
     float: right;
     height: 55px;
     width: 310px;
-    padding-top: 8px;
+    padding-top: 10px;
     background:white;
     display:inline-block;
     font-size:1.3em;
     font-weight: 600;
     text-decoration:none;
     border-radius: 4px;
+    font-family: "League Spartan";
   }
   
   .button:hover {
-    padding-top: 4px;
+    padding-top: 6px;
     color: white;
     background: transparent;
     border: 0.2rem solid white;
   }
 
   a.button {
-    color: #555 !important;
+    color: #6db549 !important;
     background: white;
 }
 
@@ -14441,16 +14442,17 @@ a.button:hover {
     float: left;
     height: 55px;
     width: 310px;
-    padding-top: 8px;
+    padding-top: 10px;
     display:inline-block;
     font-size:1.3em;
     font-weight: 600;
     text-decoration:none;
     border-radius: 4px;
+    font-family: "League Spartan";
   }
 
   a.button1 {
-      color: #555 !important;
+      color: #6db549 !important;
       background: white;
   }
 
@@ -14460,7 +14462,7 @@ a.button:hover {
 }
   
   .button1:hover {
-    padding-top: 4px;
+    padding-top: 6px;
     color: white;
     background: transparent;
     border: 0.2rem solid white;
