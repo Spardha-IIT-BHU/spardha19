@@ -55,7 +55,7 @@ html {
 @font-face {
     font-family: "League Spartan";
     src: url(../fonts/leaguespartan.ttf);
-  }
+}
   
 
 @-ms-viewport {
@@ -12898,7 +12898,7 @@ textarea.form-control {
 
 @media (max-width: 767.98px) {
     .heading-section h2 {
-        font-size: 20px;
+        font-size: 30px;
     }
     .heading-section .subheading {
         font-size: 15px;

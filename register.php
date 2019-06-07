@@ -31,19 +31,22 @@
             text-align: center;
             overflow: hidden;
         }
-        #registerframe {
-            height: 190em;
+
+        @media screen and (max-width: 600px) {
+            #registerframe {
+                height: calc(170em + -400 * ((100vw - 320px) / 960));
+            }
         }
 
-        @media screen and (min-width: 320px) {
+        @media screen and (min-width: 600px) {
             #registerframe {
-                height: calc(190em + -400 * ((100vw - 320px) / 960));
+                height: calc(170em + -400 * ((100vw - 320px) / 960));
             }
         }
 
         @media screen and (min-width: 992px) {
             #registerframe {
-                height: 95em;
+                height: 100em;
             }
         }
     </style>
@@ -95,7 +98,7 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             <div class="row">
                                 <div class="col-6 ca">
                                     <a class="button1" href="ca.html#ca">
@@ -109,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             &nbsp;
                         </div>
                         <div class="small-screen container">
@@ -149,7 +152,7 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             <div class="row">
                                 <div class="col-6 ca">
                                     <a class="button1" href="ca.html#ca">
@@ -163,7 +166,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             &nbsp;
                         </div>
                         <div class="small-screen container">
@@ -203,7 +206,7 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             <div class="row">
                                 <div class="col-6 ca">
                                     <a class="button1" href="ca.html#ca">
@@ -217,7 +220,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             &nbsp;
                         </div>
                         <div class="small-screen container">
@@ -257,7 +260,7 @@
                             style="color: #6db549;">
                             October 18-20, 2019
                         </h2>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             <div class="row">
                                 <div class="col-6 ca">
                                     <a class="button1" href="ca.html#ca">
@@ -271,7 +274,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="container mt-5 pt-5 large-screen">
+                        <div class="container mt-5 pt-3 large-screen">
                             &nbsp;
                         </div>
                         <div class="small-screen container">

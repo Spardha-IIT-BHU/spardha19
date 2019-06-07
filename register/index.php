@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
         type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="register.css">
     <script>
     var code;
         function createCaptcha() {
@@ -54,9 +54,8 @@ else {
     echo '<body style="background-color: transparent" onload="createCaptcha();">';
 }
 ?>
-    <div class="container"
-        style="padding: 1em 2em 3em 2em; max-width: 55em; border-radius: 5.2px; box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2); background: white;">
-        <h3 style="text-align:center;color:#7ed321"> COLLEGE REGISTRATION </h3>
+    <div class="container register-box">
+        <h3 style="text-align: center; color: #7ed321;"> COLLEGE REGISTRATION </h3>
         <hr>
         <?php
             echo '<div class="col-sm-12">';
