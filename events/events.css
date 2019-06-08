@@ -137,6 +137,8 @@
     padding-top: 30px;
     padding-bottom: 30px;
     margin-left: 7.3vw;
+    box-shadow: 0 0 5px #555;
+    border: 1px solid #555;
 }
 
 i.fa-times {
