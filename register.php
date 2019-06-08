@@ -53,7 +53,7 @@
             background-image: url("images/bg/bg_football.jpg");
             background-attachment: fixed;
             background-position: center;
-            /* background-size: cover; */
+            background-size: cover;
         }
     </style>
 </head>
