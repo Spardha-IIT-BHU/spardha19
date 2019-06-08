@@ -12,6 +12,7 @@
 .padding {
     padding: 10px !important;
     cursor: pointer;
+    background: white;
 }
 
 .hvr-buzz:hover,
@@ -135,6 +136,7 @@
     ;
     padding-top: 30px;
     padding-bottom: 30px;
+    margin-left: 7.3vw;
 }
 
 i.fa-times {
@@ -177,7 +179,7 @@ i.fa-times {
     padding: 10px;
 }
 
-.col-md-4, .col-sm-4 {
+.col-md-4, .col-sm-4, .col-md-3, .col-sm-3, .col-md-1, .col-sm-1 {
     float: left;
 }
 
@@ -379,6 +381,7 @@ ul.sqbullet>li:before {
 
 .modal-title {
   margin-left: auto;
+  margin-right: auto;
   font-family: "League Spartan";
   font-size: 25px;
   text-transform: uppercase;
@@ -390,4 +393,26 @@ ul.sqbullet>li:before {
   vertical-align: top;
   border-top: 1px solid #dee2e6 !important;
   border-bottom: 1px solid #dee2e6 !important;
+}
+
+i {
+  border: solid black;
+  border-width: 0 5px 5px 0;
+  display: inline-block;
+  padding: 5px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  margin-left: 18vw;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+a {
+  cursor: pointer;
 }
