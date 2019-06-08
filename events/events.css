@@ -397,7 +397,7 @@ ul.sqbullet>li:before {
   border-bottom: 1px solid #dee2e6 !important;
 }
 
-i {
+i.arrow {
   border: solid black;
   border-width: 0 5px 5px 0;
   display: inline-block;
@@ -417,4 +417,8 @@ i {
 
 a {
   cursor: pointer;
+}
+
+.modal {
+  overflow-y: auto;
 }

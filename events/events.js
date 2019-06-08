@@ -582,3 +582,69 @@ $(document).ready(function () {
         $(".open-element").removeClass("open-element");
     });
 });
+
+$(document).click(function() { 
+    if (($("#myModal0").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal1").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal2").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal3").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal4").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal5").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal6").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal7").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal8").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal9").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal10").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal11").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal12").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal13").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal14").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal15").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal16").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal17").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal18").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else if (($("#myModal1300").data('bs.modal') || {})._isShown) {
+        $('body').css({"overflow-y": "hidden"});
+    }
+    else {
+        $('body').css({"overflow-y": "visible"});
+    }
+});
