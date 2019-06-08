@@ -17,6 +17,8 @@ function sel(i) {
 
 $(".a-rule").click(function() {
     deselectAll();
+    $(".open-element").slideToggle("fast");
+    $(".open-element").removeClass("open-element");
 })
 
 $(document).ready(function () {
@@ -576,12 +578,12 @@ $(document).ready(function () {
 });
 
 
-$(document).ready(function () {
-    $("#info0, #info1, #info2, #info3, #info4, #info5, #info6, #info7, #info8, #info9, #info10, #info11, #info12, #info13, #info1300, #info14, #info15, #info16, #info17, #info18, #info19, #info20").click(function () {
-        $(".open-element").slideToggle("fast");
-        $(".open-element").removeClass("open-element");
-    });
-});
+// $(document).ready(function () {
+//     $("#info0, #info1, #info2, #info3, #info4, #info5, #info6, #info7, #info8, #info9, #info10, #info11, #info12, #info13, #info1300, #info14, #info15, #info16, #info17, #info18, #info19, #info20").click(function () {
+//         $(".open-element").slideToggle("fast");
+//         $(".open-element").removeClass("open-element");
+//     });
+// });
 
 $(document).click(function() { 
     if (($("#myModal0").data('bs.modal') || {})._isShown) {

@@ -14613,13 +14613,13 @@ a.button:hover {
   }
 
   @media (max-width: 575.98px) {
-      .team-desktop {
+      .team-desktop, .events-desktop {
           display: none;
       }
   }
 
   @media (min-width: 575.98px) {
-    .team-mobile {
+    .team-mobile, .events-mobile {
         display: none;
     }
 }
