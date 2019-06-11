@@ -8,6 +8,7 @@ function deselectAll () {
         var x = "#" + i;
         $(x).css(deselect);
     }
+    $("#1300").css(deselect);
 }
 
 function sel(i) {
@@ -215,6 +216,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("#7x").click(function () {
+        deselectAll();
         $("#info7").slideToggle("fast");
         $("#info7").removeClass("open-element");
     });
@@ -314,6 +316,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $("#11x").click(function () {
+        deselectAll();
         $("#info11").slideToggle("fast");
         $("#info11").removeClass("open-element");
     });
@@ -559,7 +562,6 @@ $(document).ready(function () {
             $("#info20").removeClass("open-element");
         }
         else {
-            deselectAll();
             $(".open-element").slideToggle("fast");
             $(".open-element").removeClass("open-element");
             $("#info20").slideToggle("fast");
