@@ -12,7 +12,7 @@
 .padding {
     padding: 10px !important;
     cursor: pointer;
-    background: white;
+    background: transparent;
 }
 
 .hvr-buzz:hover,
