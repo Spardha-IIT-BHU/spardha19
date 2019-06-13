@@ -14617,14 +14617,14 @@ a.button:hover {
   }
 
   @media (max-width: 575.98px) {
-      .team-desktop, .events-desktop {
-          display: none;
+      .team-desktop, .events-desktop, .reg-desktop {
+          display: none !important;
       }
   }
 
   @media (min-width: 575.98px) {
-    .team-mobile, .events-mobile {
-        display: none;
+    .team-mobile, .events-mobile, .reg-mobile {
+        display: none !important;
     }
 }
 
@@ -14646,3 +14646,16 @@ a.button:hover {
   .gallery-heading {
       font-family: "League Spartan";
   }
+
+/* Registrations Coming Soon */
+
+.modal-center {
+    padding-top: 38vh;
+    /* min-width: 50%; */
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+/* Registrations Coming Soon */
