@@ -10550,6 +10550,10 @@ button.bg-dark:focus {
     font-family: "League Spartan";
 }
 
+.text-wrap {
+    font-family: "League Spartan";
+}
+
 .text-truncate {
     overflow: hidden;
     -o-text-overflow: ellipsis;
