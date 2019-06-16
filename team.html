@@ -1174,8 +1174,14 @@
                 }
             });
         });
-        var wid = $('.staff .img').width();
-        $('.staff .img').css({'height':wid*0.95+'px'});
+        $(document).ready(dunction() {
+            var wid = $('.staff .img').width();
+            $('.staff .img').css({'height':wid*0.95+'px'});
+        })
+        $(window).resize(function() {
+            var wid = $('.staff .img').width();
+            $('.staff .img').css({'height':wid*0.95+'px'});
+        })
     </script>
     <noscript>Sorry, your browser does not support JavaScript! Please enable Javascript for better experience.</noscript>
 </body>
