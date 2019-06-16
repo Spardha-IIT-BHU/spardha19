@@ -340,7 +340,7 @@
                                             &emsp;&emsp;<a href="tel:+917238856930">+91&#8209;7238856930</a> <br>
                                             &emsp;&emsp;<a href="tel:+919127161781">+91&#8209;9127161781</a> <br>
                                             &emsp;&emsp;<a href="tel:+919537701631">+91&#8209;9537701631</a> <br>
-                                            &emsp;&emsp;<a href="tel:+917978069192">+91&#8209;7978059192</a> <br>
+                                            &emsp;&emsp;<a href="tel:+917978069192">+91&#8209;7978069192</a> <br>
                                             <div class="mt-2">Branding&nbsp;&amp;&nbsp;Communications: </div>
                                             &emsp;&emsp;<a href="tel:+919782524351">+91&#8209;9782524351</a> <br>
                                             <div class="mt-2">Events: </div>
