@@ -1,0 +1,984 @@
+/*Main CSS*/
+
+@font-face {
+    font-family: "League Spartan";
+    src: url(../fonts/leaguespartan.ttf);
+}
+/*Login Signup Page*/
+a:focus,
+a:hover,
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+li,
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header-top i {
+    font-size: 18px;
+}
+
+.bg-image {
+    background: url(../images/background-login.jpg) no-repeat 0 0 / cover;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: table;
+}
+
+.login-header {
+    display: inline-block;
+    width: 100%;
+    background: rgb(0, 78, 0);
+}
+
+.login-signup {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.login-logo img {
+    cursor: pointer;
+    max-width: 171px;
+    padding: 23px 15px 22px;
+    width: 100%;
+}
+
+.login-header .navbar-right {
+    margin-right: 0px;
+}
+
+.login-header .nav-tabs>li.active>a,
+.login-header .nav-tabs>li.active>a:focus,
+.login-header .nav-tabs>li.active>a:hover {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+
+.login-header .nav-tabs>li>a {
+    border: medium none;
+    border-radius: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 48px;
+    padding: 15px 30px;
+    color: #fff;
+}
+
+.login-header .nav-tabs {
+    border-bottom: none;
+}
+
+.login-header .nav-tabs>li {
+    margin-bottom: 0px;
+}
+
+.login-header .nav>li>a:focus,
+.login-header .nav>li>a:hover {
+    background: none;
+    text-decoration: none;
+}
+
+.login-header .nav-tabs>li.active {
+    border-bottom: 6px solid limegreen;
+}
+
+.login-inner h1 {
+    color: #8492af;
+    font-size: 48px;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.login-inner h1 span {
+    color: limegreen;
+}
+
+.login-form {
+    text-align: center;
+}
+
+.login-form input {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border-color: -moz-use-text-color -moz-use-text-color #d4d9e3;
+    border-image: none;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    font-size: 13px;
+    font-weight: 300;
+    width: 100%;
+    color: #8492af;
+    padding: 15px 50px;
+    font-size: 17px;
+    max-width: 550px;
+}
+
+.login-form label {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.user input {
+    background: rgba(0, 0, 0, 0) url("../images/user.png") no-repeat scroll 7px 12px;
+}
+
+.pass input {
+    background: rgba(0, 0, 0, 0) url("../images/password.png") no-repeat scroll 7px 12px;
+}
+
+.mail input {
+    background: rgba(0, 0, 0, 0) url("../images/mail.png") no-repeat scroll 4px 12px;
+}
+
+.login-signup .tab-content {
+    background: #ffffff none repeat scroll 0 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: inline-block;
+    margin-top: -8px;
+    width: 100%;
+}
+
+.form-btn {
+    background: limegreen none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 100px;
+    color: #ffffff;
+    font-weight: 400;
+    max-width: 250px;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+    margin: 40px 0;
+    box-shadow: 0 2px 8px #d2d2d2;
+    -moz-box-shadow: 0 2px 8px #d2d2d2;
+    -webkit-box-shadow: 0 2px 8px #d2d2d2;
+}
+
+.form-btn::before {
+    content: "";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 17px;
+    top: 9px;
+}
+
+.form-details {
+    padding: 35px 0;
+}
+
+.tab-content .tab-pane {
+    padding: 70px 0;
+}
+
+
+/*Login Signup Page*/
+
+
+/*Home Page*/
+
+.home {
+    background: #f6f7fa;
+}
+
+#navigation {
+    /* position: fixed; */
+    background: rgb(0, 78, 0);
+}
+
+#navigation {
+    padding: 0;
+}
+
+.display-table {
+    display: table;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.display-table-row {
+    display: table-row;
+    height: 100%;
+}
+
+.display-table-cell {
+    display: table-cell;
+    float: none;
+    height: 100%;
+}
+
+.v-align {
+    vertical-align: top;
+}
+
+.logo img {
+    max-width: 180px;
+    padding: 16px 0 17px;
+    width: 100%;
+}
+
+.header-top {
+    margin: 0;
+    padding-top: 2px;
+}
+
+.header-top img {
+    border-radius: 50%;
+    max-width: 48px !important;
+    width: 100%;
+}
+
+.register-now {
+    background: limegreen none repeat scroll 0 0;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    margin-right: 20px;
+}
+
+.delete-profile {
+    background: red none repeat scroll 0 0;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    margin-right: 20px;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .register-now {
+        font-size: 12px;
+        padding: 5px 10px 5px 10px;
+    }
+
+    .delete-profile {
+        font-size: 12px;
+        padding: 5px 10px 5px 10px;
+    }
+}
+
+.header-rightside .nav>li>a:focus,
+.header-rightside .nav>li>a:hover {
+    background: none;
+    text-decoration: none;
+}
+
+.register-now::before {
+    background: rgba(0, 0, 0, 0) url("../images/plus.png") no-repeat scroll 0 0;
+    content: "";
+    height: 12px;
+    left: 17px;
+    position: absolute;
+    top: 12px;
+    width: 12px;
+}
+
+.register-now:hover {
+    color: #ffffff;
+    background: forestgreen none repeat scroll 0 0;
+}
+
+.register-now:focus {
+    color: #ffffff;
+}
+
+.delete-profile:hover {
+    color: #ffffff;
+    background: firebrick none repeat scroll 0 0;
+}
+
+.delete-profile:focus {
+    color: #ffffff;
+}
+
+.header-top i {
+    color: rgb(0, 78, 0);
+}
+
+.icon-info {
+    position: relative;
+}
+
+.navi i {
+    font-size: 20px;
+}
+
+.label.label-primary {
+    border-radius: 50%;
+    font-size: 9px;
+    left: 8px;
+    position: absolute;
+    top: -9px;
+}
+
+.icon-info .label {
+    border: 2px solid #ffffff;
+    font-weight: 500;
+    padding: 3px 5px;
+    text-align: center;
+}
+
+.header-top li {
+    display: inline-block;
+    text-align: center;
+}
+
+.header-top .dropdown-toggle {
+    color: rgb(0, 78, 0);
+}
+
+.header-top .dropdown-menu {
+    border: medium none;
+    left: -85px;
+    padding: 17px;
+    text-align: center;
+}
+
+.view {
+    background: limegreen none repeat scroll 0 0;
+    border-radius: 100px;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 10px 15px;
+}
+
+.view:hover {
+    color: #ffffff;
+    background: forestgreen none repeat scroll 0 0;
+}
+
+.view:focus {
+    color: #ffffff;
+}
+
+.navbar-content>span {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+#navigation {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.search input {
+    border: none;
+    font-size: 15px;
+    padding: 15px 9px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 99% 12px;
+    color: #8492af;
+}
+
+header {
+    background: #ffffff none repeat scroll 0 0;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
+    display: inline-block !important;
+    line-height: 23px;
+    padding: 15px;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.logo {
+    text-align: center;
+}
+
+.navi a {
+    border-bottom: 1px solid rgb(0, 60, 0);
+    border-top: 1px solid rgb(0, 60, 0);
+    color: #ffffff;
+    display: block;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 28px 20px;
+    text-decoration: none;
+}
+
+.navi i {
+    margin-right: 15px;
+    color: limegreen;
+}
+
+.navi .active a {
+    background: darkgreen;
+    border-left: 5px solid limegreen;
+    padding-left: 15px;
+}
+
+.navi a:hover {
+    background: darkgreen none repeat scroll 0 0;
+    border-left: 5px solid limegreen;
+    display: block;
+    padding-left: 15px;
+}
+
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.navbar-toggle {
+    border: none;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgb(0, 78, 0);
+}
+
+.circle-logo {
+    margin: 0 auto;
+    max-width: 30px !important;
+    text-align: center;
+}
+
+.hidden-xs {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.user-dashboard {
+    padding: 0 20px;
+}
+
+.user-dashboard h1 {
+    color: rgb(0, 78, 0);
+    font-size: 30px;
+    font-weight: 500;
+    margin: 0;
+    padding: 21px 0;
+}
+
+.welcome-text {
+    background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #d4d9e3;
+    display: inline-block;
+    padding: 15px;
+    width: 100%;
+}
+
+.welcome-text button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 1px solid #dadee7;
+    border-radius: 100px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    padding-right: 32px;
+    color: rgb(0, 78, 0);
+}
+
+.welcome-text button::before {
+    content: "";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 12px;
+    top: 11px;
+}
+
+.welcome-text .btn-group {
+    float: right;
+}
+
+.welcome-text h2 {
+    color: #8492af;
+    /* float: left; */
+    font-size: 21px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0 0 0;
+    line-height: 1.5;
+}
+
+.events-table {
+    font-size: 17px;
+}
+
+.btn.btn-secondary.btn-lg.dropdown-toggle>span {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.welcome-text .dropdown-menu {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    border-radius: 8px;
+    width: 100%;
+    color: rgb(0, 78, 0);
+}
+
+.welcome-text .btn-group.open .dropdown-toggle,
+.btn.active,
+.btn:active {
+    box-shadow: none;
+}
+
+.welcome-text .dropdown-menu>a {
+    color: rgb(0, 78, 0);
+    display: inline-block;
+    font-weight: 800;
+    padding: 9px 0;
+    text-align: center;
+    width: 100%;
+}
+
+#my-cool-chart svg {
+    width: 100%;
+}
+
+.welcome-text .dropdown-menu>a:hover {
+    color: limegreen;
+}
+
+.shield-buttons {
+    display: none;
+}
+
+.close,
+.close:focus,
+.close:hover {
+    color: #fff;
+    ;
+    opacity: 1;
+    text-shadow: none;
+}
+
+.modal-body textarea {
+    border: 1px solid #d4d9e3;
+    font-size: 14px;
+    font-weight: 300;
+    height: 200px;
+    margin-top: 5px;
+    padding: 9px 10px;
+    width: 100%;
+    color: #8492af;
+}
+
+.modal-header.login-header h4 {
+    color: #ffffff;
+}
+
+.modal-footer .register-now {
+    background: limegreen none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.modal-footer .register-now::before {
+    display: none;
+}
+
+.modal-footer .register-now:hover {
+    background: forestgreen none repeat scroll 0 0;
+}
+
+.modal-footer .delete-profile {
+    background: red none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.modal-footer .delete-profile:hover {
+    background: firebrick none repeat scroll 0 0;
+}
+
+.modal-footer .delete-profile::before {
+    display: none;
+}
+
+.modal-footer {
+    border: 0 none;
+    padding: 10px 15px 26px;
+    text-align: right;
+}
+
+.cancel {
+    background: limegreen;
+    border: medium none;
+    border-radius: 100px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 30px;
+    position: relative;
+}
+
+.cancel:hover {
+    background: forestgreen;
+}
+
+.modal {
+    top: 20%;
+}
+
+.modal-header .close {
+    margin-top: 2px;
+}
+
+.search input:focus {
+    border-bottom: 1px solid #BDC4D4;
+    line-height: 22px;
+    transition: 0.1s all;
+}
+
+.modal-header.login-header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    /*Main CSS*/
+}
+
+@media only screen and (max-width: 767px) {
+    .login-logo img {
+        margin: 0 auto;
+    }
+
+    .login-details .nav-tabs>li {
+        text-align: center;
+        width: 50%;
+    }
+
+    .login-signup .login-inner h1 {
+        font-size: 26px;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+
+    .login-inner .login-form input {
+        font-size: 15px;
+        max-width: 100%;
+        padding: 15px 45px;
+    }
+
+    .login-inner .form-details {
+        padding: 25px;
+    }
+
+    .login-inner .login-form label {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .login-inner .form-btn {
+        margin: 0;
+        max-width: 180px;
+    }
+
+    .tab-content .tab-pane {
+        padding: 20px 0;
+    }
+
+    #navigation .navi a {
+        font-size: 14px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    #navigation .navi i {
+        margin-right: 0px;
+    }
+
+    #navigation .navi a:hover,
+    #navigation .navi .active a {
+        background: darkgreen none repeat scroll 0 0;
+        border-left: none;
+        display: block;
+        padding-left: 20px;
+    }
+
+    header .header-top img {
+        max-width: 38px !important;
+    }
+
+    .v-align header {
+        padding: 12px 15px;
+    }
+
+    header .header-top li {
+        padding-left: 13px;
+        padding-right: 6px;
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color: rgba(0, 0, 0, 0);
+    }
+
+    .navbar-header .navbar-toggle {
+        float: left;
+        margin: 0;
+        padding: 0;
+        top: 12px;
+    }
+
+    button,
+    html [type="button"],
+    [type="reset"],
+    [type="submit"] {
+        outline: medium none;
+    }
+
+    .user-dashboard .welcome-text h2 {
+        color: #8492af;
+        /* float: left; */
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+        padding: 0 0 0;
+    }
+    .events-table {
+        font-size: 14px;
+    }
+
+    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle>span {
+        font-size: 11px;
+    }
+
+    .user-dashboard .welcome-text button {
+        font-size: 11px;
+        padding-right: 23px;
+    }
+
+    .user-dashboard .welcome-text h2 {
+        font-size: 14px;
+    }
+    .events-table {
+        font-size: 12px;
+    }
+
+    .user-dashboard h1 {
+        font-size: 25px;
+    }
+
+    .gutter {
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    header .header-top li {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    header .logo img {
+        max-width: 125px !important;
+    }
+
+}
+
+@media only screen and (min-width: 767px) and (max-width: 998px) {
+    .user-dashboard .header-top {
+        padding-top: 5px;
+    }
+
+    .user-dashboard .header-rightside {
+        display: inline-block;
+        float: left;
+        width: 100%;
+    }
+
+    .user-dashboard .header-rightside .header-top img {
+        max-width: 41px !important;
+    }
+
+    .user-dashboard .welcome-text button {
+        font-size: 10px;
+    }
+
+    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle>span {
+        font-size: 12px;
+    }
+
+    .user-dashboard .welcome-text h2 {
+        font-size: 16px;
+    }
+    .events-table {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width:998px) and (max-width: 1350px) {
+    #navigation .logo img {
+        max-width: 130px;
+        padding: 16px 0 17px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 991.98px) {
+    .spardha-logo {
+        width: 40% !important;
+    }
+}
+
+.cover-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+    display:none;
+}
+
+@-webkit-keyframes spin {
+	from {-webkit-transform:rotate(0deg);}
+	to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+
+.cover-spin::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:40px;height:40px;
+    border-style:solid;
+    border-color:black;
+    border-top-color:transparent;
+    border-width: 4px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}
+
+.profile-table .left-column {
+    text-align: right;
+    padding-right: 20px;
+    line-height: 1;
+}
+
+.profile-table .right-column {
+    padding-left: 0px;
+}
+
+td {
+    padding-bottom: 10px;
+}
+
+.profile-table td {
+    max-width: 30vw;
+    min-width: 30vw;
+}
+
+@media only screen and (max-width: 767px) {
+    .profile-table td {
+        max-width: 50vw;
+        min-width: 50vw;
+    }
+}
+
+.events-table th.middle-column {
+    max-width: 55vw;
+    min-width: 55vw;
+}
+
+.events-table .left-column {
+    padding-right: 10px;
+    line-height: 1;
+}
+
+.events-table .right-column {
+    padding-left: 10px;
+}
+
+.events-table .middle-column {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.events-table th, td {
+    padding: 10px;
+}
+
+.events-table tr th {
+    color: white;
+}
+
+.events-table tr td {
+    font-weight: 500;
+    color: #616f8a;
+}
+
+.events-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .events-table td, .events-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .events-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .events-table tr:hover {background-color: #ddd;}
+  
+  .events-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: darkslategray;
+    color: white;
+  }
+
+  .events-heading {
+      font-family: "League Spartan";
+      text-align: center;
+      color: cornflowerblue;
+      font-size: 24px;
+      padding-bottom: 10px;
+  }

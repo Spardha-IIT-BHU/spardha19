@@ -1,6 +1,6 @@
 @font-face {
     font-family: "League Spartan";
-    src: url(../fonts/leaguespartan.ttf);
+    src: url(../../fonts/leaguespartan.ttf);
 }
 
 .form-horizontal .form-group {
@@ -33,6 +33,11 @@
     padding-right: 30px;
 }
 
+.inputWithIcon input[type="password"] {
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
 .inputWithIcon {
     position: relative;
 }
@@ -54,6 +59,10 @@
     color: dodgerBlue;
 }
 
+.inputWithIcon input[type="password"]:focus+i {
+    color: dodgerBlue;
+}
+
 .inputWithIcon.inputIconBg i {
     background-color: #aaa;
     color: #fff;
@@ -67,6 +76,11 @@
 }
 
 .inputWithIcon.inputIconBg input[type="email"]:focus+i {
+    color: #fff;
+    background-color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg input[type="password"]:focus+i {
     color: #fff;
     background-color: dodgerBlue;
 }
@@ -93,7 +107,7 @@ input[type=text] {
     box-sizing: border-box;
 }
 
-.register-box {
+.signup-box {
     padding: 1em 2em 3em 2em;
     max-width: 55em;
     border-radius: 5.2px;
@@ -102,7 +116,7 @@ input[type=text] {
 }
 
 @media (max-width: 600px) {
-    .register-box {
+    .signup-box {
         padding: 0.5em 1em 1.5em 1em;
     }
 }

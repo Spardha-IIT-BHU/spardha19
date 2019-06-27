@@ -1,0 +1,112 @@
+@font-face {
+    font-family: "League Spartan";
+    src: url(../../fonts/leaguespartan.ttf);
+}
+
+.form-horizontal .form-group {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+}
+
+.btn-block {
+    display: block;
+    width: 70%;
+    margin: auto;
+}
+
+.panel {
+    margin-bottom: 0;
+}
+
+.panel-default {
+    background-color: #f9f9f9;
+}
+
+.panel-heading {
+    background-color: #f2f2f2 !important;
+}
+
+.inputWithIcon input[type="text"] {
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.inputWithIcon input[type="password"] {
+    padding-left: 40px;
+    padding-right: 30px;
+}
+
+.inputWithIcon {
+    position: relative;
+}
+
+.inputWithIcon i {
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.inputWithIcon input[type="text"]:focus+i {
+    color: dodgerBlue;
+}
+
+.inputWithIcon input[type="password"]:focus+i {
+    color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg i {
+    background-color: #aaa;
+    color: #fff;
+    padding: 9px 4px;
+    border-radius: 4px 0 0 4px;
+}
+
+.inputWithIcon.inputIconBg input[type="text"]:focus+i {
+    color: #fff;
+    background-color: dodgerBlue;
+}
+
+.inputWithIcon.inputIconBg input[type="password"]:focus+i {
+    color: #fff;
+    background-color: dodgerBlue;
+}
+
+.error {
+    color: #a94442;
+    margin-top: 5px;
+    padding-left: 40px;
+}
+
+td {
+    padding: 5px;
+}
+
+canvas {
+    pointer-events: none;
+}
+
+input[type=text] {
+    padding: 8px 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-box {
+    padding: 1em 2em 3em 2em;
+    max-width: 35em;
+    border-radius: 5.2px;
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+    background: white;
+}
+
+@media (max-width: 600px) {
+    .login-box {
+        padding: 0.5em 1em 1.5em 1em;
+    }
+}

@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (empty($_GET) || ($_GET['page']!='login' && $_GET['page']!='signup' && $_GET['page']!='forgot')) {
+    header('Location: register.php?page=signup#content');
+}
+if (!isset($_SESSION['valid_login'])) {
+    $_SESSION['valid_login'] = 0;
+}
+if ($_SESSION['valid_login'] == 1) {
+    header("Location: dashboard");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +36,7 @@
     <link rel="shortcut icon" href="images/logos/spardha-small.png" type="image/x-icon">
     <link rel="icon" href="images/logos/spardha-small.png" type="image/x-icon">
     <style>
-        #registerframe {
+        #registerframe, #loginframe, #forgotframe {
             border: 0;
             width: 55em;
             margin: auto;
@@ -33,19 +45,19 @@
         }
 
         @media screen and (max-width: 600px) {
-            #registerframe {
+            #registerframe, #loginframe, #forgotframe {
                 height: calc(180em + -400 * ((100vw - 320px) / 960));
             }
         }
 
         @media screen and (min-width: 600px) {
-            #registerframe {
+            #registerframe, #loginframe, #forgotframe {
                 height: calc(180em + -400 * ((100vw - 320px) / 960));
             }
         }
 
         @media screen and (min-width: 992px) {
-            #registerframe {
+            #registerframe, #loginframe, #forgotframe {
                 height: 110em;
             }
         }
@@ -112,7 +124,7 @@
                                       </a>
                                 </div>
                                 <div class="col-6 reg">
-                                    <a class="button" href="register.php#register">
+                                    <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                         REGISTER
                                       </a>
                                 </div>
@@ -123,7 +135,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="register.php#register">
+                              <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                 REGISTER
                               </a>
                             </div>
@@ -166,7 +178,7 @@
                                       </a>
                                 </div>
                                 <div class="col-6 reg">
-                                    <a class="button" href="register.php#register">
+                                    <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                         REGISTER
                                       </a>
                                 </div>
@@ -177,7 +189,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="register.php#register">
+                              <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                 REGISTER
                               </a>
                             </div>
@@ -220,7 +232,7 @@
                                       </a>
                                 </div>
                                 <div class="col-6 reg">
-                                    <a class="button" href="register.php#register">
+                                    <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                         REGISTER
                                       </a>
                                 </div>
@@ -231,7 +243,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="register.php#register">
+                              <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                 REGISTER
                               </a>
                             </div>
@@ -274,7 +286,7 @@
                                       </a>
                                 </div>
                                 <div class="col-6 reg">
-                                    <a class="button" href="register.php#register">
+                                    <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                         REGISTER
                                       </a>
                                 </div>
@@ -285,7 +297,7 @@
                         </div>
                         <div class="small-screen container">
                             <div class="reg">
-                              <a class="button" href="register.php#register">
+                              <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
                                 REGISTER
                               </a>
                             </div>
@@ -303,17 +315,21 @@
             </div>
         </div>
     </section>
-    <div id="register">
+    <div id="content">
         <section class="ftco-section-services">
             <div class="container">
                 <div class="row justify-content-center mb-5 pb-3">
                     <div class="col-md-7 heading-section ftco-animate text-center">
-                        <h3 class="subheading mt-5 pt-5"></h3>
-                        <h2 class="mb-1" style="color: white;">Register For Events</h2>
+                        <h3 class="subheading mt-2 pt-2"></h3>
+                        <h2 class="mb-1" style="color: white;"></h2>
                     </div>
                 </div>
                 <div class="row">
-                    <iframe id="registerframe" src="register/" class="align-center" onload="scroll(0,0);"></iframe>
+                    <?php
+                        if ($_GET['page'] == "login") echo '<iframe id="loginframe" src="register/login/login.php" class="align-center" onload="scroll(0,0);"></iframe>';
+                        else if ($_GET['page'] == "forgot") echo '<iframe id="forgotframe" src="register/forgot/forgot.php" class="align-center" onload="scroll(0,0);"></iframe>';
+                        else echo '<iframe id="registerframe" src="register/signup/signup.php" class="align-center" onload="scroll(0,0);"></iframe>';
+                    ?>
                 </div>
             </div>
         </section>

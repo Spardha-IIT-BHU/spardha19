@@ -1,18 +1,22 @@
 var filled = {
+    email: 0,
+    username: 0,
+    password1: 0,
+    password2: 0,
     name: 0,
     designation: 0,
     institute: 0,
-    year: 0,
-    email: 0,
     phone: 0
 };
 
 var flag = {
+    email: 0,
+    username: 0,
+    password1: 0,
+    password2: 0,
     name: 0,
     designation: 0,
     institute: 0,
-    year: 0,
-    email: 0,
     phone: 0
 };
 
@@ -67,6 +71,73 @@ function check(x, arg) {
         showcross(x);
         return show(x, parent, second, "This field is required.");
     }
+    if (x == "email") {
+        // Valid
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if (re.test(String(firstval).toLowerCase())) {
+            showok(x);
+            hide(x, parent, second);
+        } else {
+            showcross(x);
+            show(x, parent, second, "Please enter a valid email address.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
+    }
+    if (x == "username") {
+        // Valid
+        if (firstval.length < 6 || firstval.length > 30) {
+            showcross(x);
+            show(x, parent, second, "Username must be of <b>length 6 - 30</b>.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
+        else if (!/^[a-zA-Z]/.test(firstval)) {
+            showcross(x);
+            show(x, parent, second, "Username must start with an alphabet.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
+        else if (/^[0-9a-zA-Z_.-]+$/.test(firstval)) {
+            showok(x);
+            hide(x, parent, second);
+        }
+        else {
+            showcross(x);
+            show(x, parent, second, "Username must only contain <b>alphabets</b>, <b>numbers</b> or <b>_</b>, <b>-</b> and <b>.</b>");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
+    }
+    if (x == "password1") {
+        // Valid
+        if (firstval.length >= 6 && firstval.length <= 30) {
+            showok(x);
+            hide(x, parent, second);
+        } else {
+            showcross(x);
+            show(x, parent, second, "Password must be of <b>length 6 - 30</b>.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
+    }
+    if (x == "password2") {
+        if (firstval == document.getElementById("password1").value) {
+            showok(x);
+            hide(x, parent, second);
+        } else {
+            showcross(x);
+            show(x, parent, second, "Passwords do not match.");
+            if (arg == 0) {
+                second.innerHTML = "&nbsp;";
+            }
+        }
+    }
     if (x == "name") {
         // Valid
         if (/^[A-Za-z ]+[\.]*[A-Za-z ]*$/.test(firstval)) {
@@ -99,24 +170,6 @@ function check(x, arg) {
         } else {
             showcross(x);
             show(x, parent, second, "Please enter a valid Institute Name.");
-            if (arg == 0) {
-                second.innerHTML = "&nbsp;";
-            }
-        }
-    }
-    if (x == "year") {
-        showok(x);
-        hide(x, parent, second);
-    }
-    if (x == "email") {
-        // Valid
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (re.test(String(firstval).toLowerCase())) {
-            showok(x);
-            hide(x, parent, second);
-        } else {
-            showcross(x);
-            show(x, parent, second, "Please enter a valid email address.");
             if (arg == 0) {
                 second.innerHTML = "&nbsp;";
             }
@@ -183,15 +236,16 @@ function disableAll() {
 function disableAll2() {
     $("#OTPdiv").fadeIn();
     document.getElementById("submit1").disabled = "true";
-    document.getElementById("submit1").innerHTML = '<i class="fa fa-paper-plane"></i> Register';
+    document.getElementById("submit1").innerHTML = '<i class="fa fa-paper-plane"></i> SIGN UP';
+    document.getElementById("email").disabled = "true";
+    document.getElementById("username").disabled = "true";
+    document.getElementById("password1").disabled = "true";
+    document.getElementById("password2").disabled = "true";
     document.getElementById("name").disabled = "true";
     document.getElementById("designation").disabled = "true";
     document.getElementById("institute").disabled = "true";
-    document.getElementById("year").disabled = "true";
-    document.getElementById("email").disabled = "true";
     document.getElementById("phone").disabled = "true";
     document.getElementById("captchaTextBox").disabled = "true";
-    document.getElementById("terms").disabled = "true";
     $(".event").prop("disabled", true);
 }
 
@@ -209,11 +263,7 @@ function validate(form) {
         if (flag[key] == 0) f = 0;
     }
     if (f == 0) {
-        showError(1, "Please enter the correct details.");
-        return false;
-    }
-    if ($("form .event:checked").length == 0) {
-        showError(1, "Please select at least one event.");
+        showError(1, "Please fill all the details correctly.");
         return false;
     }
     if (!$("form #terms").is(":checked")) {
