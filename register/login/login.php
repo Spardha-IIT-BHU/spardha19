@@ -150,7 +150,7 @@ if (!isset($_SESSION['is_delete'])) {
             <div class="col-sm-12">
                 <div class="form-group">
                     <?php
-                    if ($_SESSION['flag1'] == -1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Sorry, your account has been disabled. Contact us for any support!</div>';
+                    if ($_SESSION['flag1'] == -1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Sorry, your account has been disabled. Contact us for any support on <a href="tel:+917238856930">+91&#8209;7238856930</a>.!</div>';
                     if ($_SESSION['flag1'] == 1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Invalid Credentials! Please check and try again.</div>';
                     ?>
                     <div id="finalerror" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>

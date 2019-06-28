@@ -33,7 +33,7 @@ $mail->Subject = "Password Changed || Spardha'19 IIT (BHU) Varanasi"; // The sub
 
 $msg = 'Hello ' . $_SESSION['name'] . ',<br><br>';
 $msg .= '<b>Your Password is Successfully changed.</b><br><br>';
-$msg .= 'If you did not attempt to change your password, kindly contact us. Always remember to set a very secure password to prevent someone from hacking into your account.<br><br><br>
+$msg .= 'If you did not attempt to change your password, kindly contact us on <a href="tel:+917238856930">+91&#8209;7238856930</a>. Always remember to set a very secure password to prevent someone from hacking into your account.<br><br><br>
 Regards,<br><br>Team Spardha,<br>IIT (BHU) Varanasi.';
 
 $mail->msgHTML($msg);

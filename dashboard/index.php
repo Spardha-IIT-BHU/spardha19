@@ -132,7 +132,8 @@ $_SESSION['reg_count'] = $reg_count;
                                 <div class="text-justify">
                                     <h2>
                                     Note: Since we allow only college registration, so you're supposed to register for <?php echo $_SESSION['institute_name'] ?>.
-                                    In case you want someone else to register for your college, you need to delete your account in <a href="profile.php">User Profile</a> section.
+                                    In case you want someone else to register for your college, you need to first delete your account in <a href="profile.php">User Profile</a> section,
+                                    before another user can create an account with same college name.
                                     </h2>
                                 </div>
                                 

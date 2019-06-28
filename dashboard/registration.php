@@ -249,6 +249,9 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         <div class="col-xs-12 gutter">
 
                             <div class="welcome-text">
+                                <?php if ($_GET['mode'] == 'view') { ?>
+                                <div style="text-align: center; font-size: 15px; color: red;"><b><u>NOTE:</u></b> Enter the <b>number</b> of players in 'Aquatics' and'Athletics', whereas the <b>name</b> of players in other events.</div>
+                                <?php } ?>
                                 <div class="text-justify">
                                     <h2>
                                     <?php if ($_GET['mode'] == 'view') { ?>
@@ -270,7 +273,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                     <table align="center" cellpadding="20" class="events-table" border="1">
                                         <tr>
                                             <th class="left-column" style="text-align: center;">Event Name</th>
-                                            <th class="middle-column" style="text-align: center;">Players Name</th>
+                                            <th class="middle-column" style="text-align: center;">Players Name / Count</th>
                                             <th class="right-column" style="text-align: center;">Edit Players</th>
                                         </tr>
                                         <?php
@@ -293,6 +296,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                                 $i++;
                                             }
                                             if ($no_player == 0) $output = substr($output, 0, -2);
+                                            if ($event == 'aquatics' && $row[4]) $output = "Total Number of Boys: ".$row[4];
                                             if ($event == 'athletics' && $row[4]) $output = "Total Number of Boys: ".$row[4];
                                             
                                             echo '<td>'. $output .'</td>';
@@ -335,6 +339,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                                 $i++;
                                             }
                                             if ($no_player == 0) $output = substr($output, 0, -2);
+                                            if ($event == 'f-aquatics' && $row[4]) $output = "Total Number of Girls: ".$row[4];
                                             if ($event == 'f-athletics' && $row[4]) $output = "Total Number of Girls: ".$row[4];
                                             
                                             echo '<td>'. $output .'</td>';
@@ -649,7 +654,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Aquatics (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Aquatics [BOYS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -660,12 +665,8 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 3" value="<?php echo $prow[6] ?>"></td>
-                                <td><input type="text" class="form-control" name="4" placeholder="Player 4" value="<?php echo $prow[7] ?>"></td>
+                                <td><b>Number of Boys: </b></td>
+                                <td><input type="text" class="form-control" name="1" placeholder="Enter total number of boys" value="<?php echo $prow[4] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -685,7 +686,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Athletics</h4>
+                    <h4 class="modal-title">Players - Athletics [BOYS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -717,7 +718,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Badminton (Max: 5)</h4>
+                    <h4 class="modal-title">Players - Badminton [BOYS] (Max: 5)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -751,14 +752,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_basketball" class="modal fade" role="dialog">
+    <div id="player_basketball" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Basketball (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Basketball [BOYS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -785,14 +786,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_boxing" class="modal fade" role="dialog">
+    <div id="player_boxing" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Boxing</h4>
+                    <h4 class="modal-title">Players - Boxing [BOYS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -875,7 +876,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Carrom (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Carrom [BOYS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -909,7 +910,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Chess (Max: 6)</h4>
+                    <h4 class="modal-title">Players - Chess [MIXED] (Max: 6)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -936,14 +937,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_cricket" class="modal fade" role="dialog">
+    <div id="player_cricket" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Cricket (Max: 16)</h4>
+                    <h4 class="modal-title">Players - Cricket [BOYS] (Max: 16)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -970,14 +971,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_football" class="modal fade" role="dialog">
+    <div id="player_football" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Football (Max: 16)</h4>
+                    <h4 class="modal-title">Players - Football [BOYS] (Max: 16)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1004,14 +1005,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_handball" class="modal fade" role="dialog">
+    <div id="player_handball" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Handball (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Handball [BOYS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1038,14 +1039,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_hockey" class="modal fade" role="dialog">
+    <div id="player_hockey" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Hockey (Max: 16)</h4>
+                    <h4 class="modal-title">Players - Hockey [BOYS] (Max: 16)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1072,14 +1073,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_kabaddi" class="modal fade" role="dialog">
+    <div id="player_kabaddi" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Kabaddi (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Kabaddi [BOYS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1106,19 +1107,19 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_kho-kho" class="modal fade" role="dialog">
+    <div id="player_kho-kho" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Kho Kho (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Kho Kho [BOYS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
                         <?php
-                        $query = "SELECT * FROM `f-kho-kho` WHERE (`id`='$id')";
+                        $query = "SELECT * FROM `kho-kho` WHERE (`id`='$id')";
                         $result = mysqli_query ($conn, $query);
                         $prow = mysqli_fetch_row($result);
                         ?>
@@ -1140,14 +1141,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_powerlifting" class="modal fade" role="dialog">
+    <div id="player_powerlifting" class="modal fade" role="dialog" style="top: 10%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Powerlifting</h4>
+                    <h4 class="modal-title">Players - Powerlifting [BOYS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1205,7 +1206,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Tennis (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Tennis [BOYS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1239,7 +1240,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Squash (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Squash [BOYS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1273,7 +1274,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Table Tennis (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Table Tennis [BOYS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1307,7 +1308,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Taekwondo (Max: 8)</h4>
+                    <h4 class="modal-title">Players - Taekwondo [BOYS] (Max: 8)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1334,14 +1335,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_volleyball" class="modal fade" role="dialog">
+    <div id="player_volleyball" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Volleyball (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Volleyball [BOYS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1368,14 +1369,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_weightlifting" class="modal fade" role="dialog">
+    <div id="player_weightlifting" class="modal fade" role="dialog" style="top: 10%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Weightlifting</h4>
+                    <h4 class="modal-title">Players - Weightlifting [BOYS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1433,7 +1434,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Aquatics (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Aquatics [GIRLS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1443,12 +1444,10 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
-                            <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><b>Number of Girls: </b></td>
+                                <td><input type="text" class="form-control" name="1" placeholder="Enter total number of girls" value="<?php echo $prow[4] ?>"></td>
                             </tr>
-                            <?php } ?>
                         </table>
                     </div>
                     <div class="modal-footer">
@@ -1467,7 +1466,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Athletics</h4>
+                    <h4 class="modal-title">Players - Athletics [GIRLS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1499,7 +1498,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Badminton (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Badminton [GIRLS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1526,14 +1525,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-basketball" class="modal fade" role="dialog">
+    <div id="player_f-basketball" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Basketball (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Basketball [GIRLS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1560,19 +1559,19 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-boxing" class="modal fade" role="dialog">
+    <div id="player_f-boxing" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Boxing</h4>
+                    <h4 class="modal-title">Players - Boxing [GIRLS]</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
                         <?php
-                        $query = "SELECT * FROM `boxing` WHERE (`id`='$id')";
+                        $query = "SELECT * FROM `f-boxing` WHERE (`id`='$id')";
                         $result = mysqli_query ($conn, $query);
                         $prow = mysqli_fetch_row($result);
                         ?>
@@ -1650,7 +1649,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Carrom (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Carrom [GIRLS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1677,14 +1676,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-kabaddi" class="modal fade" role="dialog">
+    <div id="player_f-kabaddi" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Kabaddi (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Kabaddi [GIRLS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1711,14 +1710,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-kho-kho" class="modal fade" role="dialog">
+    <div id="player_f-kho-kho" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Kho Kho (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Kho Kho [GIRLS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1752,7 +1751,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Tennis (Max: 4)</h4>
+                    <h4 class="modal-title">Players - Tennis [GIRLS] (Max: 4)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1786,7 +1785,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Table Tennis (Max: 3)</h4>
+                    <h4 class="modal-title">Players - Table Tennis [GIRLS] (Max: 3)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1823,7 +1822,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Taekwondo (Max: 8)</h4>
+                    <h4 class="modal-title">Players - Taekwondo [GIRLS] (Max: 8)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
@@ -1850,14 +1849,14 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-volleyball" class="modal fade" role="dialog">
+    <div id="player_f-volleyball" class="modal fade" role="dialog" style="top: 8%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Volleyball (Max: 12)</h4>
+                    <h4 class="modal-title">Players - Volleyball [GIRLS] (Max: 12)</h4>
                 </div>
                 <form method="post" action="">
                     <div class="modal-body">
