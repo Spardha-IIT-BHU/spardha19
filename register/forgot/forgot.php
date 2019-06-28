@@ -50,7 +50,6 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                     $is_email = 1;
                 }
                 $username = $_SESSION['username'];
-                $password = $_SESSION['password'];
                 $institute_name = $_SESSION['institute_name'];
                 
                 if ($is_email) {
