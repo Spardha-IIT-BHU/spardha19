@@ -300,7 +300,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             if ($event == 'athletics' && $row[4]) $output = "Total Number of Boys: ".$row[4];
                                             
                                             echo '<td>'. $output .'</td>';
-                                            echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add/&nbsp;Edit</a></td></td>';
+                                            echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
                                         if (sizeof($e1) == 0) {
@@ -343,7 +343,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             if ($event == 'f-athletics' && $row[4]) $output = "Total Number of Girls: ".$row[4];
                                             
                                             echo '<td>'. $output .'</td>';
-                                            echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add/&nbsp;Edit</a></td></td>';
+                                            echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
                                         if (sizeof($e2) == 0) {
@@ -384,7 +384,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             if ($no_player == 0) $output = substr($output, 0, -2);
                                             
                                             echo '<td>'. $output .'</td>';
-                                            echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add/&nbsp;Edit</a></td></td>';
+                                            echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
                                         if (sizeof($e3) == 0) {
