@@ -10969,8 +10969,7 @@ h5,
     }
 }
 
-.ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover,
-.ftco-navbar-light .navbar-nav>.nav-item>.nav-link:focus {
+.ftco-navbar-light .navbar-nav>.nav-item>.nav-link:hover {
     color: #6db549 !important;
 }
 
