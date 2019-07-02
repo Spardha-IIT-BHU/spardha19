@@ -10876,8 +10876,7 @@ a {
 }
 
 a:hover,
-a:active,
-a:focus {
+a:active {
     color: #6db549;
     outline: none !important;
     text-decoration: none !important;
