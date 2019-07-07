@@ -92,41 +92,54 @@ else {
                 $institute_name = $_SESSION['institute_name'];
                 $email = $_SESSION['email'];
                 $username = $_SESSION['username'];
-                $query = "SELECT * FROM `users` WHERE (`email`='$email' AND `status`='-1')";
-                $result0 = mysqli_query ($conn, $query);
-                $query = "SELECT * FROM `users` WHERE (`email`='$email' AND `status`='1')";
-                $result1 = mysqli_query ($conn, $query);
-                $query = "SELECT * FROM `users` WHERE (`username`='$username' AND (`status`='1' OR `status`='-1'))";
-                $result2 = mysqli_query ($conn, $query);
-                $query = "SELECT * FROM `users` WHERE (`institute_name`='$institute_name' AND `status`='1')";
-                $result3 = mysqli_query ($conn, $query);
-                $rows0 = mysqli_num_rows ($result0);
-                $rows1 = mysqli_num_rows ($result1);
-                $rows2 = mysqli_num_rows ($result2);
-                $rows3 = mysqli_num_rows ($result3);
-                // If account is deleted (status = 0), then the user can create another account, with same username or same email
-                // But if the account is disabled (status = -1), then the user can't create account with same email. Another user is also not allowed create account with same username.
-                if ($result0 && $result1 && $result2 && $result3) {
-                    if ($rows0) {
-                        $_SESSION['flag1'] = -1; // Account is disabled
-                    }
-                    else if ($rows1) {
-                        $_SESSION['flag1'] = 1;
-                    }
-                    else if ($rows2) {
-                        $_SESSION['flag1'] = 2;
-                    }
-                    else if ($rows3) {
-                        $_SESSION['flag1'] = 3;
-                    }
-                    else {
-                        $_SESSION['flag'] = 1;
-                        include("signupotp.php");
-                    }
+                $query = "SELECT * FROM `users` WHERE (`email`='$email' AND `status`='-1'); ";
+                $query .= "SELECT * FROM `users` WHERE (`email`='$email' AND `status`='1'); ";
+                $query .= "SELECT * FROM `users` WHERE (`username`='$username' AND (`status`='1' OR `status`='-1')); ";
+                $query .= "SELECT * FROM `users` WHERE (`institute_name`='$institute_name' AND `status`='1'); ";
+                $queryno = 0;
+                if (mysqli_multi_query($conn, $query)) {
+                    do {
+                        if ($result = mysqli_store_result($conn)) {
+                            if ($queryno == 0) {
+                                $rows0 = mysqli_num_rows ($result);
+                                $queryno++;
+                            }
+                            else if ($queryno == 1) {
+                                $rows1 = mysqli_num_rows ($result);
+                                $queryno++;
+                            }
+                            else if ($queryno == 2) {
+                                $rows2 = mysqli_num_rows ($result);
+                                $queryno++;
+                            }
+                            else if ($queryno == 3) {
+                                $rows3 = mysqli_num_rows ($result);
+                                $queryno++;
+                            }
+                        }
+                    } while (mysqli_more_results($conn) && mysqli_next_result($conn));
                 }
                 else if (mysqli_connect_errno()) {
                     echo "Could not connect: ". mysqli_connect_error($conn);
                     session_destroy();
+                }
+                // If account is deleted (status = 0), then the user can create another account, with same username or same email
+                // But if the account is disabled (status = -1), then the user can't create account with same email. Another user is also not allowed create account with same username.
+                if ($rows0) {
+                    $_SESSION['flag1'] = -1; // Account is disabled
+                }
+                else if ($rows1) {
+                    $_SESSION['flag1'] = 1;
+                }
+                else if ($rows2) {
+                    $_SESSION['flag1'] = 2;
+                }
+                else if ($rows3) {
+                    $_SESSION['flag1'] = 3;
+                }
+                else {
+                    $_SESSION['flag'] = 1;
+                    include("signupotp.php");
                 }
             }
             else if (($_SESSION['flag'] == 1) && $_SERVER["REQUEST_METHOD"] == "POST") {
@@ -141,75 +154,43 @@ else {
                     $institute_name = $_SESSION['institute_name'];
                     $phone = $_SESSION['phone'];
                     $flag = $_SESSION['flag'];
-                    $query = "INSERT INTO `users` (`email`, `username`, `password`, `name`, `designation`, `institute_name`, `phone_number`, `status`) VALUES ('$email', '$username', '$password', '$name', '$designation', '$institute_name', '$phone', '1')";
-                    $result = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `events` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `aquatics` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `athletics` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `badminton` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `basketball` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `boxing` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `carrom` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `chess` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `cricket` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `football` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `handball` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `hockey` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `kabaddi` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `kho-kho` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `powerlifting` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `table-tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `squash` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `taekwondo` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `volleyball` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `weightlifting` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-aquatics` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-athletics` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-badminton` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-basketball` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-boxing` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-carrom` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-kabaddi` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-kho-kho` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-table-tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-taekwondo` (`email`, `institute_name`) VALUES ('$email', '$institute_name')";
-                    $result1 = mysqli_query ($conn, $query);
-                    $query = "INSERT INTO `f-volleyball` (`email`, `institute_name`) VALUES ('$email', '$institute_name');";
-                    $result1 = mysqli_query ($conn, $query);
-                    if ($result && $result1) {
+                    $query = "INSERT INTO `users` (`email`, `username`, `password`, `name`, `designation`, `institute_name`, `phone_number`, `status`) VALUES ('$email', '$username', '$password', '$name', '$designation', '$institute_name', '$phone', '1'); ";
+                    $query .= "INSERT INTO `events` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `aquatics` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `athletics` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `badminton` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `basketball` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `boxing` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `carrom` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `chess` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `cricket` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `football` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `handball` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `hockey` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `kabaddi` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `kho-kho` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `powerlifting` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `table-tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `squash` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `taekwondo` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `volleyball` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `weightlifting` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-aquatics` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-athletics` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-badminton` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-basketball` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-boxing` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-carrom` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-kabaddi` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-kho-kho` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-table-tennis` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-taekwondo` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    $query .= "INSERT INTO `f-volleyball` (`email`, `institute_name`) VALUES ('$email', '$institute_name'); ";
+                    if (mysqli_multi_query($conn, $query)) {
+                        mysqli_close ($conn);
+                        include("../db.php");
                         include("signupsuccess.php");
                     }
                     else {

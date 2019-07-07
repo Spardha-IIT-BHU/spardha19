@@ -42,24 +42,28 @@ if (!isset($_SESSION['flag3'])) {
 }
 
 if (isset($_POST['submit1'])) {
-    $query = "UPDATE `events` SET `aquatics`='N', `athletics`='N', `badminton`='N', `basketball`='N', `boxing`='N', `carrom`='N', `chess`='N', `cricket`='N', `football`='N', `handball`='N', `hockey`='N', `kabaddi`='N', `kho-kho`='N', `powerlifting`='N', `squash`='N', `taekwondo`='N', `table-tennis`='N', `tennis`='N', `volleyball`='N', `weightlifting`='N', `f-aquatics`='N', `f-athletics`='N', `f-badminton`='N', `f-basketball`='N', `f-boxing`='N', `f-carrom`='N', `f-kabaddi`='N', `f-kho-kho`='N', `f-taekwondo`='N', `f-table-tennis`='N', `f-tennis`='N', `f-volleyball`='N' WHERE `id` = '$id'";
-    $result = mysqli_query ($conn, $query);
-
+    $query = "UPDATE `events` SET `aquatics`='N', `athletics`='N', `badminton`='N', `basketball`='N', `boxing`='N', `carrom`='N', `chess`='N', `cricket`='N', `football`='N', `handball`='N', `hockey`='N', `kabaddi`='N', `kho-kho`='N', `powerlifting`='N', `squash`='N', `taekwondo`='N', `table-tennis`='N', `tennis`='N', `volleyball`='N', `weightlifting`='N', `f-aquatics`='N', `f-athletics`='N', `f-badminton`='N', `f-basketball`='N', `f-boxing`='N', `f-carrom`='N', `f-kabaddi`='N', `f-kho-kho`='N', `f-taekwondo`='N', `f-table-tennis`='N', `f-tennis`='N', `f-volleyball`='N' WHERE `id` = '$id'; ";
     foreach($events as $ev) {
-        $query = "UPDATE `".$ev."` SET `opted`='N' WHERE `id`='$id'";
-        $result = mysqli_query ($conn, $query);
+        $query .= "UPDATE `".$ev."` SET `opted`='N' WHERE `id`='$id'; ";
     }
+    $result = mysqli_multi_query ($conn, $query);
+    mysqli_close ($conn);
+    include("../register/db.php");
     if (isset($_POST['opt'])) {
         $opt = $_POST['opt'];
         $query = "UPDATE `events` SET ";
+        $query1 = "";
         foreach ($opt as $chk) {
             $query .= "`".$chk."`='Y', ";
-            mysqli_query ($conn, "UPDATE `".$chk."` SET `opted`='Y' WHERE `id`='$id'");
+            $query1 .= "UPDATE `".$chk."` SET `opted`='Y' WHERE `id`='$id'; ";
         }
         $query = substr($query, 0, -2);
-        $query .= " WHERE `id` = '$id'";
-        $result1 = mysqli_query ($conn, $query);
+        $query .= " WHERE `id` = '$id'; ";
+        $query .= $query1;
+        $result1 = mysqli_multi_query ($conn, $query);
         if ($result && $result1) {
+            mysqli_close ($conn);
+            include("../register/db.php");
             $_SESSION['flag1'] = 1;
         }
         else {
@@ -277,11 +281,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             <th class="right-column" style="text-align: center;">Edit Players</th>
                                         </tr>
                                         <?php
+                                        $query = "";
+                                        foreach ($e1 as $event) {
+                                            $query .= "SELECT * FROM `".$event."` WHERE (`id`='$id'); ";
+                                        }
+                                        mysqli_multi_query ($conn, $query);
                                         foreach ($e1 as $event) {
                                             echo '<tr>';
                                             echo '<td>'.clean($event).'</td>';
-                                            $query = "SELECT * FROM `".$event."` WHERE (`id`='$id')";
-                                            $result = mysqli_query ($conn, $query);
+                                            $result = mysqli_store_result($conn);
+                                            if (mysqli_more_results($conn)) mysqli_next_result($conn);
                                             $row = mysqli_fetch_row($result);
                                             $output = '';
                                             $i = 0;
@@ -320,11 +329,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             <th class="right-column" style="text-align: center;">Edit Players</th>
                                         </tr>
                                         <?php
+                                        $query = "";
+                                        foreach ($e2 as $event) {
+                                            $query .= "SELECT * FROM `".$event."` WHERE (`id`='$id'); ";
+                                        }
+                                        mysqli_multi_query ($conn, $query);
                                         foreach ($e2 as $event) {
                                             echo '<tr>';
                                             echo '<td>'.clean($event).'</td>';
-                                            $query = "SELECT * FROM `".$event."` WHERE (`id`='$id')";
-                                            $result = mysqli_query ($conn, $query);
+                                            $result = mysqli_store_result($conn);
+                                            if (mysqli_more_results($conn)) mysqli_next_result($conn);
                                             $row = mysqli_fetch_row($result);
                                             $output = '';
                                             $i = 0;
@@ -363,11 +377,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             <th class="right-column" style="text-align: center;">Edit Players</th>
                                         </tr>
                                         <?php
+                                        $query = "";
+                                        foreach ($e3 as $event) {
+                                            $query .= "SELECT * FROM `".$event."` WHERE (`id`='$id'); ";
+                                        }
+                                        mysqli_multi_query ($conn, $query);
                                         foreach ($e3 as $event) {
                                             echo '<tr>';
                                             echo '<td>'.clean($event).'</td>';
-                                            $query = "SELECT * FROM `".$event."` WHERE (`id`='$id')";
-                                            $result = mysqli_query ($conn, $query);
+                                            $result = mysqli_store_result($conn);
+                                            if (mysqli_more_results($conn)) mysqli_next_result($conn);
                                             $row = mysqli_fetch_row($result);
                                             $output = '';
                                             $i = 0;
@@ -387,6 +406,8 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
+                                        mysqli_close ($conn);
+                                        include("../register/db.php");
                                         if (sizeof($e3) == 0) {
                                             echo '<tr style="text-align: center;">';
                                             echo '<td> - </td>';
