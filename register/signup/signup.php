@@ -191,6 +191,7 @@ else {
                     if (mysqli_multi_query($conn, $query)) {
                         mysqli_close ($conn);
                         include("../db.php");
+                        include("../addinstitute.php");
                         include("signupsuccess.php");
                     }
                     else {
