@@ -345,7 +345,7 @@ else {
                             </div>
                         </div>
                     <?php
-                    if ($_SESSION['flag1'] == -1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Sorry, your account has been disabled. Contact us for any support on <a href="tel:+917238856930">+91&#8209;7238856930</a>.!</div>';
+                    if ($_SESSION['flag1'] == -1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Sorry, your account has been disabled. Contact us for any support on <a href="tel:+917238856930">+91&#8209;7238856930</a>.</div>';
                     if ($_SESSION['flag1'] == 1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Email <b>' . $email . '</b> is already registered. Please login <a href="../../register.php?page=login#content" target="_parent">here</a>.</div>';
                     if ($_SESSION['flag1'] == 2) echo '<div class="alert alert-danger" style="margin-top: 20px;">Username <b>' . $username . '</b> is already taken. Please choose another username.</div>';
                     if ($_SESSION['flag1'] == 3) {

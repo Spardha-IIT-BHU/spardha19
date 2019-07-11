@@ -55,20 +55,28 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
                 if ($is_email) {
                     $query = "SELECT * FROM `users` WHERE (`email`='$username' AND `institute_name`='$institute_name' AND `status`='1')";
                     $result = mysqli_query ($conn, $query);
+                    $query = "SELECT * FROM `users` WHERE (`email`='$username' AND `institute_name`='$institute_name' AND `status`='-1')";
+                    $result0 = mysqli_query ($conn, $query);
                 }
                 else {
                     $query = "SELECT * FROM `users` WHERE (`username`='$username' AND `institute_name`='$institute_name' AND `status`='1')";
                     $result = mysqli_query ($conn, $query);
+                    $query = "SELECT * FROM `users` WHERE (`username`='$username' AND `institute_name`='$institute_name' AND `status`='-1')";
+                    $result0 = mysqli_query ($conn, $query);
                 }
                 $rows = mysqli_num_rows ($result);
                 $row = mysqli_fetch_row($result);
-                if ($result) {
+                $rows0 = mysqli_num_rows ($result0);
+                if ($result && $result0) {
                     if ($rows) {
                         $_SESSION['flag'] = 1;
                         $_SESSION['email'] = $row[1];
                         $_SESSION['username'] = $row[2];
                         $_SESSION['name'] = $row[4];
                         include("forgototp.php");
+                    }
+                    else if ($rows0) {
+                        $_SESSION['flag1'] = -1;
                     }
                     else {
                         $_SESSION['flag1'] = 1;
@@ -178,6 +186,7 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
             <div class="col-sm-12">
                 <div class="form-group">
                     <?php
+                    if ($_SESSION['flag1'] == -1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Sorry, your account has been disabled. Contact us for any support on <a href="tel:+917238856930">+91&#8209;7238856930</a>.</div>';
                     if ($_SESSION['flag1'] == 1) echo '<div class="alert alert-danger" style="margin-top: 20px;">Invalid Credentials! Please check and try again.</div>';
                     ?>
                     <div id="finalerror1" class="alert alert-danger" style="margin-top: 20px; display: none;"></div>
