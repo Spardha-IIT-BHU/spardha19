@@ -71,15 +71,20 @@
 }
 
 
-.winner-box h4 {
+.winner-box h4,
+.contact-box h4,
+.rule-box h4 {
     margin-top: 0px;
     padding-top: 10px;
-
+    font-weight: 700;
 }
 
-.winner-box p {
+.winner-box p,
+.contact-box p,
+.rule-box p {
     margin: 0px;
     padding-bottom: 5px;
+    font-size: 1.1rem;
 }
 
 #info0,

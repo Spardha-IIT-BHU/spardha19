@@ -25,7 +25,7 @@ $_SESSION['designation'] = $row[5];
 $_SESSION['institute_name'] = $row[6];
 $_SESSION['phone_number'] = $row[7];
 
-$events = array('id', 'email', 'institute_name', 'boys', 'girls', 'officials', 'aquatics', 'athletics', 'badminton', 'basketball', 'boxing', 'carrom', 'chess', 'cricket', 'football', 'handball', 'hockey', 'kabaddi', 'kho-kho', 'powerlifting', 'squash', 'taekwondo', 'table-tennis', 'tennis', 'volleyball', 'weightlifting', 'f-aquatics', 'f-athletics', 'f-badminton', 'f-basketball', 'f-boxing', 'f-carrom', 'f-kabaddi', 'f-kho-kho', 'f-taekwondo', 'f-table-tennis', 'f-tennis', 'f-volleyball');
+$events = array('id', 'email', 'institute_name', 'boys', 'girls', 'officials', 'contingent_leader', 'contingent_phone', 'aquatics', 'athletics', 'badminton', 'basketball', 'boxing', 'carrom', 'chess', 'cricket', 'football', 'handball', 'hockey', 'kabaddi', 'kho-kho', 'powerlifting', 'squash', 'taekwondo', 'table-tennis', 'tennis', 'volleyball', 'weightlifting', 'f-aquatics', 'f-athletics', 'f-badminton', 'f-basketball', 'f-boxing', 'f-carrom', 'f-kabaddi', 'f-kho-kho', 'f-taekwondo', 'f-table-tennis', 'f-tennis', 'f-volleyball');
 
 $id = $_SESSION['id'];
 
@@ -76,7 +76,9 @@ if (isset($_POST['submit2'])) {
     $newboys = mysqli_real_escape_string ($conn, $_POST["boys"]);
     $newgirls = mysqli_real_escape_string ($conn, $_POST["girls"]);
     $newofficials = mysqli_real_escape_string ($conn, $_POST["officials"]);
-    $query = "UPDATE `events` SET `boys` = '$newboys', `girls` = '$newgirls', `officials` = '$newofficials' WHERE `id` = '$id'";
+    $newcleader = mysqli_real_escape_string ($conn, $_POST["contingent_leader"]);
+    $newcphone = mysqli_real_escape_string ($conn, $_POST["contingent_phone"]);
+    $query = "UPDATE `events` SET `boys` = '$newboys', `girls` = '$newgirls', `officials` = '$newofficials', `contingent_leader` = '$newcleader', `contingent_phone` = '$newcphone' WHERE `id` = '$id'";
     $result = mysqli_query ($conn, $query);
     if ($result) {
         $_SESSION['flag3'] = 1;
@@ -89,7 +91,7 @@ if (isset($_POST['submit2'])) {
 foreach($events as $ev) {
     if (isset($_POST['submit_'.$ev])) {
         $query = "UPDATE `".$ev."` SET ";
-        $i = 1;
+        $i = -1;
         array_pop($_POST);
         foreach ($_POST as $val) {
             $player = mysqli_real_escape_string ($conn, $val);
@@ -120,9 +122,11 @@ if (!$rows) {
 $boys = $row[3];
 $girls = $row[4];
 $officials = $row[5];
+$contingent_leader = $row[6];
+$contingent_phone = $row[7];
 
 $reg_count = 0;
-for ($i = 6; $i <= 37; $i++) {
+for ($i = 8; $i <= 39; $i++) {
     if ($row[$i] == 'Y') $reg_count++;
 }
 
@@ -130,7 +134,7 @@ function fillbox ($data) {
     $temp = 0;
     global $row;
     global $events;
-    for ($i = 6; $i <= 37; $i++) {
+    for ($i = 8; $i <= 39; $i++) {
         if ($row[$i] == 'Y' && $events[$i] == $data) $temp = 1;
     }
     if ($temp) {
@@ -258,21 +262,47 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                 <?php } ?>
                                 <div class="text-justify">
                                     <h2>
-                                    <?php if ($_GET['mode'] == 'view') { ?>
-                                    <div style="text-align: right;"><a href="registration.php?mode=edit">Edit</a></div>
-                                    <?php
+                                    <?php if ($_GET['mode'] == 'view') {
                                     $e1 = array();
                                     $e2 = array();
                                     $e3 = array();
-                                    for ($i = 6; $i <= 25; $i++) {
-                                        if ($i == 12) continue;
+                                    for ($i = 8; $i <= 27; $i++) {
+                                        if ($i == 14) continue;
                                         if ($row[$i] == 'Y') array_push($e1, $events[$i]);
                                     }
-                                    for ($i = 26; $i <= 37; $i++) {
+                                    for ($i = 28; $i <= 39; $i++) {
                                         if ($row[$i] == 'Y') array_push($e2, $events[$i]);
                                     }
-                                    if ($row[12] == 'Y') array_push($e3, $events[12]);
+                                    if ($row[14] == 'Y') array_push($e3, $events[14]);
                                     ?>
+                                    <br>
+                                    <div style="text-align: right;"><a href="registration.php?mode=editinfo">Edit</a></div>
+                                    <div class="events-heading">CONTINGENT DETAILS</div>
+                                    <table align="center" cellpadding="20" class="events-table">
+                                        <tr>
+                                            <td class="left-column" style="text-align: left;"><b>Total Number of Boys</b> </td>
+                                            <td class="right-column"><?php if ($boys == '') echo '&emsp;-'; else echo "&emsp;".$boys; ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column" style="text-align: left;"><b>Total Number of Girls</b> </td>
+                                            <td class="right-column"><?php if ($girls == '') echo '&emsp;-'; else echo "&emsp;".$girls ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column" style="text-align: left; line-height: 1.5;"><b>Total Number of officials accompanying the contingent</b> </td>
+                                            <td class="right-column"><?php if ($officials == '') echo '&emsp;-'; else echo "&emsp;".$officials ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column" style="text-align: left; line-height: 1.5;"><b>Full Name of Contingent Leader</b> </td>
+                                            <td class="right-column"><?php if ($contingent_leader == '') echo '&emsp;-'; else echo "&emsp;".$contingent_leader ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column" style="text-align: left; line-height: 1.5;"><b>Contact Number of Contingent Leader</b> </td>
+                                            <td class="right-column"><?php if ($contingent_phone == '') echo '&emsp;-'; else echo "&emsp;".$contingent_phone ?></td>
+                                        </tr>
+                                    </table>
+                                    <br>
+                                    <br>
+                                    <div style="text-align: right;"><a href="registration.php?mode=edit">Edit</a></div>
                                     <div class="events-heading">BOYS</div>
                                     <table align="center" cellpadding="20" class="events-table" border="1">
                                         <tr>
@@ -288,7 +318,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                         mysqli_multi_query ($conn, $query);
                                         foreach ($e1 as $event) {
                                             echo '<tr>';
-                                            echo '<td>'.clean($event).'</td>';
+                                            echo '<td><b>'.clean($event).'</b></td>';
                                             $result = mysqli_store_result($conn);
                                             if (mysqli_more_results($conn)) mysqli_next_result($conn);
                                             $row = mysqli_fetch_row($result);
@@ -296,7 +326,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             $i = 0;
                                             $no_player = 1;
                                             foreach ($row as $p) {
-                                                if ($i >= 4)
+                                                if ($i >= 6)
                                                 {
                                                     if ($p != '') {
                                                         $output .= $p . ', '; $no_player = 0;
@@ -305,10 +335,17 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                                 $i++;
                                             }
                                             if ($no_player == 0) $output = substr($output, 0, -2);
-                                            if ($event == 'aquatics' && $row[4]) $output = "Total Number of Boys: ".$row[4];
-                                            if ($event == 'athletics' && $row[4]) $output = "Total Number of Boys: ".$row[4];
+                                            if ($event == 'aquatics' && $row[6]) $output = "<b>Total Number of Boys: </b>".$row[6];
+                                            else if ($event == 'athletics' && $row[6]) $output = "<b>Total Number of Boys: </b>".$row[6];
+                                            else if ($output) $output = "<b>Players Name: </b>" . $output;
                                             
-                                            echo '<td>'. $output .'</td>';
+                                            $outputl = "";
+                                            if ($row[4]) $outputl = "<b>Captain / Leader: </b>" . $row[4];
+                                            if ($row[4] && $row[5]) $outputl .= " (" . $row[5] . ")";
+
+                                            echo '<td>'. $outputl;
+                                            if ($outputl) echo'<br>';
+                                            echo $output .'</td>';
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
@@ -336,7 +373,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                         mysqli_multi_query ($conn, $query);
                                         foreach ($e2 as $event) {
                                             echo '<tr>';
-                                            echo '<td>'.clean($event).'</td>';
+                                            echo '<td><b>'.clean($event).'</b></td>';
                                             $result = mysqli_store_result($conn);
                                             if (mysqli_more_results($conn)) mysqli_next_result($conn);
                                             $row = mysqli_fetch_row($result);
@@ -344,7 +381,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             $i = 0;
                                             $no_player = 1;
                                             foreach ($row as $p) {
-                                                if ($i >= 4)
+                                                if ($i >= 6)
                                                 {
                                                     if ($p != '') {
                                                         $output .= $p . ', '; $no_player = 0;
@@ -353,10 +390,17 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                                 $i++;
                                             }
                                             if ($no_player == 0) $output = substr($output, 0, -2);
-                                            if ($event == 'f-aquatics' && $row[4]) $output = "Total Number of Girls: ".$row[4];
-                                            if ($event == 'f-athletics' && $row[4]) $output = "Total Number of Girls: ".$row[4];
+                                            if ($event == 'f-aquatics' && $row[6]) $output = "<b>Total Number of Girls: </b>".$row[6];
+                                            else if ($event == 'f-athletics' && $row[6]) $output = "<b>Total Number of Girls: </b>".$row[6];
+                                            else if ($output) $output = "<b>Players Name: </b>" . $output;
                                             
-                                            echo '<td>'. $output .'</td>';
+                                            $outputl = "";
+                                            if ($row[4]) $outputl = "<b>Captain / Leader: </b>" . $row[4];
+                                            if ($row[4] && $row[5]) $outputl .= " (" . $row[5] . ")";
+                                            
+                                            echo '<td>'. $outputl;
+                                            if ($outputl) echo'<br>';
+                                            echo $output .'</td>';
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
@@ -384,7 +428,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                         mysqli_multi_query ($conn, $query);
                                         foreach ($e3 as $event) {
                                             echo '<tr>';
-                                            echo '<td>'.clean($event).'</td>';
+                                            echo '<td><b>'.clean($event).'</b></td>';
                                             $result = mysqli_store_result($conn);
                                             if (mysqli_more_results($conn)) mysqli_next_result($conn);
                                             $row = mysqli_fetch_row($result);
@@ -392,7 +436,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             $i = 0;
                                             $no_player = 1;
                                             foreach ($row as $p) {
-                                                if ($i >= 4)
+                                                if ($i >= 6)
                                                 {
                                                     if ($p != '') {
                                                         $output .= $p . ', '; $no_player = 0;
@@ -401,8 +445,15 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                                 $i++;
                                             }
                                             if ($no_player == 0) $output = substr($output, 0, -2);
+                                            if ($output) $output = "<b>Players Name: </b>" . $output;
                                             
-                                            echo '<td>'. $output .'</td>';
+                                            $outputl = "";
+                                            if ($row[4]) $outputl = "<b>Captain / Leader: </b>" . $row[4];
+                                            if ($row[4] && $row[5]) $outputl .= " (" . $row[5] . ")";
+                                            
+                                            echo '<td>'. $outputl;
+                                            if ($outputl) echo'<br>';
+                                            echo $output .'</td>';
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
                                             echo '</tr>';
                                         }
@@ -417,45 +468,34 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                         }
                                         ?>
                                     </table>
-                                    <br>
-                                    <div style="text-align: right;"><a href="registration.php?mode=editinfo">Edit</a></div>
-                                    <table align="center" cellpadding="20" class="profile-table">
-                                        <tr>
-                                            <td class="left-column" style="text-align: left;">Total Number of Boys </td>
-                                            <td class="right-column">: &emsp;<?php if ($boys == '') echo '-'; else echo $boys; ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="left-column" style="text-align: left;">Total Number of Girls </td>
-                                            <td class="right-column">: &emsp;<?php if ($girls == '') echo '-'; else echo $girls ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="left-column" style="text-align: left; line-height: 1.5;">Total Number of officials accompanying the contingent </td>
-                                            <td class="right-column">: &emsp;<?php if ($officials == '') echo '-'; else echo $officials ?></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                    </table>
+                                    <br><br><br>
 
                                     <?php } else if ($_GET['mode'] == 'editinfo') { ?>
                                     <form name="editform2" method="post" action="registration.php?mode=view">
                                         <table align="center" cellpadding="20" class="profile-table">
                                         <tr>
                                             <td class="left-column" style="text-align: left;">Total Number of Boys : </td>
-                                            <td class="right-column"> <input type="text" class="form-control" id="boys" name="boys" placeholder="Enter total no. of Boys" value="<?php echo $boys ?>"></td>
+                                            <td class="right-column" width="30%"> <input type="number" class="form-control" id="boys" name="boys" placeholder="Enter total no. of Boys" value="<?php echo $boys ?>"></td>
                                         </tr>
                                         <tr>
                                             <td class="left-column" style="text-align: left;">Total Number of Girls : </td>
-                                            <td class="right-column"> <input type="text" class="form-control" id="girls" name="girls" placeholder="Enter total no. of Girls" value="<?php echo $girls ?>"></td>
+                                            <td class="right-column"> <input type="number" class="form-control" id="girls" name="girls" placeholder="Enter total no. of Girls" value="<?php echo $girls ?>"></td>
                                         </tr>
                                         <tr>
                                             <td class="left-column" style="text-align: left; line-height: 1.5;">Total Number of officials accompanying the contingent : </td>
-                                            <td class="right-column"> <input type="text" class="form-control" id="officials" name="officials" placeholder="Enter total no. of Officials" value="<?php echo $officials ?>"></td>
+                                            <td class="right-column"> <input type="number" class="form-control" id="officials" name="officials" placeholder="Enter total no. of Officials" value="<?php echo $officials ?>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column" style="text-align: left; line-height: 1.5;">Full Name of Contingent Leader <span style="color: red">*</span> : </td>
+                                            <td class="right-column"> <input type="text" class="form-control" id="contingent_leader" name="contingent_leader" placeholder="Enter the name of Contingent Leader" <?php if ($contingent_leader) echo 'value="' . $contingent_leader . '"'; ?> required></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column" style="text-align: left; line-height: 1.5;">Contact Number of Contingent Leader <span style="color: red">*</span> : </td>
+                                            <td class="right-column"> <input type="text" class="form-control" id="contingent_phone" name="contingent_phone" placeholder="Enter the phone number of Contingent Leader" value="<?php echo $contingent_phone ?>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="left-column"></td>
+                                            <td class="right-column" style="color: red; font-size: 15px;"><div id="error-reg-edit"></div></td>
                                         </tr>
                                         <tr>
                                             <td class="left-column"><a href="registration.php" class="register-now" style="margin-right: 0">Cancel</a></td>
@@ -686,8 +726,21 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
+                                <td style="color: red;"><b>Maximum 2 players are allowed per event.</b></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><b>Captain / Leader Name: </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Enter the name of Captain" value="<?php echo $prow[4] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone Number: </b></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Enter Phone No. of Captain" value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                            <tr>
                                 <td><b>Number of Boys: </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Enter total number of boys" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="number" class="form-control" name="1" placeholder="Enter Total No. of Boys" value="<?php echo $prow[6] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -718,8 +771,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
+                                <td><b>Captain / Leader Name: </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Enter the name of Captain" value="<?php echo $prow[4] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone Number: </b></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Enter Phone No. of Captain" value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                            <tr>
                                 <td><b>Number of Boys: </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Enter total number of boys" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="number" class="form-control" name="1" placeholder="Enter Total No. of Boys" value="<?php echo $prow[6] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -750,17 +811,23 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 3" value="<?php echo $prow[6] ?>"></td>
-                                <td><input type="text" class="form-control" name="4" placeholder="Player 4" value="<?php echo $prow[7] ?>"></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
                             </tr>
                         </table>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><input type="text" class="form-control" name="5" placeholder="Player 5" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="text" class="form-control" name="3" placeholder="Player 3" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" placeholder="Player 4" value="<?php echo $prow[9] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="5" placeholder="Player 5" value="<?php echo $prow[10] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -773,7 +840,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_basketball" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_basketball" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -790,10 +857,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -816,7 +889,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                     <button type="button" class="close" data-dismiss="modal">×</button>
                     <h4 class="modal-title">Players - Boxing [BOYS]</h4>
                 </div>
-                <form method="post" action="">
+                <form method="post" action="" onsubmit="return validate_boxing(this);">
                     <div class="modal-body">
                         <?php
                         $query = "SELECT * FROM `boxing` WHERE (`id`='$id')";
@@ -825,59 +898,71 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><b>Maximum 2 players are allowed in each weight category</b></td>
+                                <td width="24%"><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>MAXIMUM PLAYERS: 10</b></td>
                             </tr>
-                        </table>
-                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>Maximum 2 players are allowed in each weight category</b></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
                             <tr>
                                 <td><b>46kg - 49kg : </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
+                                <td><input type="text" class="form-control" name="1" id="boxing1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" id="boxing2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>49kg - 52kg : </b></td>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
-                                <td><input type="text" class="form-control" name="4" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                                <td><input type="text" class="form-control" name="3" id="boxing3" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" id="boxing4" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>52kg - 56kg : </b></td>
-                                <td><input type="text" class="form-control" name="5" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
-                                <td><input type="text" class="form-control" name="6" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
+                                <td><input type="text" class="form-control" name="5" id="boxing5" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
+                                <td><input type="text" class="form-control" name="6" id="boxing6" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>56kg - 60kg : </b></td>
-                                <td><input type="text" class="form-control" name="7" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
-                                <td><input type="text" class="form-control" name="8" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
+                                <td><input type="text" class="form-control" name="7" id="boxing7" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
+                                <td><input type="text" class="form-control" name="8" id="boxing8" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>60kg - 64kg : </b></td>
-                                <td><input type="text" class="form-control" name="9" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
-                                <td><input type="text" class="form-control" name="10" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
+                                <td><input type="text" class="form-control" name="9" id="boxing9" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
+                                <td><input type="text" class="form-control" name="10" id="boxing10" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>64kg - 69kg : </b></td>
-                                <td><input type="text" class="form-control" name="11" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
-                                <td><input type="text" class="form-control" name="12" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
+                                <td><input type="text" class="form-control" name="11" id="boxing11" placeholder="Player 1" value="<?php echo $prow[16] ?>"></td>
+                                <td><input type="text" class="form-control" name="12" id="boxing12" placeholder="Player 2" value="<?php echo $prow[17] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>69kg - 75kg : </b></td>
-                                <td><input type="text" class="form-control" name="13" placeholder="Player 1" value="<?php echo $prow[16] ?>"></td>
-                                <td><input type="text" class="form-control" name="14" placeholder="Player 2" value="<?php echo $prow[17] ?>"></td>
+                                <td><input type="text" class="form-control" name="13" id="boxing13" placeholder="Player 1" value="<?php echo $prow[18] ?>"></td>
+                                <td><input type="text" class="form-control" name="14" id="boxing14" placeholder="Player 2" value="<?php echo $prow[19] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>75kg - 81kg : </b></td>
-                                <td><input type="text" class="form-control" name="15" placeholder="Player 1" value="<?php echo $prow[18] ?>"></td>
-                                <td><input type="text" class="form-control" name="16" placeholder="Player 2" value="<?php echo $prow[19] ?>"></td>
+                                <td><input type="text" class="form-control" name="15" id="boxing15" placeholder="Player 1" value="<?php echo $prow[20] ?>"></td>
+                                <td><input type="text" class="form-control" name="16" id="boxing16" placeholder="Player 2" value="<?php echo $prow[21] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>81kg - 91kg : </b></td>
-                                <td><input type="text" class="form-control" name="17" placeholder="Player 1" value="<?php echo $prow[20] ?>"></td>
-                                <td><input type="text" class="form-control" name="18" placeholder="Player 2" value="<?php echo $prow[21] ?>"></td>
+                                <td><input type="text" class="form-control" name="17" id="boxing17" placeholder="Player 1" value="<?php echo $prow[22] ?>"></td>
+                                <td><input type="text" class="form-control" name="18" id="boxing18" placeholder="Player 2" value="<?php echo $prow[23] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>91kg and above : </b></td>
-                                <td><input type="text" class="form-control" name="19" placeholder="Player 1" value="<?php echo $prow[22] ?>"></td>
-                                <td><input type="text" class="form-control" name="20" placeholder="Player 2" value="<?php echo $prow[23] ?>"></td>
+                                <td><input type="text" class="form-control" name="19" id="boxing19" placeholder="Player 1" value="<?php echo $prow[24] ?>"></td>
+                                <td><input type="text" class="form-control" name="20" id="boxing20" placeholder="Player 2" value="<?php echo $prow[25] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;" id="boxing_error"><b> </b></td>
                             </tr>
                         </table>
                     </div>
@@ -907,10 +992,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -924,7 +1015,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_chess" class="modal fade" role="dialog">
+    <div id="player_chess" class="modal fade" role="dialog" style="top: 16%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -941,10 +1032,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 3; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -975,10 +1072,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 8; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1009,10 +1112,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 8; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1026,7 +1135,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_handball" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_handball" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1043,10 +1152,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1077,10 +1192,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 8; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1094,7 +1215,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_kabaddi" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_kabaddi" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1111,10 +1232,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1128,7 +1255,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_kho-kho" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_kho-kho" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1145,10 +1272,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1162,7 +1295,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_powerlifting" class="modal fade" role="dialog" style="top: 10%;">
+    <div id="player_powerlifting" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1180,34 +1313,38 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><b>Maximum 2 players are allowed in each weight category</b></td>
+                                <td width="24%"><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>Maximum 2 players are allowed in each weight category</b></td>
                             </tr>
-                        </table>
-                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><b> </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
                             <tr>
                                 <td><b>Below 59kg : </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
+                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>59kg - 66kg : </b></td>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
-                                <td><input type="text" class="form-control" name="4" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                                <td><input type="text" class="form-control" name="3" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>66kg - 74kg : </b></td>
-                                <td><input type="text" class="form-control" name="5" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
-                                <td><input type="text" class="form-control" name="6" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
+                                <td><input type="text" class="form-control" name="5" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
+                                <td><input type="text" class="form-control" name="6" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>74kg - 83kg : </b></td>
-                                <td><input type="text" class="form-control" name="7" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
-                                <td><input type="text" class="form-control" name="8" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
+                                <td><input type="text" class="form-control" name="7" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
+                                <td><input type="text" class="form-control" name="8" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>83kg and above : </b></td>
-                                <td><input type="text" class="form-control" name="9" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
-                                <td><input type="text" class="form-control" name="10" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
+                                <td><input type="text" class="form-control" name="9" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
+                                <td><input type="text" class="form-control" name="10" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -1237,10 +1374,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1271,10 +1414,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1305,10 +1454,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1322,16 +1477,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_taekwondo" class="modal fade" role="dialog">
+    <div id="player_taekwondo" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Taekwondo [BOYS] (Max: 8)</h4>
+                    <h4 class="modal-title">Players - Taekwondo [BOYS]</h4>
                 </div>
-                <form method="post" action="">
+                <form method="post" action="" onsubmit="return validate_taekwondo(this);">
                     <div class="modal-body">
                         <?php
                         $query = "SELECT * FROM `taekwondo` WHERE (`id`='$id')";
@@ -1339,12 +1494,63 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
-                            <?php for ($i = 1; $i <= 4; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>MAXIMUM PLAYERS: 15</b></td>
                             </tr>
-                            <?php } ?>
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>Maximum 2 players are allowed in each weight category</b></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>Below 52kg<br>(Fin) : </b></td>
+                                <td><input type="text" class="form-control" name="1" id="taekwondo1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" id="taekwondo2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>52kg - 57kg<br>(Fly) : </b></td>
+                                <td><input type="text" class="form-control" name="3" id="taekwondo3" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" id="taekwondo4" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>57kg - 62kg<br>(Bantham) : </b></td>
+                                <td><input type="text" class="form-control" name="5" id="taekwondo5" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
+                                <td><input type="text" class="form-control" name="6" id="taekwondo6" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>62kg - 67kg<br>(Feather) : </b></td>
+                                <td><input type="text" class="form-control" name="7" id="taekwondo7" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
+                                <td><input type="text" class="form-control" name="8" id="taekwondo8" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>67kg - 72kg<br>(Light) : </b></td>
+                                <td><input type="text" class="form-control" name="9" id="taekwondo9" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
+                                <td><input type="text" class="form-control" name="10" id="taekwondo10" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>72kg - 78kg<br>(Welter) : </b></td>
+                                <td><input type="text" class="form-control" name="11" id="taekwondo11" placeholder="Player 1" value="<?php echo $prow[16] ?>"></td>
+                                <td><input type="text" class="form-control" name="12" id="taekwondo12" placeholder="Player 2" value="<?php echo $prow[17] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>Above 78kg<br>(Middle) : </b></td>
+                                <td><input type="text" class="form-control" name="13" id="taekwondo13" placeholder="Player 1" value="<?php echo $prow[18] ?>"></td>
+                                <td><input type="text" class="form-control" name="14" id="taekwondo14" placeholder="Player 2" value="<?php echo $prow[19] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>Heavy : </b></td>
+                                <td><input type="text" class="form-control" name="15" id="taekwondo15" placeholder="Player 1" value="<?php echo $prow[20] ?>"></td>
+                                <td><input type="text" class="form-control" name="16" id="taekwondo16" placeholder="Player 2" value="<?php echo $prow[21] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;" id="taekwondo_error"><b> </b></td>
+                            </tr>
                         </table>
                     </div>
                     <div class="modal-footer">
@@ -1356,7 +1562,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_volleyball" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_volleyball" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1373,10 +1579,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1390,7 +1602,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_weightlifting" class="modal fade" role="dialog" style="top: 10%;">
+    <div id="player_weightlifting" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1408,34 +1620,38 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><b>Maximum 2 players are allowed in each weight category</b></td>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>Maximum 2 players are allowed in each weight category</b></td>
                             </tr>
-                        </table>
-                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><b> </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
                             <tr>
                                 <td><b>Below 56kg : </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
+                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>56kg - 62kg : </b></td>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
-                                <td><input type="text" class="form-control" name="4" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                                <td><input type="text" class="form-control" name="3" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>62kg - 69kg : </b></td>
-                                <td><input type="text" class="form-control" name="5" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
-                                <td><input type="text" class="form-control" name="6" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
+                                <td><input type="text" class="form-control" name="5" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
+                                <td><input type="text" class="form-control" name="6" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>69kg - 77kg : </b></td>
-                                <td><input type="text" class="form-control" name="7" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
-                                <td><input type="text" class="form-control" name="8" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
+                                <td><input type="text" class="form-control" name="7" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
+                                <td><input type="text" class="form-control" name="8" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>77kg - 85kg : </b></td>
-                                <td><input type="text" class="form-control" name="9" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
-                                <td><input type="text" class="form-control" name="10" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
+                                <td><input type="text" class="form-control" name="9" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
+                                <td><input type="text" class="form-control" name="10" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -1466,8 +1682,21 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
+                                <td style="color: red;"><b>Maximum 2 players are allowed per event.</b></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><b>Captain / Leader Name: </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Enter the name of Captain" value="<?php echo $prow[4] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone Number: </b></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Enter Phone No. of Captain" value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                            <tr>
                                 <td><b>Number of Girls: </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Enter total number of girls" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="number" class="form-control" name="1" placeholder="Enter Total No. of Girls" value="<?php echo $prow[6] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -1498,8 +1727,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
+                                <td><b>Captain / Leader Name: </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Enter the name of Captain" value="<?php echo $prow[4] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b>Phone Number: </b></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Enter Phone No. of Captain" value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                            <tr>
                                 <td><b>Number of Girls: </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Enter total number of girls" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="number" class="form-control" name="1" placeholder="Enter Total No. of Girls" value="<?php echo $prow[6] ?>"></td>
                             </tr>
                         </table>
                     </div>
@@ -1529,10 +1766,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1546,7 +1789,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-basketball" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_f-basketball" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1563,10 +1806,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1589,7 +1838,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                     <button type="button" class="close" data-dismiss="modal">×</button>
                     <h4 class="modal-title">Players - Boxing [GIRLS]</h4>
                 </div>
-                <form method="post" action="">
+                <form method="post" action="" onsubmit="return validate_fboxing(this);">
                     <div class="modal-body">
                         <?php
                         $query = "SELECT * FROM `f-boxing` WHERE (`id`='$id')";
@@ -1598,59 +1847,71 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><b>Maximum 2 players are allowed in each weight category</b></td>
+                                <td width="24%"><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>MAXIMUM PLAYERS: 10</b></td>
                             </tr>
-                        </table>
-                        <table align="center" cellpadding="20">
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>Maximum 2 players are allowed in each weight category</b></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
                             <tr>
                                 <td><b>46kg - 49kg : </b></td>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
+                                <td><input type="text" class="form-control" name="1" id="fboxing1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" id="fboxing2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>49kg - 52kg : </b></td>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
-                                <td><input type="text" class="form-control" name="4" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                                <td><input type="text" class="form-control" name="3" id="fboxing3" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" id="fboxing4" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>52kg - 56kg : </b></td>
-                                <td><input type="text" class="form-control" name="5" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
-                                <td><input type="text" class="form-control" name="6" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
+                                <td><input type="text" class="form-control" name="5" id="fboxing5" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
+                                <td><input type="text" class="form-control" name="6" id="fboxing6" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>56kg - 60kg : </b></td>
-                                <td><input type="text" class="form-control" name="7" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
-                                <td><input type="text" class="form-control" name="8" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
+                                <td><input type="text" class="form-control" name="7" id="fboxing7" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
+                                <td><input type="text" class="form-control" name="8" id="fboxing8" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>60kg - 64kg : </b></td>
-                                <td><input type="text" class="form-control" name="9" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
-                                <td><input type="text" class="form-control" name="10" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
+                                <td><input type="text" class="form-control" name="9" id="fboxing9" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
+                                <td><input type="text" class="form-control" name="10" id="fboxing10" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>64kg - 69kg : </b></td>
-                                <td><input type="text" class="form-control" name="11" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
-                                <td><input type="text" class="form-control" name="12" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
+                                <td><input type="text" class="form-control" name="11" id="fboxing11" placeholder="Player 1" value="<?php echo $prow[16] ?>"></td>
+                                <td><input type="text" class="form-control" name="12" id="fboxing12" placeholder="Player 2" value="<?php echo $prow[17] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>69kg - 75kg : </b></td>
-                                <td><input type="text" class="form-control" name="13" placeholder="Player 1" value="<?php echo $prow[16] ?>"></td>
-                                <td><input type="text" class="form-control" name="14" placeholder="Player 2" value="<?php echo $prow[17] ?>"></td>
+                                <td><input type="text" class="form-control" name="13" id="fboxing13" placeholder="Player 1" value="<?php echo $prow[18] ?>"></td>
+                                <td><input type="text" class="form-control" name="14" id="fboxing14" placeholder="Player 2" value="<?php echo $prow[19] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>75kg - 81kg : </b></td>
-                                <td><input type="text" class="form-control" name="15" placeholder="Player 1" value="<?php echo $prow[18] ?>"></td>
-                                <td><input type="text" class="form-control" name="16" placeholder="Player 2" value="<?php echo $prow[19] ?>"></td>
+                                <td><input type="text" class="form-control" name="15" id="fboxing15" placeholder="Player 1" value="<?php echo $prow[20] ?>"></td>
+                                <td><input type="text" class="form-control" name="16" id="fboxing16" placeholder="Player 2" value="<?php echo $prow[21] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>81kg - 91kg : </b></td>
-                                <td><input type="text" class="form-control" name="17" placeholder="Player 1" value="<?php echo $prow[20] ?>"></td>
-                                <td><input type="text" class="form-control" name="18" placeholder="Player 2" value="<?php echo $prow[21] ?>"></td>
+                                <td><input type="text" class="form-control" name="17" id="fboxing17" placeholder="Player 1" value="<?php echo $prow[22] ?>"></td>
+                                <td><input type="text" class="form-control" name="18" id="fboxing18" placeholder="Player 2" value="<?php echo $prow[23] ?>"></td>
                             </tr>
                             <tr>
                                 <td><b>91kg and above : </b></td>
-                                <td><input type="text" class="form-control" name="19" placeholder="Player 1" value="<?php echo $prow[22] ?>"></td>
-                                <td><input type="text" class="form-control" name="20" placeholder="Player 2" value="<?php echo $prow[23] ?>"></td>
+                                <td><input type="text" class="form-control" name="19" id="fboxing19" placeholder="Player 1" value="<?php echo $prow[24] ?>"></td>
+                                <td><input type="text" class="form-control" name="20" id="fboxing20" placeholder="Player 2" value="<?php echo $prow[25] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;" id="fboxing_error"><b> </b></td>
                             </tr>
                         </table>
                     </div>
@@ -1680,10 +1941,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1697,7 +1964,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-kabaddi" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_f-kabaddi" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1714,10 +1981,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1731,7 +2004,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-kho-kho" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_f-kho-kho" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1748,10 +2021,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1782,10 +2061,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1817,14 +2102,17 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         ?>
                         <table align="center" cellpadding="20">
                             <tr>
-                                <td><input type="text" class="form-control" name="1" placeholder="Player 1" value="<?php echo $prow[4] ?>"></td>
-                                <td><input type="text" class="form-control" name="2" placeholder="Player 2" value="<?php echo $prow[5] ?>"></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
                             </tr>
                         </table>
                         <table align="center" cellpadding="20">
+                            <?php for ($i = 1; $i <= 2; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="3" placeholder="Player 3" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
+                            <?php } ?>
                         </table>
                     </div>
                     <div class="modal-footer">
@@ -1836,16 +2124,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-taekwondo" class="modal fade" role="dialog">
+    <div id="player_f-taekwondo" class="modal fade" role="dialog" style="top: 0;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Players - Taekwondo [GIRLS] (Max: 8)</h4>
+                    <h4 class="modal-title">Players - Taekwondo [GIRLS]</h4>
                 </div>
-                <form method="post" action="">
+                <form method="post" action="" onsubmit="return validate_ftaekwondo(this);">
                     <div class="modal-body">
                         <?php
                         $query = "SELECT * FROM `f-taekwondo` WHERE (`id`='$id')";
@@ -1853,12 +2141,63 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
-                            <?php for ($i = 1; $i <= 4; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>MAXIMUM PLAYERS: 7</b></td>
                             </tr>
-                            <?php } ?>
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;"><b>Maximum 2 players are allowed in each weight category</b></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>Below 47kg<br>(Fin) : </b></td>
+                                <td><input type="text" class="form-control" name="1" id="ftaekwondo1" placeholder="Player 1" value="<?php echo $prow[6] ?>"></td>
+                                <td><input type="text" class="form-control" name="2" id="ftaekwondo2" placeholder="Player 2" value="<?php echo $prow[7] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>47kg - 51kg<br>(Fly) : </b></td>
+                                <td><input type="text" class="form-control" name="3" id="ftaekwondo3" placeholder="Player 1" value="<?php echo $prow[8] ?>"></td>
+                                <td><input type="text" class="form-control" name="4" id="ftaekwondo4" placeholder="Player 2" value="<?php echo $prow[9] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>51kg - 55kg<br>(Bantham) : </b></td>
+                                <td><input type="text" class="form-control" name="5" id="ftaekwondo5" placeholder="Player 1" value="<?php echo $prow[10] ?>"></td>
+                                <td><input type="text" class="form-control" name="6" id="ftaekwondo6" placeholder="Player 2" value="<?php echo $prow[11] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>55kg - 59kg<br>(Feather) : </b></td>
+                                <td><input type="text" class="form-control" name="7" id="ftaekwondo7" placeholder="Player 1" value="<?php echo $prow[12] ?>"></td>
+                                <td><input type="text" class="form-control" name="8" id="ftaekwondo8" placeholder="Player 2" value="<?php echo $prow[13] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>59kg - 63kg<br>(Light) : </b></td>
+                                <td><input type="text" class="form-control" name="9" id="ftaekwondo9" placeholder="Player 1" value="<?php echo $prow[14] ?>"></td>
+                                <td><input type="text" class="form-control" name="10" id="ftaekwondo10" placeholder="Player 2" value="<?php echo $prow[15] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>63kg - 67kg<br>(Welter) : </b></td>
+                                <td><input type="text" class="form-control" name="11" id="ftaekwondo11" placeholder="Player 1" value="<?php echo $prow[16] ?>"></td>
+                                <td><input type="text" class="form-control" name="12" id="ftaekwondo12" placeholder="Player 2" value="<?php echo $prow[17] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>Above 67kg<br>(Middle) : </b></td>
+                                <td><input type="text" class="form-control" name="13" id="ftaekwondo13" placeholder="Player 1" value="<?php echo $prow[18] ?>"></td>
+                                <td><input type="text" class="form-control" name="14" id="ftaekwondo14" placeholder="Player 2" value="<?php echo $prow[19] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td align="center"><b>Heavy : </b></td>
+                                <td><input type="text" class="form-control" name="15" id="ftaekwondo15" placeholder="Player 1" value="<?php echo $prow[20] ?>"></td>
+                                <td><input type="text" class="form-control" name="16" id="ftaekwondo16" placeholder="Player 2" value="<?php echo $prow[21] ?>"></td>
+                            </tr>
+                            <tr>
+                                <td><b> </b></td>
+                                <td colspan="2" style="color: red; text-align: center;" id="ftaekwondo_error"><b> </b></td>
+                            </tr>
                         </table>
                     </div>
                     <div class="modal-footer">
@@ -1870,7 +2209,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         </div>
     </div>
 
-    <div id="player_f-volleyball" class="modal fade" role="dialog" style="top: 8%;">
+    <div id="player_f-volleyball" class="modal fade" role="dialog" style="top: 6%;">
         <div class="modal-dialog modal-">
 
             <!-- Modal content-->
@@ -1887,10 +2226,16 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                         $prow = mysqli_fetch_row($result);
                         ?>
                         <table align="center" cellpadding="20">
+                            <tr>
+                                <td><input type="text" class="form-control" name="-1" placeholder="Captain / Leader Name" value="<?php echo $prow[4] ?>"></td>
+                                <td><input type="text" class="form-control" name="0" placeholder="Captain / Leader Phone No." value="<?php echo $prow[5] ?>"></td>
+                            </tr>
+                        </table>
+                        <table align="center" cellpadding="20">
                             <?php for ($i = 1; $i <= 6; $i++) { ?>
                             <tr>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+2] ?>"></td>
-                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+3] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2-1 ?>" placeholder="<?php echo "Player ".($i*2-1) ?>" value="<?php echo $prow[$i*2+4] ?>"></td>
+                                <td><input type="text" class="form-control" name="<?php echo $i*2 ?>" placeholder="<?php echo "Player ".$i*2 ?>" value="<?php echo $prow[$i*2+5] ?>"></td>
                             </tr>
                             <?php } ?>
                         </table>
@@ -1935,6 +2280,23 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
     <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 
 <script type="text/javascript">
+    function checkPhone(n) {
+        var num;
+        if (n[0] == '+') {
+            if (n.length != 13) return 0;
+            if (n.substring(1, 3) != "91") return 0;
+            num = n.substring(3);
+        } else if (n[0] == 0) {
+            if (n.length != 11) return 0;
+            num = n.substring(1);
+        } else {
+            num = n;
+        }
+        if (!$.isNumeric(num) || parseInt(num[0]) < 6 || num.length != 10) {
+            return 0;
+        }
+        return 1;
+    }
     $(document).ready(function(){
         $('[data-toggle="offcanvas"]').click(function(){
         $("#navigation").toggleClass("hidden-xs");
@@ -1961,9 +2323,77 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
         document.editform1.submit();
     }
     function submitform2() {
-        document.editform2.submit();
+        var cont_phone = document.getElementById('contingent_phone').value;
+        if (document.getElementById('contingent_leader').value == '')
+            document.getElementById("error-reg-edit").innerHTML = "Please enter the name of contingent leader.";
+        else if (cont_phone == '')
+            document.getElementById("error-reg-edit").innerHTML = "Please enter the phone number of contingent leader.";
+        else if (!checkPhone(cont_phone))
+            document.getElementById("error-reg-edit").innerHTML = "Please enter a valid phone number.";
+        else {
+            document.getElementById("error-reg-edit").innerHTML = "";
+            if (cont_phone.length == 13)
+                document.getElementById('contingent_phone').value = cont_phone.substring(3);
+            else if (cont_phone.length == 11)
+                document.getElementById('contingent_phone').value = cont_phone.substring(1);
+            document.editform2.submit();
+        }
+    }
+    function validate_boxing(form) {
+        var cnt = 0;
+        for (var i = 1; i <= 20; i++) {
+            var player = $('#boxing'+i).val();
+            if (player != "") cnt++;
+        }
+        if (cnt > 10) {
+            document.getElementById("boxing_error").innerHTML = "<b>Only 10 Players are allowed. Please remove " + (cnt - 10) + " Player" + ((cnt == 11) ? "" : "s") + ".</b>";
+            return false;
+        }
+        document.getElementById("boxing_error").innerHTML = "";
+        return true;
     }
 
+    function validate_fboxing(form) {
+        var cnt = 0;
+        for (var i = 1; i <= 20; i++) {
+            var player = $('#fboxing'+i).val();
+            if (player != "") cnt++;
+        }
+        if (cnt > 10) {
+            document.getElementById("fboxing_error").innerHTML = "<b>Only 10 Players are allowed. Please remove " + (cnt - 10) + " Player" + ((cnt == 11) ? "" : "s") + ".</b>";
+            return false;
+        }
+        document.getElementById("fboxing_error").innerHTML = "";
+        return true;
+    }
+
+    function validate_taekwondo(form) {
+        var cnt = 0;
+        for (var i = 1; i <= 16; i++) {
+            var player = $('#taekwondo'+i).val();
+            if (player != "") cnt++;
+        }
+        if (cnt > 15) {
+            document.getElementById("taekwondo_error").innerHTML = "<b>Only 15 Players are allowed. Please remove " + (cnt - 15) + " Player" + ((cnt == 16) ? "" : "s") + ".</b>";
+            return false;
+        }
+        document.getElementById("taekwondo_error").innerHTML = "";
+        return true;
+    }
+
+    function validate_ftaekwondo(form) {
+        var cnt = 0;
+        for (var i = 1; i <= 16; i++) {
+            var player = $('#ftaekwondo'+i).val();
+            if (player != "") cnt++;
+        }
+        if (cnt > 7) {
+            document.getElementById("ftaekwondo_error").innerHTML = "<b>Only 7 Players are allowed. Please remove " + (cnt - 7) + " Player" + ((cnt == 8) ? "" : "s") + ".</b>";
+            return false;
+        }
+        document.getElementById("ftaekwondo_error").innerHTML = "";
+        return true;
+    }
 
 </script>
 <?php

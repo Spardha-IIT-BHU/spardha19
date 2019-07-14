@@ -309,7 +309,7 @@ else {
                                         style="color: red">*</span></label>
                                 <div class="inputWithIcon">
                                     <input type="text" class="form-control" id="institute" name="institute" onfocus='onInput("institute")' oninput='onInput("institute")' onblur='onLeave("institute")'
-                                    value="<?php echo (isset($_SESSION['institute_name']) ? $_SESSION['institute_name'] : ''); ?>" list="instituteList" placeholder="Select your Institute & City" required><i
+                                    value="<?php echo (isset($_SESSION['institute_name']) ? $_SESSION['institute_name'] : ''); ?>" list="instituteList" placeholder="Select / Enter your Institute & City" required><i
                                         class="fa fa-building fa-lg form-control-feedback"></i>
                                     <span id="institute-icon"></span>
                                 </div>

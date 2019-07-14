@@ -103,8 +103,8 @@ if ($_SESSION['valid_login'] == 1) {
             <div class="container">
                 <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
-                    <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
-                        <div class="container col-lg-4 col-md-5">
+                    <div class="col-md-12 col-sm-12 col-12 ftco-animate text-center">
+                        <div class="container col-lg-4 col-md-5 col-sm-9 col-9">
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mt-4 mb-1 text-overflow-center spardha-19">
@@ -125,7 +125,7 @@ if ($_SESSION['valid_login'] == 1) {
                                 </div>
                                 <div class="col-6 reg">
                                     <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                        REGISTER
+                                        REGISTER&nbsp;/&nbsp;LOGIN
                                       </a>
                                 </div>
                             </div>
@@ -136,7 +136,7 @@ if ($_SESSION['valid_login'] == 1) {
                         <div class="small-screen container">
                             <div class="reg">
                               <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                REGISTER
+                                REGISTER&nbsp;/&nbsp;LOGIN
                               </a>
                             </div>
                             <div class="ca">
@@ -157,8 +157,8 @@ if ($_SESSION['valid_login'] == 1) {
             <div class="container">
                 <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
-                    <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
-                        <div class="container col-lg-4 col-md-5">
+                    <div class="col-md-12 col-sm-12 col-12 ftco-animate text-center">
+                        <div class="container col-lg-4 col-md-5 col-sm-9 col-9">
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mt-4 mb-1 text-overflow-center spardha-19">
@@ -179,7 +179,7 @@ if ($_SESSION['valid_login'] == 1) {
                                 </div>
                                 <div class="col-6 reg">
                                     <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                        REGISTER
+                                        REGISTER&nbsp;/&nbsp;LOGIN
                                       </a>
                                 </div>
                             </div>
@@ -190,7 +190,7 @@ if ($_SESSION['valid_login'] == 1) {
                         <div class="small-screen container">
                             <div class="reg">
                               <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                REGISTER
+                                REGISTER&nbsp;/&nbsp;LOGIN
                               </a>
                             </div>
                             <div class="ca">
@@ -211,8 +211,8 @@ if ($_SESSION['valid_login'] == 1) {
             <div class="container">
                 <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
-                    <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
-                        <div class="container col-lg-4 col-md-5">
+                    <div class="col-md-12 col-sm-12 col-12 ftco-animate text-center">
+                        <div class="container col-lg-4 col-md-5 col-sm-9 col-9">
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mt-4 mb-1 text-overflow-center spardha-19">
@@ -233,7 +233,7 @@ if ($_SESSION['valid_login'] == 1) {
                                 </div>
                                 <div class="col-6 reg">
                                     <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                        REGISTER
+                                        REGISTER&nbsp;/&nbsp;LOGIN
                                       </a>
                                 </div>
                             </div>
@@ -244,7 +244,7 @@ if ($_SESSION['valid_login'] == 1) {
                         <div class="small-screen container">
                             <div class="reg">
                               <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                REGISTER
+                                REGISTER&nbsp;/&nbsp;LOGIN
                               </a>
                             </div>
                             <div class="ca">
@@ -265,8 +265,8 @@ if ($_SESSION['valid_login'] == 1) {
             <div class="container">
                 <div class="row slider-text js-fullheight justify-content-center align-items-center spardha-mainlogo"
                     data-scrollax-parent="true">
-                    <div class="col-md-12 col-sm-8 col-9 ftco-animate text-center">
-                        <div class="container col-lg-4 col-md-5">
+                    <div class="col-md-12 col-sm-12 col-12 ftco-animate text-center">
+                        <div class="container col-lg-4 col-md-5 col-sm-9 col-9">
                             <img src="images/logos/spardha-white.png">
                         </div>
                         <h1 class="mt-4 mb-1 text-overflow-center spardha-19">
@@ -287,7 +287,7 @@ if ($_SESSION['valid_login'] == 1) {
                                 </div>
                                 <div class="col-6 reg">
                                     <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                        REGISTER
+                                        REGISTER&nbsp;/&nbsp;LOGIN
                                       </a>
                                 </div>
                             </div>
@@ -298,7 +298,7 @@ if ($_SESSION['valid_login'] == 1) {
                         <div class="small-screen container">
                             <div class="reg">
                               <a class="button" href="<?php echo 'register.php?page='.$_GET['page'].'#content' ?>">
-                                REGISTER
+                                REGISTER&nbsp;/&nbsp;LOGIN
                               </a>
                             </div>
                             <div class="ca">
@@ -352,7 +352,6 @@ if ($_SESSION['valid_login'] == 1) {
                                         <span class="icon icon-phone"></span>
                                         <span class="text" style="word-spacing:0.2em">
                                             Registrations&nbsp;&amp;&nbsp;Enquiry: <br>
-                                            &emsp;&emsp;<a href="tel:+916395393524">+91&#8209;6395393524</a> <br>
                                             &emsp;&emsp;<a href="tel:+917238856930">+91&#8209;7238856930</a> <br>
                                             &emsp;&emsp;<a href="tel:+919127161781">+91&#8209;9127161781</a> <br>
                                             &emsp;&emsp;<a href="tel:+919537701631">+91&#8209;9537701631</a> <br>

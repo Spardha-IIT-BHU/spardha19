@@ -14424,7 +14424,7 @@ g {
   }
   
   .button:hover {
-    padding-top: 6px;
+    padding-top: 7px;
     color: white;
     background: transparent;
     border: 0.2rem solid white;
@@ -14464,7 +14464,7 @@ a.button:hover {
 }
   
   .button1:hover {
-    padding-top: 6px;
+    padding-top: 7px;
     color: white;
     background: transparent;
     border: 0.2rem solid white;
@@ -14472,7 +14472,7 @@ a.button:hover {
 
 
   .spardha-19 {
-    font-size: 22px !important;
+    font-size: 26px !important;
     font-family: 'League Spartan'!important;
     font-weight: 500;
     text-shadow: 2px 2px #000;
@@ -14480,7 +14480,7 @@ a.button:hover {
   
 
   .spardha-subheading {
-    font-size: 12px !important;
+    font-size: 15px !important;
     font-weight: 700;
     font-family: 'League Spartan'!important;
     text-shadow: 2px 2px #000;
@@ -14512,10 +14512,13 @@ a.button:hover {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .button, .button1 {
-        padding-top: 4px;
-        height: 40px;
+        padding-top: 9px;
+        height: 45px;
         font-size: 18px;
-        width: 230px;
+        width: 240px;
+    }
+    .button:hover, .button1:hover {
+        padding-top: 6px;
     }
     .button1 {
         margin-top: 10px;
@@ -14526,6 +14529,9 @@ a.button:hover {
     }
     .img1, .img2 {
         margin-left: 15px;
+    }
+    .spardha-19, .spardha-subheading {
+        letter-spacing: 3px !important;
     }
 } 
 

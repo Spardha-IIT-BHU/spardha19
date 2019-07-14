@@ -45,7 +45,7 @@ if (!$rows) {
     header("Location: ../register.php?page=login#content");
 }
 $reg_count = 0;
-for ($i = 6; $i <= 37; $i++) {
+for ($i = 8; $i <= 39; $i++) {
     if ($row[$i] == 'Y') $reg_count++;
 } 
 $_SESSION['reg_count'] = $reg_count;
