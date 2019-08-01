@@ -7,6 +7,8 @@ if (!isset($_SESSION['valid_login'])) {
     $_SESSION['valid_login'] = 0;
 }
 if ($_SESSION['valid_login'] == 1) {
+    $mode = 'dashboard_login';
+    include("register/sql/users_save_log.php");
     header("Location: dashboard");
 }
 ?>
@@ -87,6 +89,7 @@ if ($_SESSION['valid_login'] == 1) {
                     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="index.html#aboutus" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="events.html#events" class="nav-link">Events</a></li>
+                    <li class="nav-item"><a href="pdf/RuleBook.pdf" target="_blank" class="nav-link">Rulebook</a></li>
                     <li class="nav-item"><a href="guests.html#guests" class="nav-link">Guests</a></li>
                     <li class="nav-item"><a href="sponsors.html#sponsors" class="nav-link">Sponsors</a></li>
                     <li class="nav-item"><a href="gallery.html#gallery" class="nav-link">Gallery</a></li>
@@ -353,9 +356,9 @@ if ($_SESSION['valid_login'] == 1) {
                                         <span class="text" style="word-spacing:0.2em">
                                             Registrations&nbsp;&amp;&nbsp;Enquiry: <br>
                                             &emsp;&emsp;<a href="tel:+917238856930">+91&#8209;7238856930</a> <br>
-                                            &emsp;&emsp;<a href="tel:+919127161781">+91&#8209;9127161781</a> <br>
                                             &emsp;&emsp;<a href="tel:+919537701631">+91&#8209;9537701631</a> <br>
                                             &emsp;&emsp;<a href="tel:+917978069192">+91&#8209;7978069192</a> <br>
+                                            &emsp;&emsp;<a href="tel:+916395393524">+91&#8209;6395393524</a> <br>
                                             <div class="mt-2">Branding&nbsp;&amp;&nbsp;Communications: </div>
                                             &emsp;&emsp;<a href="tel:+919782524351">+91&#8209;9782524351</a> <br>
                                             <div class="mt-2">Events: </div>

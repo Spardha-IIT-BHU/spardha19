@@ -1,5 +1,7 @@
 <?php
 session_start();
+$mode = 'profile_logout';
+include("../register/sql/users_save_log.php");
 if (!isset($_SESSION['valid_login'])) {
     $_SESSION['valid_login'] = 0;
 }

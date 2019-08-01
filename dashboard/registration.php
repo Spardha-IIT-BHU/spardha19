@@ -258,7 +258,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
 
                             <div class="welcome-text">
                                 <?php if ($_GET['mode'] == 'view') { ?>
-                                <div style="text-align: center; font-size: 15px; color: red;"><b><u>NOTE:</u></b> Enter the <b>number</b> of players in 'Aquatics' and'Athletics', whereas the <b>name</b> of players in other events.</div>
+                                <div style="text-align: center; font-size: 15px; color: red;"><b><u>NOTE:</u></b> Enter the <b>number</b> of players in 'Aquatics' and 'Athletics', whereas the <b>name</b> of players in other events.</div>
                                 <?php } ?>
                                 <div class="text-justify">
                                     <h2>
@@ -343,7 +343,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             if ($row[4]) $outputl = "<b>Captain / Leader: </b>" . $row[4];
                                             if ($row[4] && $row[5]) $outputl .= " (" . $row[5] . ")";
 
-                                            echo '<td>'. $outputl;
+                                            echo '<td style="text-align: left">'. $outputl;
                                             if ($outputl) echo'<br>';
                                             echo $output .'</td>';
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
@@ -398,7 +398,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             if ($row[4]) $outputl = "<b>Captain / Leader: </b>" . $row[4];
                                             if ($row[4] && $row[5]) $outputl .= " (" . $row[5] . ")";
                                             
-                                            echo '<td>'. $outputl;
+                                            echo '<td style="text-align: left">'. $outputl;
                                             if ($outputl) echo'<br>';
                                             echo $output .'</td>';
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';
@@ -451,7 +451,7 @@ if (empty($_GET) || ($_GET['mode']!='edit' && $_GET['mode']!='view' && $_GET['mo
                                             if ($row[4]) $outputl = "<b>Captain / Leader: </b>" . $row[4];
                                             if ($row[4] && $row[5]) $outputl .= " (" . $row[5] . ")";
                                             
-                                            echo '<td>'. $outputl;
+                                            echo '<td style="text-align: left">'. $outputl;
                                             if ($outputl) echo'<br>';
                                             echo $output .'</td>';
                                             echo '<td><a href="#" class="register-now" data-toggle="modal" data-target="#player_' . $event . '" style="margin-right: 0">Add&nbsp;/&nbsp;Edit</a></td></td>';

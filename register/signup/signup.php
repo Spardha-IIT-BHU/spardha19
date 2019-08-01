@@ -136,6 +136,7 @@ else {
                 }
                 else if ($rows3) {
                     $_SESSION['flag1'] = 3;
+		    include("signupotp.php");
                 }
                 else {
                     $_SESSION['flag'] = 1;

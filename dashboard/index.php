@@ -132,7 +132,7 @@ $_SESSION['reg_count'] = $reg_count;
                                 <div class="text-justify">
                                     <h2>
                                     Note: Since we allow only college registration, so you're supposed to register for <?php echo $_SESSION['institute_name'] ?>.
-                                    In case you want someone else to register for your college, you need to first delete your account in <a href="profile.php">User Profile</a> section,
+                                    In case you want someone else to register for your college, you need to first delete your account in <u><a href="profile.php">User Profile</a></u> section,
                                     before another user can create an account with same college name.
                                     </h2>
                                 </div>
@@ -144,7 +144,18 @@ $_SESSION['reg_count'] = $reg_count;
                             <div class="welcome-text">
                                 <div class="text-justify">
                                     <h2>
-                                        You've registered for <?php echo $_SESSION['reg_count']; ?> events. Click <a href="registration.php">here</a> to modify or add events.
+                                        You've registered for <?php echo $_SESSION['reg_count']; ?> events. Click <u><a href="registration.php">here</a></u> to modify or add events.
+                                    </h2>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-12 gutter">
+
+                            <div class="welcome-text">
+                                <div class="text-justify">
+                                    <h2>
+                                        Please read the <u><a href="../pdf/RuleBook.pdf" target="_blank">Rule Book</a></u> before registering for events.
                                     </h2>
                                 </div>
                                 

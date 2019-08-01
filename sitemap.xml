@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://spardha.co.in/</loc>
+  <lastmod>2019-07-26T12:23:33+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/index.html</loc>
+  <lastmod>2019-07-26T12:23:33+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/events.html</loc>
+  <lastmod>2019-07-26T12:23:26+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/pdf/RuleBook.pdf</loc>
+  <lastmod>2019-07-26T12:22:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/guests.html</loc>
+  <lastmod>2019-07-26T12:23:32+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/sponsors.html</loc>
+  <lastmod>2019-07-26T12:23:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/gallery.html</loc>
+  <lastmod>2019-07-26T12:23:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/team.html</loc>
+  <lastmod>2019-07-26T12:23:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/ca.html</loc>
+  <lastmod>2019-07-26T12:23:23+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/register.php?page=signup</loc>
+  <lastmod>2019-07-29T07:09:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/register/signup/signup.php</loc>
+  <lastmod>2019-07-29T07:09:37+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/register.php?page=login</loc>
+  <lastmod>2019-07-29T07:09:37+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/register/login/login.php</loc>
+  <lastmod>2019-07-29T07:09:37+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/register.php?page=forgot</loc>
+  <lastmod>2019-07-29T07:09:37+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://spardha.co.in/register/forgot/forgot.php</loc>
+  <lastmod>2019-07-29T07:09:37+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+
+
+</urlset>

@@ -76,6 +76,8 @@ if (isset($_POST['submit1'])) {
                 echo "Could not change username: " . mysqli_error($conn);
             }
         }
+        $mode = 'profile_username';
+        include("../register/sql/users_save_log.php");
     }
     else if (mysqli_connect_errno()) {
         echo "Could not connect: ". mysqli_connect_error($conn);
@@ -85,6 +87,8 @@ if (isset($_POST['submit1'])) {
 
 else if (isset($_POST['submit2'])) {
     $oldpassword = mysqli_real_escape_string ($conn, $_POST["oldpassword"]);
+    $_SESSION['password1'] = mysqli_real_escape_string ($conn, $_POST["newpassword1"]);
+    $_SESSION['password2'] = mysqli_real_escape_string ($conn, $_POST["newpassword2"]);
     if ($oldpassword != $_SESSION['password']) {
         $_SESSION['flag2'] = -1;
     }
@@ -103,6 +107,8 @@ else if (isset($_POST['submit2'])) {
             session_destroy();
         }
     }
+    $mode = 'profile_password';
+    include("../register/sql/users_save_log.php");
 }
 
 else if (isset($_POST['submit3'])) {
@@ -126,6 +132,8 @@ else if (isset($_POST['submit3'])) {
     else {
         echo "Could not process: " . mysqli_error($conn);
     }
+    $mode = 'profile_data';
+    include("../register/sql/users_save_log.php");
 }
 
 else if (isset($_POST['submit_delete'])) {
@@ -134,6 +142,8 @@ else if (isset($_POST['submit_delete'])) {
         $_SESSION['flag2'] = -1;
     }
     else {
+        $mode = 'profile_delete';
+        include("../register/sql/users_save_log.php");
         include("deleteprofile.php");
     }
 }
