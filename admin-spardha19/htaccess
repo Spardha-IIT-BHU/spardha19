@@ -1,0 +1,8 @@
+AuthType Basic
+AuthName "Restricted access"
+AuthUserFile "/app/admin-spardha20/.htpasswd"
+Require valid-user
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
