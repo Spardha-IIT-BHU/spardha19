@@ -1,9 +1,9 @@
-# Spardha 2019 [![Netlify Status](https://api.netlify.com/api/v1/badges/9f5561f2-c4ac-450d-be79-b291c6f11f9e/deploy-status)](https://app.netlify.com/sites/spardha19/deploys)
+# Spardha 2019 <img src="https://heroku-badge.herokuapp.com/?app=spardha20" />
 > Spardha is the annual Games and Sports Festival of IIT (BHU) Varanasi.
 
 ### Introduction
-This repository hosts the Source Code for the Spardha'19 website: https://spardha.co.in/ <br>
-Link for Deploy Previews or for testing purposes: https://spardha19.netlify.com/
+This repository hosts the Source Code for the Spardha'19 website: https://2019.spardha.co.in/ <br>
+Link for Deploy Previews or for testing purposes: https://spardha19.herokuapp.com/
 
 ### Technical Stack
 * PHP
