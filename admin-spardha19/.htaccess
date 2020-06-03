@@ -1,6 +1,6 @@
 AuthType Basic
 AuthName "Restricted access"
-AuthUserFile "/app/admin-spardha20/.htpasswd"
+AuthUserFile "/app/admin-spardha19/.htpasswd"
 Require valid-user
 
 RewriteEngine On
