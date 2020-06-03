@@ -1,4 +1,4 @@
-# Spardha 2019 <img src="https://heroku-badge.herokuapp.com/?app=spardha19" />
+# Spardha 2019
 > Spardha is the annual Games and Sports Festival of IIT (BHU) Varanasi.
 
 ### Introduction
